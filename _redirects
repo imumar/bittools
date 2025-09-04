@@ -1,8 +1,0 @@
-# Map dev.bittools.cc/json-formatter → /dev/json-formatter
-https://dev.bittools.cc/json-formatter/*   /devtools/json-formatter/:splat   200
-
-# (Optional) map dev.bittools.cc/jwt-decoder → /dev/jwt-decoder
-https://dev.bittools.cc/jwt-decoder/*      /devtools/jwt-decoder/:splat      200
-
-# (Optional) default dev landing page
-https://dev.bittools.cc/*                  /index.html              200
