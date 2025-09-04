@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON Formatter Online – Free, Fast & Private | QuickTools</title>
+    <meta name="description"
+        content="Format, minify, and validate JSON in your browser. No data leaves your device. Copy, download, upload files, and fix errors fast." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://example.com/json-formatter" />
+    <!-- Open Graph / Twitter (kept simple) -->
+    <meta property="og:title" content="JSON Formatter Online – Free, Fast & Private" />
+    <meta property="og:description" content="Format, minify, validate JSON. 100% client-side." />
+    <meta name="twitter:card" content="summary" />
+
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --panel: #12141a;
+            --text: #e8edf2;
+            --muted: #9aa7b4;
+            --accent: #6bdcff;
+            --danger: #ff6b6b;
+            --ok: #7dffa0;
+            --border: #1e232d;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+        }
+
+        /* Light theme variables — applied to the body via data-theme="light" */
+        [data-theme="light"] {
+            --bg: #f1f8ed;
+            /* full page background */
+            --panel: #f9fafb;
+            /* slightly off-white for cards */
+            --text: #111827;
+            /* dark main text */
+            --muted: #374151;
+            /* readable muted text */
+            --accent: #0077ff;
+            --danger: #c1121f;
+            --ok: #059669;
+            --border: #d1d5db;
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px
+        }
+
+        h1 {
+            font-size: clamp(1.25rem, 1.6rem+1vw, 2rem);
+            margin: 0
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            background: transparent
+        }
+
+        .toolbar .spacer {
+            flex: 1
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.16s ease
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            background: rgba(107, 220, 255, 0.06)
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn.danger {
+            border-color: transparent;
+            background: var(--danger);
+            color: #fff
+        }
+
+        .btn.ghost {
+            background: transparent
+        }
+
+        .switch {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        /* Editors grid: equal width columns */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 12px;
+            align-items: stretch;
+            /* ensures children stretch to equal height */
+        }
+
+        /* Make each column a flex container so children can fill height */
+        .grid>div {
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        /* Unified input/output styles using variables so theme affects both */
+        #input,
+        #output {
+            flex: 1;
+            box-sizing: border-box;
+            min-height: 420px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+            font-size: 14px;
+            line-height: 1.45;
+            padding: 12px;
+            margin: 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            color: var(--text);
+            resize: vertical;
+            overflow: auto;
+            white-space: pre-wrap;
+            /* output behaves visually like textarea */
+            word-break: break-word;
+        }
+
+        .btn,
+        label.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background: #374151;
+            color: #fff;
+            border: none;
+            line-height: 1.25rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover,
+        label.btn:hover {
+            background: #005fcc;
+        }
+
+        .btn.ghost,
+        label.btn.ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* Ensure native textarea uses the same look as pre */
+        textarea {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* When light theme active, input/output inherit variables automatically */
+        [data-theme="light"] #input,
+        [data-theme="light"] #output {
+            background: var(--panel);
+            /* panel is off-white in light theme */
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .status {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-top: 1px solid var(--border);
+            background: transparent
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease
+        }
+
+        .badge.ok {
+            background: rgba(125, 255, 160, .06);
+            border-color: rgba(125, 255, 160, .16);
+            color: var(--ok)
+        }
+
+        .badge.err {
+            background: rgba(255, 107, 107, .06);
+            border-color: rgba(255, 107, 107, .16);
+            color: var(--danger)
+        }
+
+        .help {
+            margin-top: 18px;
+            padding: 12px
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0
+        }
+
+        details:hover {
+            border-color: var(--accent)
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s ease
+        }
+
+        .footer-links a:hover {
+            background: rgba(107, 220, 255, 0.06)
+        }
+
+        .kbd {
+            font-family: ui-monospace, monospace;
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: var(--panel)
+        }
+
+        /* Sticky ad-slot placed inside card footer */
+        .ad-slot {
+            margin: 0;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            padding: 16px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(100%);
+            /* ✅ ensures it's fully hidden */
+            border: 0;
+            white-space: nowrap;
+        }
+
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--panel);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: none;
+            /* ✅ hidden by default */
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            /* stays above ad */
+            align-items: center;
+        }
+
+        .popup.success {
+            border-left: 4px solid var(--ok);
+        }
+
+        .popup.error {
+            border-left: 4px solid var(--danger);
+        }
+
+        .popup-close {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 14px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 10px
+            }
+
+            .grid>div:nth-child(2) {
+                order: 2
+            }
+
+            .toolbar {
+                gap: 6px;
+                padding: 10px
+            }
+
+            .btn {
+                padding: 8px 10px;
+                font-size: 14px
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+        <header>
+            <div>
+                <h1>JSON Formatter <span class="muted">— Free, Fast & Private</span></h1>
+                <p class="muted">Format, minify, and validate JSON. 100% client-side. No data leaves your browser.</p>
+            </div>
+            <div class="switch" style="display:none">
+                <!-- kept hidden (you already have toolbar toggle) -->
+            </div>
+        </header>
+
+        <section class="card" aria-labelledby="toolHeading">
+            <div class="toolbar">
+                <strong id="toolHeading">Tool</strong>
+                <button class="btn" id="formatBtn" title="Format (Ctrl/Cmd+Enter)">Format</button>
+                <button class="btn" id="minifyBtn" title="Minify (Ctrl/Cmd+M)">Minify</button>
+                <button class="btn" id="validateBtn">Validate</button>
+                <button class="btn" id="copyBtn">Copy Output</button>
+                <button class="btn" id="downloadBtn">Download .json</button>
+                <label class="btn" for="fileInput" role="button">Upload…</label>
+
+                <!-- <label class="btn ghost" for="fileInput">Upload…</label> -->
+                <input id="fileInput" type="file" accept=".json,.txt,application/json" class="sr-only" />
+                <div class="spacer"></div>
+                <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+                <button class="btn" id="themeToggle" style="margin-left:8px;">🌙</button>
+            </div>
+
+            <!-- editors: equal width, equal height -->
+            <div class="grid" id="grid">
+                <div>
+                    <label for="input" class="sr-only">Input JSON</label>
+                    <textarea id="input" placeholder='Paste JSON here…'></textarea>
+                </div>
+
+                <div>
+                    <label for="output" class="sr-only">Output JSON</label>
+                    <pre id="output" aria-live="polite"></pre>
+                </div>
+            </div>
+
+            <div class="status">
+                <!-- <div id="statusBadge" class="badge">Waiting for input…</div> -->
+                <div class="muted" id="metaInfo"></div>
+            </div>
+
+            <!-- Sticky ad-slot (inside card footer) -->
+            <div class="ad-slot" id="adSlot">💡 Ad Space Available</div>
+        </section>
+
+        <section class="help">
+            <details open>
+                <summary><strong>How to use</strong></summary>
+                <p>Paste JSON on the left. Press <span class="kbd">Ctrl/Cmd</span> + <span class="kbd">Enter</span> to
+                    <em>Format</em> or <span class="kbd">Ctrl/Cmd</span> + <span class="kbd">M</span> to
+                    <em>Minify</em>. Use <em>Validate</em> to check correctness. Nothing is uploaded.
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>Keyboard shortcuts</strong></summary>
+                <ul>
+                    <li><span class="kbd">Ctrl/Cmd</span> + <span class="kbd">Enter</span> – Format</li>
+                    <li><span class="kbd">Ctrl/Cmd</span> + <span class="kbd">M</span> – Minify</li>
+                    <li><span class="kbd">Esc</span> – Clear</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary><strong>About JSON formatting</strong></summary>
+                <p>Formatting (aka pretty-printing) re-indents JSON with spaces and line breaks to make it
+                    human-readable. Minifying removes whitespace while preserving exact data.</p>
+            </details>
+
+            <div class="footer-links">
+                <a href="/jwt-decoder">JWT Decoder</a>
+                <a href="/csv-to-json">CSV → JSON</a>
+                <a href="/url-encoder">URL Encoder</a>
+            </div>
+        </section>
+    </div>
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-slot">
+            <!-- Replace with Adsense -->
+            <p style="font-size:0.75rem;color:var(--muted);margin:0;">[Your ad here]</p>
+        </div>
+        <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+    <!-- ✅ Popup -->
+    <div id="popup" class="popup">
+        <span id="popupMessage"></span>
+        <button id="popupClose" class="popup-close">✖</button>
+    </div>
+    <style>
+        .bottom-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+            padding: 0.25rem 0.75rem;
+            /* smaller padding */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            font-size: 0.75rem;
+            /* smaller text */
+        }
+
+        .bottom-ad .ad-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-right: 0.5rem;
+        }
+
+        .bottom-ad .ad-slot {
+            flex: 1;
+            text-align: center;
+        }
+
+        .bottom-ad .close-ad {
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            /* smaller × */
+            line-height: 1;
+            cursor: pointer;
+            color: var(--muted);
+            margin-left: 0.5rem;
+            padding: 0;
+        }
+
+        .bottom-ad .close-ad:hover {
+            color: var(--text);
+        }
+    </style>
+    <script>
+        class JSONFormatter {
+            constructor() {
+                this.input = document.getElementById('input');
+                this.output = document.getElementById('output');
+                this.statusBadge = document.getElementById('statusBadge');
+                this.metaInfo = document.getElementById('metaInfo');
+                this.themeToggle = document.getElementById('themeToggle');
+
+                this.initEventListeners();
+                this.loadTheme();
+            }
+
+            initEventListeners() {
+                document.getElementById('formatBtn').addEventListener('click', () => this.format());
+                document.getElementById('minifyBtn').addEventListener('click', () => this.minify());
+                document.getElementById('validateBtn').addEventListener('click', () => this.validate());
+                document.getElementById('copyBtn').addEventListener('click', () => this.copyOutput());
+                document.getElementById('downloadBtn').addEventListener('click', () => this.download());
+                document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+                document.getElementById('fileInput').addEventListener('change', (e) => this.handleFileUpload(e));
+                // document.getElementById('bottomAd').addEventListener('click', () => this.showBottomAd());
+                document.getElementById("closeBottomAd").addEventListener("click", () => this.closeBottomAd());
+
+                this.themeToggle.addEventListener('click', () => this.toggleTheme());
+
+
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+                this.input.addEventListener('input', () => this.updateStatus());
+            }
+
+            format() {
+                const text = this.input.value.trim();
+                if (!text) { this.showPopup('Empty input', 'err'); return; }
+                try {
+                    const parsed = JSON.parse(text);
+                    const formatted = JSON.stringify(parsed, null, 2);
+                    this.output.textContent = formatted;
+                    this.showPopup('Formatted successfully', 'ok');
+                    this.updateMeta(formatted);
+
+                    this.showBottomAd();
+                } catch (error) {
+                    this.showPopup(`Invalid JSON: ${error.message}`, 'err');
+
+                    // this.updateStatus(`Invalid JSON: ${error.message}`, 'err');
+                    this.output.textContent = '';
+                    this.showBottomAd();
+                }
+            }
+
+            minify() {
+                const text = this.input.value.trim();
+                if (!text) { this.showPopup('Empty input', 'err'); return; }
+                try {
+                    const parsed = JSON.parse(text);
+                    const minified = JSON.stringify(parsed);
+                    this.output.textContent = minified;
+                    this.showPopup('Minified successfully', 'ok');
+                    this.updateMeta(minified);
+                    this.showBottomAd();
+
+                } catch (error) {
+                    this.showPopup(`Invalid JSON: ${error.message}`, 'err');
+                    this.output.textContent = '';
+                    this.showBottomAd();
+
+                }
+            }
+
+            validate() {
+                const text = this.input.value.trim();
+                if (!text) { this.showPopup('Empty input', 'err'); return; }
+                try {
+                    JSON.parse(text);
+                    this.showPopup('✓ Valid JSON', 'ok');
+                    this.updateMeta(text);
+                    this.showBottomAd();
+
+                } catch (error) {
+                    this.showPopup(`✗ Invalid JSON: ${error.message}`, 'err');
+                    this.showBottomAd();
+
+                }
+            }
+
+            copyOutput() {
+                const text = this.output.textContent;
+                if (!text) { this.showPopup('Nothing to copy', 'err'); return; }
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showPopup('Copied to clipboard!', 'ok');
+                    this.showBottomAd();
+
+                    setTimeout(() => this.showPopup(), 2000);
+
+                }).catch(() => this.showPopup('Copy failed', 'err'));
+            }
+
+            download() {
+                const text = this.output.textContent;
+                if (!text) { this.showPopup('Nothing to download', 'err'); return; }
+                const blob = new Blob([text], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'formatted.json'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                this.showPopup('Downloaded!', 'ok');
+                this.showBottomAd();
+
+                setTimeout(() => this.showPopup(), 2000);
+
+            }
+
+            clear() {
+                this.input.value = ''; this.output.textContent = ''; this.updateStatus(); this.metaInfo.textContent = ''; this.input.focus();
+            }
+
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => { this.input.value = e.target.result; this.updateStatus(); };
+                reader.readAsText(file);
+            }
+
+            handleKeyboard(event) {
+                if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); this.format(); }
+                else if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm') { event.preventDefault(); this.minify(); }
+                else if (event.key === 'Escape') { event.preventDefault(); this.clear(); }
+            }
+
+            // updateStatus(message = 'Waiting for input…', type = '') {
+            //     this.statusBadge.textContent = message;
+            //     this.statusBadge.className = `badge ${type}`;
+            // }
+
+            updateMeta(text) {
+                if (!text) { this.metaInfo.textContent = ''; return; }
+                const lines = text.split('\n').length;
+                const chars = text.length;
+                const bytes = new Blob([text]).size;
+                this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`;
+            }
+
+            toggleTheme() {
+                const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.body.dataset.theme = next;
+                this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+                localStorage.setItem('json-formatter-theme', next);
+            }
+
+            loadTheme() {
+                const saved = localStorage.getItem('json-formatter-theme') || 'dark';
+                document.body.dataset.theme = saved;
+                this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+            }
+
+            showBottomAd() {
+                document.getElementById("bottomAd").style.display = "flex";
+            }
+            closeBottomAd() {
+                document.getElementById("bottomAd").style.display = "none";
+            }
+
+            showPopup(message, type = "success") {
+                const popup = document.getElementById("popup");
+                const popupMessage = document.getElementById("popupMessage");
+                const closeBtn = document.getElementById("popupClose");
+
+                if (!popup || !popupMessage || !closeBtn) {
+                    console.warn("Popup elements not found yet");
+                    return;
+                }
+
+                popupMessage.textContent = message;
+                popup.className = "popup " + type;
+                popup.style.display = "flex";
+
+                // auto hide after 3s
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 3000);
+
+                // close button
+                closeBtn.onclick = () => {
+                    popup.style.display = "none";
+                };
+            }
+
+
+
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => new JSONFormatter());
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
