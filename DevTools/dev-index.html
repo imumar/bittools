@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+        crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BitTools — Free Online Tools</title>
+    <meta name="description"
+        content="BitTools.cc: Free online tools for developers like JSON Formatter, Validators, and more. Fast, private, and easy to use." />
+    <link rel="canonical" href="https://dev.bittools.cc/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/bittoolsicon.png">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BitTools — Free Online Tools" />
+    <meta property="og:description"
+        content="BitTools.cc: Free online tools for developers like JSON Formatter, Validators, and more. Fast, private, and easy to use." />
+    <meta property="og:url" content="https://dev.bittools.cc/" />
+    <meta property="og:image" content="/bittoolsicon.png" />
+    <meta property="og:image" content="https://www.bittools.cc/bittoolsicon.png">
+
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BitTools — Free Online Tools" />
+    <meta name="twitter:description"
+        content="BitTools.cc: Free online toolsfor developers like JSON Formatter, Validators, and more. Fast, private, and easy to use." />
+    <meta name="twitter:image" content="https://www.bittools.cc/bittoolsicon.png" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "BitTools",
+        "url": "https://dev.bittools.cc",
+        "description": "Free online tools for developers like JSON Formatter, Validators, and more. Fast, private, and easy to use.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://bittools.cc/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --panel: #12141a;
+            --text: #e8edf2;
+            --muted: #9aa7b4;
+            --accent: #e8edf2;
+            --border: #1e232d;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+        }
+
+        [data-theme="light"] {
+            --bg: #f1f8ed;
+            --panel: #f9fafb;
+            --text: #111827;
+            --muted: #374151;
+            --accent: #0077ff;
+            --border: #d1d5db;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            background: #12141a;
+        }
+
+        header img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
+        }
+
+        header .text h1 {
+            font-size: clamp(1.8rem, 2.2rem + 1vw, 2.8rem);
+            margin: 0;
+            color: var(--accent);
+        }
+
+        header .text p {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .card p {
+            flex: 1;
+            color: var(--muted);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .ad-slot {
+            margin: 24px 0 0 0;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            padding: 16px;
+        }
+
+        @media(max-width:768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+        <header>
+            <a href="/" title="BitTools Home">
+                <img src="/bittoolsicon.png" alt="BitTools Logo">
+            </a>
+            <div class="text">
+                <h1>Dev.BitTools.cc</h1>
+                <p>Free online tools for developers — starting with JSON Formatter. More tools coming soon!</p>
+            </div>
+        </header>
+
+        <section class="tools-grid">
+            <a class="card" href="https://dev.bittools.cc/json-formatter" target="_blank">
+                <h3>JSON Formatter</h3>
+                <p>Format, minify, and validate JSON in your browser. 100% client-side, fast, and private.</p>
+            </a>
+            <a class="card" href="#" target="_blank">
+                <h3>Coming Soon</h3>
+                <p>More tools are on the way: JWT Decoder, CSV → JSON, URL Encoder/Decoder, and more!</p>
+            </a>
+        </section>
+    </div>
+
+    <!-- <div class="ad-slot" id="adSlot">💡 Ad Space Available</div> -->
+    <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+            data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <footer>
+        © 2025 BitTools — Free Online Tools
+    </footer>
+</body>
+
+</html>
