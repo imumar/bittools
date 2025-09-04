@@ -2,11 +2,101 @@
 <html lang="en">
 
 <head>
+    <!-- Primary Meta Tags -->
+    <title>JSON Formatter Online – Free, Fast & Private | BitTools</title>
+    <meta name="title" content="JSON Formatter Online – Free, Fast & Private | BitTools">
+    <meta name="description"
+        content="Format, minify, and validate JSON instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dev.bittools.cc/json-formatter">
+    <meta property="og:title" content="JSON Formatter Online – Free, Fast & Private | BitTools">
+    <meta property="og:description"
+        content="Format, minify, and validate JSON instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+    <meta property="og:image" content="https://dev.bittools.cc/json-formatter/bittoolsicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dev.bittools.cc/json-formatter">
+    <meta property="twitter:title" content="JSON Formatter Online – Free, Fast & Private | BitTools">
+    <meta property="twitter:description"
+        content="Format, minify, and validate JSON instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+    <meta property="twitter:image" content="https://dev.bittools.cc/assets/bittoolsicon.png">
+
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+    "@type": "Question",
+    "name": "Is this JSON formatter safe to use?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The tool runs completely in your browser. No JSON data is uploaded or stored on any server, making it
+    100% safe and private."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "Can I use this tool for large JSON files?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, you can use it for large JSON files. However, very large files may slow down your browser. For
+    extremely heavy data processing, a desktop JSON editor may be better suited."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "What is JSON formatting?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "JSON formatting is the process of adding indentation and structure to raw JSON data so it’s easier to read,
+    debug, and share. It also includes validation to check for errors and minification to reduce file size."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "What is Online JSON formatter tool?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "JSON formatter is an online tool from bittools which is used for the process of adding indentation and
+    structuring raw JSON data so it’s easier to read, debug, and share. It also includes validation to check for errors
+    and minification to reduce file size."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "How do I use the JSON Formatter?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Paste your raw JSON into the input box, click 'Format JSON' to beautify, fix any highlighted errors, and
+    use 'Minify JSON' to compress the data into a single line if needed."
+    }
+    }
+    ],
+    "publisher": {
+    "@type": "Organization",
+    "name": "BitTools",
+    "url": "https://bittools.cc"
+    }
+    }
+    </script>
+    <!-- Standard jsonformatter -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/bittoolsicon.png">
+    <link rel="icon" type="image/x-icon" href="/bittoolsicon.png">
+
+    <!-- For Apple devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/bittoolsicon.png">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JSON Formatter Online – Free, Fast & Private | QuickTools</title>
+    <title>JSON Formatter Online – Free, Fast & Private | BitTools</title>
     <meta name="description"
-        content="Format, minify, and validate JSON in your browser. No data leaves your device. Copy, download, upload files, and fix errors fast." />
+        content="Format, minify, and validate JSON in your browser with BitTools. No data leaves your device. Fast, free, and private." />
+
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://example.com/json-formatter" />
     <!-- Open Graph / Twitter (kept simple) -->
@@ -64,10 +154,35 @@
 
         header {
             display: flex;
-            gap: 16px;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px
+            /* vertical alignment */
+            gap: 16px;
+            /* space between logo and text */
+            margin-bottom: 16px;
+            justify-content: flex-start;
+            /* ensures text stays next to logo */
+        }
+
+        header img {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            background: #12141a;
+        }
+
+        header .text h1 {
+            font-size: clamp(1.5rem, 2rem, 2.2rem);
+            margin: 0;
+        }
+
+        header .text p {
+            margin: 4px 0 0 0;
+        }
+
+
+        header img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
         }
 
         h1 {
@@ -393,15 +508,18 @@
 
 <body data-theme="dark">
     <div class="container">
+
         <header>
-            <div>
-                <h1>JSON Formatter <span class="muted">— Free, Fast & Private</span></h1>
+            <a href="https://bittools.cc/" title="BitTools Home">
+                <img src="/bittoolsicon.png" alt="BitTools Logo">
+            </a>
+            <div class="text">
+                <h1>JSON Formatter <span class="muted">— by BitTools</span></h1>
                 <p class="muted">Format, minify, and validate JSON. 100% client-side. No data leaves your browser.</p>
             </div>
-            <div class="switch" style="display:none">
-                <!-- kept hidden (you already have toolbar toggle) -->
-            </div>
         </header>
+
+
 
         <section class="card" aria-labelledby="toolHeading">
             <div class="toolbar">
@@ -445,32 +563,95 @@
         <section class="help">
             <details open>
                 <summary><strong>How to use</strong></summary>
-                <p>Paste JSON on the left. Press <span class="kbd">Ctrl/Cmd</span> + <span class="kbd">Enter</span> to
-                    <em>Format</em> or <span class="kbd">Ctrl/Cmd</span> + <span class="kbd">M</span> to
-                    <em>Minify</em>. Use <em>Validate</em> to check correctness. Nothing is uploaded.
+                <ol>
+                    <li>Paste or type your raw JSON into the text box above.</li>
+                    <li>Click <strong>Format JSON</strong> to beautify with proper indentation.</li>
+                    <li>If your JSON has errors, the tool will highlight them so you can fix them.</li>
+                    <li>Use <strong>Minify JSON</strong> to compress everything into a single line for smaller file
+                        size.</li>
+                    <li>Copy the formatted or minified JSON back into your project, API, or config file.</li>
+                </ol>
+            </details>
+            <details>
+                <summary><strong>About This Online JSON Formatter</strong></summary>
+                <p>
+                    This free <strong>online JSON formatter</strong> helps you quickly
+                    beautify, validate, and minify JSON data. Whether you’re debugging APIs,
+                    cleaning up unstructured data, or preparing JSON for production, this tool
+                    makes your workflow faster and easier.
+                </p>
+                <p>
+                    All formatting and validation is performed <strong>directly in your
+                        browser</strong>. That means your data never leaves your device — making
+                    this JSON tool 100% secure and private.
                 </p>
             </details>
+            <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+                <h2>About JSON Formatting</h2>
+                <p>
+                    <strong>JSON (JavaScript Object Notation)</strong> is a lightweight format
+                    used to exchange data between systems. Raw JSON often comes in a single
+                    line, which makes it hard to read and debug. Formatting adds indentation
+                    and structure so developers and analysts can easily understand the data.
+                </p>
+                <p>
+                    In addition to beautifying, JSON formatting often includes
+                    <strong>validation</strong> (checking for errors) and
+                    <strong>minification</strong> (removing extra spaces and line breaks for
+                    efficiency).
+                </p>
 
-            <details>
-                <summary><strong>Keyboard shortcuts</strong></summary>
+                <h3>Why Use a JSON Formatter?</h3>
                 <ul>
-                    <li><span class="kbd">Ctrl/Cmd</span> + <span class="kbd">Enter</span> – Format</li>
-                    <li><span class="kbd">Ctrl/Cmd</span> + <span class="kbd">M</span> – Minify</li>
-                    <li><span class="kbd">Esc</span> – Clear</li>
+                    <li>📌 <strong>Beautify JSON</strong> — make JSON readable with proper indentation.</li>
+                    <li>📌 <strong>Validate JSON</strong> — quickly check if your JSON is valid.</li>
+                    <li>📌 <strong>Minify JSON</strong> — compress JSON for faster API responses.</li>
+                    <li>📌 <strong>Debug APIs</strong> — paste API responses for easy inspection.</li>
                 </ul>
-            </details>
 
-            <details>
-                <summary><strong>About JSON formatting</strong></summary>
-                <p>Formatting (aka pretty-printing) re-indents JSON with spaces and line breaks to make it
-                    human-readable. Minifying removes whitespace while preserving exact data.</p>
-            </details>
+                <h3>Frequently Asked Questions</h3>
+                <h4>🔹 What is JSON formatting?</h4>
+                <p>
+                    JSON formatting is the process of structuring raw JSON data so it’s easier
+                    to read, debug, and share. This tool adds indentation and highlights errors
+                    if the JSON is invalid.
+                </p>
 
-            <div class="footer-links">
+                <h4>🔹 Is this JSON formatter safe to use?</h4>
+                <p>
+                    Yes. Unlike some online tools, this JSON formatter runs entirely in your
+                    browser. No JSON data is uploaded or stored on any server.
+                </p>
+
+                <h4>🔹 Can I minify JSON?</h4>
+                <p>
+                    Absolutely. Use the “Minify JSON” option to compress JSON into a single
+                    line, reducing file size for faster web and API performance.
+                </p>
+
+                <h4>🔹 What other developer tools are available?</h4>
+                <p>
+                    We will be adding more tools soon. keep an eye on the homepage for updates.
+                    <!-- Along with this formatter, you can try our other free tools like
+                    <a href="/jwt-decoder">JWT Decoder</a>,
+                    <a href="/csv-to-json">CSV to JSON Converter</a>, and
+                    <a href="/url-encoder-decoder">URL Encoder/Decoder</a>. -->
+                </p>
+
+                <h3>About BitTools</h3>
+                <p>
+                    This JSON Formatter is part of <strong>BitTools.cc</strong> — a free hub
+                    of simple online utilities for developers, students, and data enthusiasts.
+                    No ads, no tracking — just fast, useful tools.
+                </p>
+            </section>
+
+
+            <!-- <div class="footer-links">
                 <a href="/jwt-decoder">JWT Decoder</a>
                 <a href="/csv-to-json">CSV → JSON</a>
                 <a href="/url-encoder">URL Encoder</a>
-            </div>
+            </div> -->
         </section>
     </div>
     <div id="bottomAd" class="bottom-ad" style="display:none;">
@@ -734,7 +915,9 @@
 
 
 
-
+    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+    </footer>
 
 
 
