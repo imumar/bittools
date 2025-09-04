@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <!-- Primary Meta Tags -->
+  <title>Base64 Encoder/Decoder – Free, Fast & Private | BitTools</title>
+  <meta name="title" content="Base64 Encoder/Decoder – Free, Fast & Private | BitTools">
+  <meta name="description"
+    content="Encode and decode Base64 instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://developer.bittools.cc/base64-encoder">
+  <meta property="og:title" content="Base64 Encoder/Decoder – Free, Fast & Private | BitTools">
+  <meta property="og:description"
+    content="Encode and decode Base64 instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="og:image" content="https://developer.bittools.cc/dev-assets/bittoolsicon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://developer.bittools.cc/base64-encoder">
+  <meta property="twitter:title" content="Base64 Encoder/Decoder – Free, Fast & Private | BitTools">
+  <meta property="twitter:description"
+    content="Encode and decode Base64 instantly. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="twitter:image" content="https://developer.bittools.cc/dev-assets/bittoolsicon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this Base64 tool safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool runs completely in your browser. No data is uploaded or stored on any server, making it 100% safe and private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this tool for large data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can encode or decode large data using this tool. However, extremely large inputs may slow down your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Base64 encoding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 encoding converts binary data into a text format using 64 ASCII characters. Decoding reverses this process to get the original data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an online Base64 encoder/decoder tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool lets you encode data to Base64 or decode Base64 back to its original form. It's fast, easy, and runs entirely in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use this Base64 tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste your input text or Base64 string into the input box, then click 'Encode' to convert to Base64 or 'Decode' to revert it. Copy or download the result as needed."
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "BitTools",
+    "url": "https://bittools.cc"
+  }
+}
+</script>
+
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/dev-assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/dev-assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/dev-assets/bittoolsicon.png">
+  <link rel="icon" type="image/x-icon" href="/dev-assets/bittoolsicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/dev-assets/bittoolsicon.png">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://developer.bittools.cc/base64-encoder" />
+
+  <style>
+    /* === Keep all your styles exactly as in JSON formatter === */
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --danger: #ff6b6b;
+      --ok: #7dffa0;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+    }
+
+    /* Light theme variables — applied to the body via data-theme="light" */
+    [data-theme="light"] {
+      --bg: #f1f8ed;
+      /* full page background */
+      --panel: #f9fafb;
+      /* slightly off-white for cards */
+      --text: #111827;
+      /* dark main text */
+      --muted: #374151;
+      /* readable muted text */
+      --accent: #0077ff;
+      --danger: #c1121f;
+      --ok: #059669;
+      --border: #d1d5db;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.25s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      background: var(--panel);
+    }
+
+    header img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
+    }
+
+    header .text h1 {
+      font-size: clamp(1.5rem, 2rem, 2.2rem);
+      margin: 0;
+    }
+
+    header .text p {
+      margin: 4px 0 0 0;
+    }
+
+    h1 {
+      font-size: clamp(1.25rem, 1.6rem+1vw, 2rem);
+      margin: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .toolbar .spacer {
+      flex: 1;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      background: rgba(107, 220, 255, 0.06);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn.danger {
+      border-color: transparent;
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn.ghost {
+      background: transparent;
+    }
+
+    .switch {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      align-items: stretch;
+    }
+
+    .grid>div {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+    }
+
+    #input,
+    #output {
+      flex: 1;
+      box-sizing: border-box;
+      min-height: 420px;
+      font-family: ui-monospace, "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.45;
+      padding: 12px;
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .badge.ok {
+      background: rgba(125, 255, 160, 0.06);
+      border-color: rgba(125, 255, 160, 0.16);
+      color: var(--ok);
+    }
+
+    .badge.err {
+      background: rgba(255, 107, 107, 0.06);
+      border-color: rgba(255, 107, 107, 0.16);
+      color: var(--danger);
+    }
+
+    .help {
+      margin-top: 18px;
+      padding: 12px;
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    details:hover {
+      border-color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      background: rgba(107, 220, 255, 0.06);
+    }
+
+    .kbd {
+      font-family: ui-monospace, monospace;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .ad-slot {
+      margin: 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: 16px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(100%);
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: none;
+      box-shadow: var(--shadow);
+      z-index: 10000;
+      align-items: center;
+    }
+
+    .popup.success {
+      border-left: 4px solid var(--ok);
+    }
+
+    .popup.error {
+      border-left: 4px solid var(--danger);
+    }
+
+    .popup-close {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 14px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .bottom-ad {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-size: 0.75rem;
+    }
+
+    .bottom-ad .ad-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+
+    .bottom-ad .ad-slot {
+      flex: 1;
+      text-align: center;
+    }
+
+    .bottom-ad .close-ad {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      margin-left: 0.5rem;
+      padding: 0;
+    }
+
+    .bottom-ad .close-ad:hover {
+      color: var(--text);
+    }
+
+    @media (max-width:768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px
+      }
+
+      .grid>div:nth-child(2) {
+        order: 2
+      }
+
+      .toolbar {
+        gap: 6px;
+        padding: 10px
+      }
+
+      .btn {
+        padding: 8px 10px;
+        font-size: 14px
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+    <header>
+      <a href="https://bittools.cc/" title="BitTools Home">
+        <img src="/dev-assets/bittoolsicon.png" alt="BitTools Logo">
+      </a>
+      <div class="text">
+        <h1>Base64 Encoder/Decoder <span class="muted">— by BitTools</span></h1>
+        <p class="muted">Encode or decode Base64. 100% client-side. No data leaves your browser.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="toolHeading">
+      <div class="toolbar">
+        <strong id="toolHeading">Tool</strong>
+        <button class="btn" id="encodeBtn" title="Encode (Ctrl/Cmd+Enter)">Encode</button>
+        <button class="btn" id="decodeBtn" title="Decode (Ctrl/Cmd+M)">Decode</button>
+        <button class="btn" id="copyBtn">Copy Output</button>
+        <button class="btn" id="downloadBtn">Download .txt</button>
+        <label class="btn" for="fileInput" role="button">Upload…</label>
+        <input id="fileInput" type="file" accept=".txt" class="sr-only" />
+        <div class="spacer"></div>
+        <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+        <button class="btn" id="themeToggle" style="margin-left:8px;">🌙</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <div>
+          <label for="input" class="sr-only">Input</label>
+          <textarea id="input" placeholder='Paste text here…'></textarea>
+        </div>
+        <div>
+          <label for="output" class="sr-only">Output</label>
+          <pre id="output" aria-live="polite"></pre>
+        </div>
+      </div>
+
+      <div class="status">
+        <div class="muted" id="metaInfo"></div>
+      </div>
+
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </section>
+
+    <section class="help">
+      <details>
+        <summary><strong>How to use</strong></summary>
+        <ol>
+          <li>Enter your text (or Base64 string) in the left input box.</li>
+          <li>Click <strong>Encode</strong> to convert text to Base64.</li>
+          <li>Click <strong>Decode</strong> to convert Base64 back to plain text.</li>
+          <li>You can also <strong>Copy</strong> or <strong>Download</strong> the result instantly.</li>
+        </ol>
+      </details>
+      <details>
+        <summary><strong>About This Online Base64 Tool</strong></summary>
+        <p>This free online Base64 encoder/decoder bu bitTools.cc helps you quickly convert text to Base64 and back. All
+          operations happen directly in your browser — 100% secure and private.</p>
+      </details>
+
+
+      <!-- Info / SEO Section -->
+      <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+        <h2>What is Base64 Encoding?</h2>
+        <p>
+          Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters.
+          It is commonly used to encode data for storage or transfer over media that only support text,
+          such as JSON, XML, or email.
+        </p>
+
+        <h2>How Does Base64 Work?</h2>
+        <p>
+          Base64 works by dividing the input data into groups of 3 bytes (24 bits). Each 24-bit group is then split into
+          four 6-bit segments.
+          Each 6-bit segment is mapped to a specific character in the Base64 index table.
+        </p>
+
+        <h2>FAQs about Base64</h2>
+
+
+
+        <h4>🔹 Why is Base64 used?</h4>
+        <p>Base64 ensures that binary data (like images, files, or cryptographic values) can be transmitted
+          safely over systems that only support text-based data.</p>
+
+        <h4>🔹 Is Base64 encryption?</h4>
+        <p>No. Base64 is <strong>not encryption</strong>. It is just an encoding method. The data can be easily decoded.
+        </p>
+
+        <h4>🔹 What are common uses of Base64?</h4>
+        <p>Base64 is widely used in embedding images in HTML/CSS, storing binary files in JSON, email attachments
+          (MIME),
+          and in web APIs.</p>
+
+        <h4>🔹 Is Base64 secure?</h4>
+        <p>No, Base64 only converts data into a text-friendly format. It does not provide confidentiality or security.
+        </p>
+
+        <h4>🔹 Can Base64 increase file size?</h4>
+        <p>Yes. Base64 encoding increases the size of the original data by approximately <strong>33%</strong>.</p>
+      </section>
+    </section>
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+
+  </div>
+
+  </div>
+  <div id="popup" class="popup">
+    <span id="popupMessage"></span>
+    <button id="popupClose" class="popup-close">✖</button>
+  </div>
+
+  <script>
+    class Base64Tool {
+      constructor() {
+        this.input = document.getElementById('input');
+        this.output = document.getElementById('output');
+        this.metaInfo = document.getElementById('metaInfo');
+        this.themeToggle = document.getElementById('themeToggle');
+
+        this.initEventListeners();
+        this.loadTheme();
+      }
+
+      initEventListeners() {
+        document.getElementById('encodeBtn').addEventListener('click', () => this.encode());
+        document.getElementById('decodeBtn').addEventListener('click', () => this.decode());
+        document.getElementById('copyBtn').addEventListener('click', () => this.copyOutput());
+        document.getElementById('downloadBtn').addEventListener('click', () => this.download());
+        document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+        document.getElementById('fileInput').addEventListener('change', (e) => this.handleFileUpload(e));
+        document.getElementById("closeBottomAd").addEventListener("click", () => this.closeBottomAd());
+        this.themeToggle.addEventListener('click', () => this.toggleTheme());
+
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        this.input.addEventListener('input', () => this.updateMeta());
+      }
+
+      encode() {
+        const text = this.input.value;
+        if (!text) { this.showPopup('Empty input', 'err'); return; }
+        try {
+          const encoded = btoa(unescape(encodeURIComponent(text)));
+          this.output.textContent = encoded;
+          this.showPopup('Encoded successfully', 'ok');
+          this.updateMeta(encoded);
+          this.showBottomAd();
+        } catch (error) {
+          this.showPopup(`Encoding error: ${error.message}`, 'err');
+          this.showBottomAd();
+
+        }
+      }
+
+      decode() {
+        const text = this.input.value;
+        if (!text) { this.showPopup('Empty input', 'err'); return; }
+        try {
+          const decoded = decodeURIComponent(escape(atob(text)));
+          this.output.textContent = decoded;
+          this.showPopup('Decoded successfully', 'ok');
+          this.updateMeta(decoded);
+          this.showBottomAd();
+        } catch (error) {
+          this.showPopup(`Invalid Base64: ${error.message}`, 'err');
+          this.showBottomAd();
+
+        }
+      }
+
+      copyOutput() {
+        const text = this.output.textContent;
+        if (!text) { this.showPopup('Nothing to copy', 'err'); return; }
+        navigator.clipboard.writeText(text).then(() => {
+          this.showPopup('Copied!', 'ok');
+          this.showBottomAd();
+
+        }).catch(() => this.showPopup('Copy failed', 'err'));
+
+      }
+
+      download() {
+        const text = this.output.textContent;
+        if (!text) { this.showPopup('Nothing to download', 'err'); return; }
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'output.txt'; a.click();
+        URL.revokeObjectURL(url);
+        this.showPopup('Downloaded!', 'ok');
+      }
+
+      clear() {
+        this.input.value = ''; this.output.textContent = ''; this.metaInfo.textContent = '';
+      }
+
+      handleFileUpload(e) {
+        const file = e.target.files[0]; if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => { this.input.value = ev.target.result; this.updateMeta(); };
+        reader.readAsText(file);
+      }
+
+      handleKeyboard(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); this.encode(); }
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'm') { e.preventDefault(); this.decode(); }
+        if (e.key === 'Escape') { e.preventDefault(); this.clear(); }
+      }
+
+      updateMeta(text = this.output.textContent) {
+        if (!text) { this.metaInfo.textContent = ''; return; }
+        const lines = text.split('\n').length;
+        const chars = text.length;
+        const bytes = new Blob([text]).size;
+        this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`;
+      }
+
+      toggleTheme() {
+        const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.body.dataset.theme = next;
+        this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('base64-theme', next);
+      }
+
+      loadTheme() {
+        const saved = localStorage.getItem('base64-theme') || 'dark';
+        document.body.dataset.theme = saved;
+        this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+      }
+
+      showBottomAd() { document.getElementById("bottomAd").style.display = "flex"; }
+      closeBottomAd() { document.getElementById("bottomAd").style.display = "none"; }
+
+      showPopup(message, type = "success") {
+        const popup = document.getElementById("popup");
+        const popupMessage = document.getElementById("popupMessage");
+        const closeBtn = document.getElementById("popupClose");
+        popupMessage.textContent = message;
+        popup.className = "popup " + type;
+        popup.style.display = "flex";
+        setTimeout(() => { popup.style.display = "none"; }, 3000);
+        closeBtn.onclick = () => { popup.style.display = "none"; };
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => new Base64Tool());
+  </script>
+
+  <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+    © 2025 BitTools — Free Online Tools
+  </footer>
+</body>
+
+</html>
