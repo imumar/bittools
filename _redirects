@@ -1,4 +1,6 @@
 /dev/json-formatter    /DevTools/json-formatter/json-formatter-index.html 200
 /dev/base64-encoder    /DevTools/base64-encoder-decoder/base64encoderindex.html 200
-/dev    /dev-index.html 200
+/blogs/json-formatter    /blogs/Devblogs/json-formatter-blog.html 200
+/blogs/base64-encoder    /blogs/Devblogs/base64-encoder-blog.html 200
+/dev    /DevTools/dev-index.html 200
 /    /index.html 200
