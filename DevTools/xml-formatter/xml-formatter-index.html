@@ -6,38 +6,54 @@
         crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JWT Decoder – Free, Fast & Private | BitTools</title>
-    <meta name="description" content="Decode JWT headers and payloads instantly. 100% client-side and private." />
+    <title>XML Formatter – Free, Fast & Private | BitTools</title>
+    <meta name="description" content="Beautify and minify XML instantly. 100% client-side and private." />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
         {
-          "@type": "Question",
-          "name": "Is this JWT decoder safe?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. It runs entirely in your browser. No data is sent to any server."}
-        },
-        {
-          "@type": "Question",
-          "name": "Does this tool verify signatures?",
-          "acceptedAnswer": {"@type": "Answer", "text": "No. It only decodes the header and payload for inspection. Do not trust unsigned data."}
-        },
-        {
-          "@type": "Question",
-          "name": "Can I see expiry and issued-at claims?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. The payload shows standard claims like exp, iat, iss and more if present."}
-        },
-        {
-          "@type": "Question",
-          "name": "Are HS256/RS256 tokens supported?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Decoding works for any base64url-encoded JWT. Signature verification is not performed."}
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is this XML Formatter safe?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The XML Formatter runs completely in your browser. No XML data is uploaded or stored, ensuring full privacy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I validate my XML here?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The XML Formatter includes validation and will show an error if your XML is not well-formed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I minify XML too?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The tool allows you to compress XML into a single line, making files smaller and easier to store or transfer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to install anything to use this XML Formatter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No installation is required. The XML Formatter works directly in your browser and is free to use."
+              }
+            }
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "BitTools",
+            "url": "https://bittools.cc"
+            }
         }
-      ],
-      "publisher": {"@type": "Organization", "name": "BitTools", "url": "https://bittools.cc"}
-    }
-    </script>
-    <link rel="canonical" href="https://www.bittools.cc/dev/jwt-decoder" />
+        </script>
+    <link rel="canonical" href="https://www.bittools.cc/dev/xml-formatter" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
     <style>
         :root {
@@ -73,7 +89,7 @@
             background: var(--bg);
             color: var(--text);
             font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
-            transition: background 0.25s ease, color 0.25s ease;
+            transition: background .25s ease, color .25s ease
         }
 
         .container {
@@ -157,6 +173,35 @@
             color: #fff
         }
 
+        .btn,
+        label.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background: #374151;
+            color: #fff;
+            border: none;
+            line-height: 1.25rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover,
+        label.btn:hover {
+            background: #005fcc;
+        }
+
+        .btn.ghost,
+        label.btn.ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -169,6 +214,41 @@
             display: flex;
             flex-direction: column;
             min-height: 420px
+        }
+
+        .btn {
+            padding: 8px 10px;
+            font-size: 14px
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.16s ease
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            background: rgba(107, 220, 255, 0.06)
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn.danger {
+            border-color: transparent;
+            background: var(--danger);
+            color: #fff
+        }
+
+        .btn.ghost {
+            background: transparent
         }
 
         textarea,
@@ -219,6 +299,18 @@
                 gap: 8px;
                 padding: 10px
             }
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0
+        }
+
+        details:hover {
+            border-color: var(--accent)
         }
 
         .bottom-ad {
@@ -282,23 +374,6 @@
         .popup.error {
             border-left: 4px solid var(--danger)
         }
-
-        .help {
-            margin-top: 18px;
-            padding: 12px
-        }
-
-        details {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 14px;
-            margin: 12px 0
-        }
-
-        details:hover {
-            border-color: var(--accent)
-        }
     </style>
 </head>
 
@@ -309,15 +384,16 @@
                 <img src="/assets/bittoolsicon.png" alt="BitTools Logo">
             </a>
             <div class="text">
-                <h1>JWT Decoder <span class="muted">— by BitTools</span></h1>
-                <p class="muted">Decode JWT header and payload safely. 100% client-side.</p>
+                <h1>XML Formatter <span class="muted">— by BitTools</span></h1>
+                <p class="muted">Beautify and minify XML. 100% client-side and private.</p>
             </div>
         </header>
 
         <section class="card" aria-labelledby="toolHeading">
             <div class="toolbar">
                 <strong id="toolHeading">Tool</strong>
-                <button class="btn" id="decodeBtn" title="Decode (Ctrl/Cmd+Enter)">Decode</button>
+                <button class="btn" id="formatBtn" title="Format (Ctrl/Cmd+Enter)">Format</button>
+                <button class="btn" id="minifyBtn" title="Minify (Ctrl/Cmd+M)">Minify</button>
                 <button class="btn" id="copyBtn">Copy Output</button>
                 <div class="spacer"></div>
                 <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
@@ -326,11 +402,11 @@
 
             <div class="grid">
                 <div>
-                    <!-- <label for="input" class="sr-only">JWT</label> -->
-                    <textarea id="input" placeholder='Paste JWT here…'></textarea>
+                    <!-- <label for="input" class="sr-only">Input XML</label> -->
+                    <textarea id="input" placeholder='Paste XML here…'></textarea>
                 </div>
                 <div>
-                    <!-- <label for="output" class="sr-only">Decoded</label> -->
+                    <!-- <label for="output" class="sr-only">Output XML</label> -->
                     <pre id="output" aria-live="polite"></pre>
                 </div>
             </div>
@@ -345,91 +421,88 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
         </section>
-
         <section class="help">
             <details>
                 <summary><strong>How to use</strong></summary>
                 <ol>
-                    <li>Paste your JWT into the left input box.</li>
-                    <li>Click <strong>Decode</strong> to view header and payload as formatted JSON.</li>
-                    <li>Copy the output if needed.</li>
+                    <li>Paste XML on the left.</li>
+                    <li>Click <strong>Format</strong> to pretty print with indentation.</li>
+                    <li>Click <strong>Minify</strong> to collapse whitespace.</li>
+                    <li>Use <strong>Copy</strong> to copy the output.</li>
                 </ol>
             </details>
             <details>
-                <summary><strong>About This Online JWT Decoder</strong></summary>
-                <p>
-                    This free <strong>online JWT Decoder</strong> is a free online tool that lets you instantly decode
-                    and verify JSON Web Tokens (JWTs). It breaks down a token into its three parts — header, payload,
-                    and signature — and displays them in a readable format. Since the decoding happens entirely in your
-                    browser, your token data remains secure and private. This makes it useful for developers working
-                    with authentication, APIs, or debugging token-related issues.
-                </p>
-                <p>
-                    All validation is performed <strong>directly in your
-                        browser</strong>. That means your data never leaves your device — making
-                    this JWT decoder tool 100% secure and private.
+                <summary><strong>About this XML Formatter</strong></summary>
+                <p>This free <strong>online XML formatter</strong> helps you quickly
+                    beautify, validate, and minify XML data. Whether you’re debugging API responses,
+                    working with configuration files, or preparing XML for production, this tool
+                    makes your workflow faster and easier.
                 </p>
             </details>
-            <p>👉 Read More <a href="/blogs/jwt-decoder">JWT Decoder Guide by BitTools.cc</a></p>
+            <h2>Common XML Tasks</h2>
+            <ul>
+                <li>Indent messy XML for code reviews</li>
+                <li>Minify payloads for transport</li>
+            </ul>
 
+            <p>👉 Read More <a href="/blogs/xml-formatter">XML Formatter Guide by BitTools.cc</a></p>
             <section class="seo-content" style="margin-top:40px; line-height:1.6;">
-                <h2>About JWT Decoder</h2>
+                <h2>About XML Formatting</h2>
                 <p>
-                    A <strong>JWT (JSON Web Token)</strong> is a compact, URL-safe way of securely transmitting
-                    information
-                    between parties.
-                    JWTs are widely used in authentication systems and APIs. A typical token contains three parts —
-                    <strong>header, payload, and signature</strong> — encoded in Base64URL format.
+                    <strong>XML (Extensible Markup Language)</strong> is a widely used format
+                    for structuring and exchanging data across applications, systems, and APIs.
+                    Raw XML is often written in a single line or without proper indentation,
+                    making it difficult to read and debug. Formatting adds indentation and
+                    structure so developers, testers, and analysts can easily interpret the data.
                 </p>
                 <p>
-                    Using a JWT Decoder makes it easy to <strong>decode</strong> and inspect these tokens.
-                    Developers often need to debug tokens, view claims in the payload, or verify whether the token was
-                    signed correctly.
+                    In addition to beautifying, XML formatting often includes
+                    <strong>validation</strong> (checking if the XML is well-formed) and
+                    <strong>minification</strong> (removing spaces and line breaks for compact storage).
                 </p>
 
-                <h3>Why Use a JWT Decoder?</h3>
+                <h3>Why Use an XML Formatter?</h3>
                 <ul>
-                    <li>📌 <strong>Decode JWT</strong> — instantly view the header, payload, and signature.</li>
-                    <li>📌 <strong>Debug Authentication</strong> — inspect token data during login and API calls.</li>
-                    <li>📌 <strong>Verify Claims</strong> — check expiration, issuer, audience, and custom claims.</li>
-                    <li>📌 <strong>Stay Secure</strong> — decoding happens fully in your browser; no data is uploaded.
-                    </li>
+                    <li>📌 <strong>Beautify XML</strong> — make XML more readable with proper indentation.</li>
+                    <li>📌 <strong>Validate XML</strong> — quickly check if your XML is well-formed.</li>
+                    <li>📌 <strong>Minify XML</strong> — compress XML into a single line for smaller file sizes.</li>
+                    <li>📌 <strong>Debug Data</strong> — paste XML responses or files for quick inspection.</li>
                 </ul>
 
                 <h3>Frequently Asked Questions</h3>
-                <h4>🔹 What is a JWT?</h4>
+                <h4>🔹 What is XML formatting?</h4>
                 <p>
-                    A JSON Web Token (JWT) is a standard for securely transmitting claims between parties.
-                    It is commonly used in authentication and authorization flows.
+                    XML formatting is the process of adding indentation and structure to raw XML data
+                    so it’s easier to read, debug, and share. This tool also highlights issues if the XML
+                    is not well-formed.
                 </p>
 
-                <h4>🔹 Is this JWT Decoder safe to use?</h4>
+                <h4>🔹 Is this XML Formatter safe to use?</h4>
                 <p>
-                    Yes. This tool runs entirely in your browser, ensuring that no JWT data is sent to any server.
-                    Your tokens remain private and secure.
+                    Yes. Unlike some online tools, this XML Formatter runs entirely in your browser.
+                    No XML data is uploaded or stored on any server, keeping your data private.
                 </p>
 
-                <h4>🔹 Can I modify or create JWTs here?</h4>
+                <h4>🔹 Can I minify XML?</h4>
                 <p>
-                    This tool is primarily for decoding and inspecting tokens.
-                    Some advanced versions may allow you to encode or sign JWTs with a secret for testing purposes.
+                    Absolutely. Use the “Minify XML” option to compress XML into a single
+                    line, reducing file size and improving performance when storing or transferring data.
                 </p>
 
                 <h4>🔹 What other developer tools are available?</h4>
                 <p>
-                    BitTools provides a range of free developer tools. Keep an eye on our homepage for updates and new
-                    utilities.
-                    <!-- Along with this JWT Decoder, you can try our other tools like
-              <a href="/json-formatter">JSON Formatter</a>,
-              <a href="/base64-encoder-decoder">Base64 Encoder/Decoder</a>, and
-              <a href="/url-encoder-decoder">URL Encoder/Decoder</a>. -->
+                    We are continuously adding more tools. Keep an eye on the homepage for updates.
+                    <!-- Along with this XML Formatter, you can try our other free tools like
+                  <a href="/json-formatter">JSON Formatter</a>,
+                  <a href="/jwt-decoder">JWT Decoder</a>, and
+                  <a href="/base64-encoder-decoder">Base64 Encoder/Decoder</a>. -->
                 </p>
 
                 <h3>About BitTools</h3>
                 <p>
-                    This JWT Decoder is part of <strong>BitTools.cc</strong> — a free collection of online utilities
-                    for developers, security testers, and learners.
-                    No tracking, no uploads — just fast, browser-based tools.
+                    This XML Formatter is part of <strong>BitTools.cc</strong> — a free hub
+                    of online utilities for developers, students, and IT professionals.
+                    No tracking, no uploads — just fast, reliable tools.
                 </p>
             </section>
         </section>
@@ -451,13 +524,14 @@
     <div id="popup" class="popup"><span id="popupMessage"></span></div>
 
     <script>
-        class JWTDecoder {
+        class XMLFormatterTool {
             constructor() {
                 this.input = document.getElementById('input');
                 this.output = document.getElementById('output');
                 this.metaInfo = document.getElementById('metaInfo');
                 this.themeToggle = document.getElementById('themeToggle');
-                document.getElementById('decodeBtn').addEventListener('click', () => this.decode());
+                document.getElementById('formatBtn').addEventListener('click', () => this.format());
+                document.getElementById('minifyBtn').addEventListener('click', () => this.minify());
                 document.getElementById('copyBtn').addEventListener('click', () => this.copy());
                 document.getElementById('clearBtn').addEventListener('click', () => this.clear());
                 document.getElementById('closeBottomAd').addEventListener('click', () => this.closeBottomAd());
@@ -465,49 +539,20 @@
                 this.themeToggle.addEventListener('click', () => this.toggleTheme());
                 this.loadTheme();
             }
-            handleKeys(e) {
-                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); this.decode(); }
-                if (e.key === 'Escape') { e.preventDefault(); this.clear(); }
-            }
-            base64urlDecode(str) {
-                str = str.replace(/-/g, '+').replace(/_/g, '/');
-                const pad = str.length % 4; if (pad) str += '='.repeat(4 - pad);
-                return decodeURIComponent(Array.prototype.map.call(atob(str), c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
-            }
-            decode() {
-                const token = this.input.value.trim();
-                if (!token) { return this.popup('Empty input', 'error'); }
-                const parts = token.split('.');
-                if (parts.length < 2) { return this.popup('Invalid JWT format', 'error'); }
-                try {
-                    const header = JSON.parse(this.base64urlDecode(parts[0]));
-                    const payload = JSON.parse(this.base64urlDecode(parts[1]));
-                    const formatted = JSON.stringify({ header, payload }, null, 2);
-                    this.output.textContent = formatted;
-                    this.meta(formatted);
-                    this.popup('Decoded successfully', 'success');
-                    this.showBottomAd();
-                } catch (err) {
-                    this.output.textContent = '';
-                    this.popup('Decode error: ' + err.message, 'error');
-                    this.showBottomAd();
-                }
-            }
-            copy() {
-                const t = this.output.textContent; if (!t) return this.popup('Nothing to copy', 'error'); navigator.clipboard.writeText(t).then(() => {
-                    this.showBottomAd();
-                    this.popup('Copied', 'success');
-                })
-            }
-            clear() { this.input.value = ''; this.output.textContent = ''; this.metaInfo.textContent = ''; }
+            handleKeys(e) { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); this.format(); } if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'm') { e.preventDefault(); this.minify(); } if (e.key === 'Escape') { e.preventDefault(); this.clear(); } }
+            format() { const text = this.input.value.trim(); if (!text) return this.popup('Empty input', 'error'); try { const formatted = this.prettyXML(text); this.output.textContent = formatted; this.meta(formatted); this.popup('Formatted successfully', 'success'); this.showBottomAd(); } catch (err) { this.output.textContent = ''; this.popup('Invalid XML: ' + err.message, 'error'); this.showBottomAd(); } }
+            minify() { const text = this.input.value.trim(); if (!text) return this.popup('Empty input', 'error'); try { const minified = text.replace(/>\s+</g, '><').trim(); this.output.textContent = minified; this.meta(minified); this.popup('Minified successfully', 'success'); this.showBottomAd(); } catch (err) { this.output.textContent = ''; this.popup('Invalid XML: ' + err.message, 'error'); this.showBottomAd(); } }
+            copy() { const t = this.output.textContent; if (!t) return this.popup('Nothing to copy', 'error'); navigator.clipboard.writeText(t).then(() => this.popup('Copied', 'success')); }
+            clear() { this.input.value = ''; this.output.textContent = ''; this.metaInfo.textContent = ''; this.input.focus(); }
+            prettyXML(xml) { const P = new DOMParser(); const parsed = P.parseFromString(xml, 'application/xml'); const err = parsed.getElementsByTagName('parsererror')[0]; if (err) throw new Error(err.textContent); const ser = new XMLSerializer(); const raw = ser.serializeToString(parsed); let pad = 0; return raw.replace(/>(<)(\/*)/g, '$1\n$2').split('\n').map(line => { if (/<\//.test(line)) pad = Math.max(pad - 1, 0); const out = '  '.repeat(pad) + line; if (/<[^!?/][^>]*[^/]>/.test(line)) pad++; return out; }).join('\n'); }
             meta(text) { if (!text) { this.metaInfo.textContent = ''; return; } const lines = text.split('\n').length; const chars = text.length; const bytes = new Blob([text]).size; this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`; }
-            toggleTheme() { const cur = document.body.dataset.theme === 'light' ? 'light' : 'dark'; const nxt = cur === 'dark' ? 'light' : 'dark'; document.body.dataset.theme = nxt; this.themeToggle.textContent = nxt === 'dark' ? '🌙' : '☀️'; localStorage.setItem('jwt-theme', nxt); }
-            loadTheme() { const saved = localStorage.getItem('jwt-theme') || 'dark'; document.body.dataset.theme = saved; this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️'; }
+            toggleTheme() { const cur = document.body.dataset.theme === 'light' ? 'light' : 'dark'; const nxt = cur === 'dark' ? 'light' : 'dark'; document.body.dataset.theme = nxt; this.themeToggle.textContent = nxt === 'dark' ? '🌙' : '☀️'; localStorage.setItem('xml-theme', nxt); }
+            loadTheme() { const saved = localStorage.getItem('xml-theme') || 'dark'; document.body.dataset.theme = saved; this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️'; }
             showBottomAd() { document.getElementById('bottomAd').style.display = 'flex'; }
             closeBottomAd() { document.getElementById('bottomAd').style.display = 'none'; }
             popup(msg, type) { const p = document.getElementById('popup'); const m = document.getElementById('popupMessage'); m.textContent = msg; p.className = 'popup ' + type; p.style.display = 'flex'; setTimeout(() => p.style.display = 'none', 3000); }
         }
-        document.addEventListener('DOMContentLoaded', () => new JWTDecoder());
+        document.addEventListener('DOMContentLoaded', () => new XMLFormatterTool());
     </script>
 
     <footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>

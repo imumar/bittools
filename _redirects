@@ -1,6 +1,57 @@
 /dev/json-formatter    /DevTools/json-formatter/json-formatter-index.html 200
+/dev/json-formatter/    /DevTools/json-formatter/json-formatter-index.html 200
 /dev/base64-encoder    /DevTools/base64-encoder-decoder/base64encoderindex.html 200
+/dev/base64-encoder/    /DevTools/base64-encoder-decoder/base64encoderindex.html 200
+/dev/xml-formatter     /DevTools/xml-formatter/xml-formatter-index.html 200
+/dev/xml-formatter/     /DevTools/xml-formatter/xml-formatter-index.html 200
+/dev/jwt-decoder       /DevTools/jwt-decoder/jwt-decoder.html 200
+/dev/jwt-decoder/       /DevTools/jwt-decoder/jwt-decoder.html 200
+/dev/url-encoder       /DevTools/url-encoder/index.html 200
+/dev/url-encoder/       /DevTools/url-encoder/index.html 200
+/dev/csv-to-json       /DevTools/csv-to-json/index.html 200
+/dev/csv-to-json/       /DevTools/csv-to-json/index.html 200
+/dev/uuid-generator    /DevTools/uuid-generator/index.html 200
+/dev/uuid-generator/    /DevTools/uuid-generator/index.html 200
+/dev/regex-tester      /DevTools/regex-tester/index.html 200
+/dev/regex-tester/      /DevTools/regex-tester/index.html 200
+/dev/timestamp-converter   /DevTools/timestamp-converter/index.html 200
+/dev/timestamp-converter/   /DevTools/timestamp-converter/index.html 200
+/dev/html-escape       /DevTools/html-escape/index.html 200
+/dev/html-escape/       /DevTools/html-escape/index.html 200
 /blogs/json-formatter    /blogs/Devblogs/json-formatter-blog.html 200
 /blogs/base64-encoder    /blogs/Devblogs/base64-encoder-blog.html 200
+/blogs/url-encoder    /blogs/Devblogs/url-encoder-blog.html 200
+/blogs/csv-to-json    /blogs/Devblogs/csv-to-json-blog.html 200
+/blogs/uuid-generator    /blogs/Devblogs/uuid-generator-blog.html 200
+/blogs/regex-tester    /blogs/Devblogs/regex-tester-blog.html 200
+/blogs/timestamp-converter    /blogs/Devblogs/timestamp-converter-blog.html 200
+/blogs/html-escape    /blogs/Devblogs/html-escape-blog.html 200
+ /blogs/xml-formatter    /blogs/Devblogs/xml-formatter-blog.html 200
+ /blogs/jwt-decoder    /blogs/Devblogs/jwt-decoder-blog.html 200
+ 
+/blogs/emi    /blogs/Financeblogs/emi-blog.html 200
+/blogs/compound-interest    /blogs/Financeblogs/compound-interest-blog.html 200
+/blogs/sip    /blogs/Financeblogs/sip-blog.html 200
+/blogs/lumpsum    /blogs/Financeblogs/lumpsum-blog.html 200
+/blogs/fd    /blogs/Financeblogs/fd-blog.html 200
+/blogs/rd    /blogs/Financeblogs/rd-blog.html 200
+ 
+/blogs/bmi    /blogs/Healthblogs/bmi-blog.html 200
+/blogs/bmr    /blogs/Healthblogs/bmr-blog.html 200
 /dev    /DevTools/dev-index.html 200
+/dev/    /DevTools/dev-index.html 200
+/health    /health/index.html 200
+/health/bmi    /health/bmi/index.html 200
+/health/bmr    /health/bmr/index.html 200
+/finance    /finance/index.html 200
+/finance/emi    /finance/emi/index.html 200
+/finance/compound-interest    /finance/compound-interest/index.html 200
+/finance/sip    /finance/sip/index.html 200
+/finance/lumpsum    /finance/lumpsum/index.html 200
+/finance/fd    /finance/fd/index.html 200
+/finance/rd    /finance/rd/index.html 200
+/finance/loan-affordability    /finance/loan-affordability/index.html 200
+/finance/retirement-corpus    /finance/retirement-corpus/index.html 200
+/finance/inflation-adjuster    /finance/inflation-adjuster/index.html 200
+/finance/roi-irr    /finance/roi-irr/index.html 200
 /    /index.html 200

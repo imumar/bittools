@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>HTML Encoder/Decoder | BitTools</title>
+<meta name="description" content="Escape and unescape HTML entities safely in your browser."/>
+<link rel="canonical" href="https://www.bittools.cc/dev/html-escape"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is HTML encoding?","acceptedAnswer":{"@type":"Answer","text":"It replaces special characters with HTML entities like &amp;amp; &amp;lt; &amp;gt;."}},{"@type":"Question","name":"When should I decode?","acceptedAnswer":{"@type":"Answer","text":"Decode when you need to display user-input or stored HTML entities as plain text."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
+<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)}[data-theme="light"]{--bg:#f1f8ed;--panel:#f9fafb;--text:#111827;--muted:#374151;--accent:#0077ff;--danger:#c1121f;--ok:#059669;--border:#d1d5db}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:1200px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header img:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(107,220,255,.4)}header .text h1{margin:0;font-size:clamp(1.5rem,2rem,2.2rem)}.muted{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border-bottom:1px solid var(--border)}.toolbar .spacer{flex:1}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.grid>div{display:flex;flex-direction:column;min-height:420px}textarea,pre{flex:1;min-height:420px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:14px;line-height:1.45;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);white-space:pre-wrap}</style>
+</head><body data-theme="dark">
+<div class="container">
+  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>HTML Encoder/Decoder <span class="muted">— by BitTools</span></h1><p class="muted">Convert between text and HTML entities.</p></div></header>
+  <section class="card">
+    <div class="toolbar"><strong>Tool</strong><button class="btn" id="encodeBtn">Encode</button><button class="btn" id="decodeBtn">Decode</button><button class="btn" id="copyBtn">Copy Output</button><div class="spacer"></div><button class="btn danger" id="clearBtn">Clear</button><button class="btn" id="themeToggle">🌙</button></div>
+    <div class="grid"><div><textarea id="input" placeholder="Paste text or HTML here…"></textarea></div><div><pre id="output"></pre></div></div>
+    <div class="ad-slot" style="margin-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:100px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  </section>
+</div>
+<section class="help" style="max-width:1200px;margin:auto;padding:12px"><p>👉 Read More <a href="/blogs/html-escape">HTML Encoder/Decoder Guide by BitTools.cc</a></p></section>
+<section class="help">
+  <details>
+    <summary><strong>How to use</strong></summary>
+    <ol>
+      <li>Paste text or HTML to encode/decode.</li>
+      <li>Click <strong>Encode</strong> to convert special characters to entities.</li>
+      <li>Click <strong>Decode</strong> to convert entities back to characters.</li>
+    </ol>
+  </details>
+  <details>
+    <summary><strong>About HTML Entities</strong></summary>
+    <p>Entities like <code>&amp;amp;</code>, <code>&amp;lt;</code>, and <code>&amp;gt;</code> ensure content displays safely in HTML.</p>
+  </details>
+</section>
+<section class="seo-content" style="max-width:1200px;margin:auto;line-height:1.6;padding:12px;">
+  <h2>When to Encode</h2>
+  <p>Encode user-provided content before inserting into HTML to avoid layout issues and injection risks.</p>
+</section>
+<div id="bottomAd" class="bottom-ad" style="position:fixed;bottom:0;left:0;right:0;background:#12141a;border-top:1px solid #1e232d;box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem"><span class="ad-label" style="color:#9aa7b4;margin-right:.5rem;font-weight:600">Advertisement</span><div class="ad-slot" style="flex:1;text-align:center"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad" style="background:transparent;border:none;color:#9aa7b4;cursor:pointer;font-size:1rem;margin-left:.5rem">×</button></div>
+<div id="popup" class="popup" style="position:fixed;top:20px;right:20px;background:#12141a;color:#e8edf2;border:1px solid #1e232d;border-radius:12px;padding:12px 16px;display:none;box-shadow:0 10px 25px rgba(0,0,0,.35);z-index:10000"><span id="popupMessage"></span></div>
+<script>
+class HtmlTool{constructor(){this.i=document.getElementById('input');this.o=document.getElementById('output');this.t=document.getElementById('themeToggle');document.getElementById('encodeBtn').addEventListener('click',()=>this.encode());document.getElementById('decodeBtn').addEventListener('click',()=>this.decode());document.getElementById('copyBtn').addEventListener('click',()=>this.copy());document.getElementById('clearBtn').addEventListener('click',()=>this.clear());this.t.addEventListener('click',()=>this.theme());this.loadTheme();(document.getElementById('closeBottomAd')||{}).onclick=()=>this.closeAd();}
+encode(){const v=this.i.value; if(!v){this.o.textContent=''; this.pop('Empty input','error'); return;} const r=v.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); this.o.textContent=r; this.pop('Encoded','success'); this.showAd();}
+decode(){const v=this.i.value; if(!v){this.o.textContent=''; this.pop('Empty input','error'); return;} const ta=document.createElement('textarea'); ta.innerHTML=v; this.o.textContent=ta.value; this.pop('Decoded','success'); this.showAd();}
+copy(){const t=this.o.textContent; if(!t){this.pop('Nothing to copy','error'); return;} navigator.clipboard.writeText(t).then(()=>this.pop('Copied','success')); this.showAd();}
+clear(){this.i.value=''; this.o.textContent=''; this.pop('Cleared','success');}
+theme(){const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; this.t.textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('html-theme',n);} loadTheme(){const s=localStorage.getItem('html-theme')||'dark'; document.body.dataset.theme=s; this.t.textContent=s==='dark'?'🌙':'☀️';}
+showAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
+closeAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
+pop(msg,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=msg; p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);}
+}
+document.addEventListener('DOMContentLoaded',()=>new HtmlTool());
+</script>
+<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
+</body></html>
+
+

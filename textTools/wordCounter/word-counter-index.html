@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+        crossorigin="anonymous"></script>
+    <!-- Primary Meta Tags -->
+    <title>Word Counter & Character Counter – Free, Fast & Private | BitTools</title>
+    <meta name="title" content="Word Counter & Character Counter – Free, Fast & Private | BitTools">
+    <meta name="description"
+        content="Count words, characters, lines, sentences, and paragraphs instantly. Reading & speaking time included. 100% client-side, secure, and private. Free tool by BitTools.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bittools.cc/dev/word-counter">
+    <meta property="og:title" content="Word Counter & Character Counter – Free, Fast & Private | BitTools">
+    <meta property="og:description"
+        content="Count words, characters, lines, sentences, and paragraphs instantly. Reading & speaking time included. 100% client-side and private.">
+    <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bittools.cc/dev/word-counter">
+    <meta property="twitter:title" content="Word Counter & Character Counter – Free, Fast & Private | BitTools">
+    <meta property="twitter:description"
+        content="Instant word and character count with reading & speaking time. 100% client-side and private.">
+    <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this word counter safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The tool runs completely in your browser. No text is uploaded or stored on any server, making it 100% safe and private."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does this tool count?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It counts words, characters (with and without spaces), lines, sentences, and paragraphs. It also estimates reading time and speaking time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does formatting or punctuation affect the count?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Basic punctuation and spacing are handled automatically. Words are detected by whitespace boundaries; sentences are estimated using standard punctuation marks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upload a file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can upload .txt or .md files and the tool will analyze the content instantly in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. BitTools provides this word counter for free, with no tracking and no sign-up."
+          }
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "BitTools",
+        "url": "https://bittools.cc"
+      }
+    }
+    </script>
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/bittool.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Word Counter & Character Counter – Free, Fast & Private | BitTools</title>
+    <meta name="description"
+        content="Count words, characters, lines, sentences, and paragraphs in your browser with BitTools. No data leaves your device. Fast, free, and private." />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bittools.cc/dev/word-counter" />
+    <!-- Open Graph / Twitter (kept simple) -->
+    <meta property="og:title" content="Word Counter & Character Counter – Free, Fast & Private" />
+    <meta property="og:description" content="Instant counts, reading & speaking time. 100% client-side." />
+    <meta name="twitter:card" content="summary" />
+
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --panel: #12141a;
+            --text: #e8edf2;
+            --muted: #9aa7b4;
+            --accent: #6bdcff;
+            --danger: #ff6b6b;
+            --ok: #7dffa0;
+            --border: #1e232d;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+        }
+
+        [data-theme="light"] {
+            --bg: #f1f8ed;
+            --panel: #f9fafb;
+            --text: #111827;
+            --muted: #374151;
+            --accent: #0077ff;
+            --danger: #c1121f;
+            --ok: #059669;
+            --border: #d1d5db;
+        }
+
+        html, body { height: 100% }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 24px }
+
+        header {
+            display: flex; align-items: center; gap: 16px; margin-bottom: 16px; justify-content: flex-start;
+        }
+        header img { width: 110px; height: 110px; border-radius: 24px; background: #12141a; }
+        header .text h1 { font-size: clamp(1.5rem, 2rem, 2.2rem); margin: 0; }
+        header .text p { margin: 4px 0 0 0; }
+        header img:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(107, 220, 255, 0.4); }
+
+        h1 { font-size: clamp(1.25rem, 1.6rem+1vw, 2rem); margin: 0 }
+        .muted { color: var(--muted) }
+
+        .card {
+            background: var(--panel); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow);
+            display: flex; flex-direction: column; padding: 0; overflow: hidden
+        }
+
+        .toolbar {
+            display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px;
+            border-bottom: 1px solid var(--border); background: transparent
+        }
+        .toolbar .spacer { flex: 1 }
+
+        .btn {
+            appearance: none; border: 1px solid var(--border); background: transparent; color: var(--text);
+            padding: 10px 12px; border-radius: 12px; cursor: pointer; transition: all 0.16s ease
+        }
+        .btn:hover { border-color: var(--accent); background: rgba(107, 220, 255, 0.06) }
+        .btn:active { transform: translateY(1px) }
+        .btn.danger { border-color: transparent; background: var(--danger); color: #fff }
+        .btn.ghost { background: transparent }
+
+        .switch { display: inline-flex; gap: 8px; align-items: center }
+
+        .grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; align-items: stretch;
+        }
+        .grid>div { display: flex; flex-direction: column; min-height: 420px; }
+
+        #input, #output {
+            flex: 1; box-sizing: border-box; min-height: 420px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+            font-size: 14px; line-height: 1.45; padding: 12px; margin: 0; border-radius: 12px;
+            border: 1px solid var(--border); background: var(--panel); color: var(--text);
+            resize: vertical; overflow: auto; white-space: pre-wrap; word-break: break-word;
+        }
+
+        .btn, label.btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem;
+            font-size: 0.875rem; font-weight: 500; border-radius: 0.5rem; cursor: pointer;
+            background: #374151; color: #fff; border: none; line-height: 1.25rem; transition: background 0.2s;
+        }
+        .btn:hover, label.btn:hover { background: #005fcc; }
+        .btn.ghost, label.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        textarea { -webkit-font-smoothing: antialiased; }
+
+        [data-theme="light"] #input, [data-theme="light"] #output {
+            background: var(--panel); color: var(--text); border-color: var(--border);
+        }
+
+        .status {
+            display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+            padding: 12px; border-top: 1px solid var(--border); background: transparent
+        }
+
+        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); transition: all 0.3s ease }
+        .badge.ok { background: rgba(125, 255, 160, .06); border-color: rgba(125, 255, 160, .16); color: var(--ok) }
+        .badge.err { background: rgba(255, 107, 107, .06); border-color: rgba(255, 107, 107, .16); color: var(--danger) }
+
+        .help { margin-top: 18px; padding: 12px }
+        details { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 12px 0 }
+        details:hover { border-color: var(--accent) }
+        summary { cursor: pointer; font-weight: 600 }
+
+        .footer-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px }
+        .footer-links a { color: var(--accent); text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: background 0.2s ease }
+        .footer-links a:hover { background: rgba(107, 220, 255, 0.06) }
+
+        .kbd { font-family: ui-monospace, monospace; border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px; background: var(--panel) }
+
+        .ad-slot {
+            margin: 0; border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+            color: var(--muted); display: flex; align-items: center; justify-content: center; min-height: 100px; padding: 16px;
+        }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0, 0, 0, 0); clip-path: inset(100%); border: 0; white-space: nowrap;
+        }
+
+        .popup {
+            position: fixed; top: 20px; right: 20px; background: var(--panel); color: var(--text);
+            border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; display: none;
+            box-shadow: var(--shadow); z-index: 10000; align-items: center;
+        }
+        .popup.success { border-left: 4px solid var(--ok); }
+        .popup.error { border-left: 4px solid var(--danger); }
+        .popup-close { background: transparent; border: none; color: var(--text); font-size: 14px; margin-left: 8px; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; gap: 8px; padding: 10px }
+            .grid>div:nth-child(2) { order: 2 }
+            .toolbar { gap: 6px; padding: 10px }
+            .btn { padding: 8px 10px; font-size: 14px }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+
+        <header>
+            <a href="/" title="BitTools Home">
+                <img src="/assets/bittoolsicon.png" alt="BitTools Logo">
+            </a>
+            <div class="text">
+                <h1>Word Counter <span class="muted">— by BitTools</span></h1>
+                <p class="muted">Count words, characters, lines, sentences & paragraphs. 100% client-side. No data leaves your browser.</p>
+            </div>
+        </header>
+
+        <section class="card" aria-labelledby="toolHeading">
+            <div class="toolbar">
+                <strong id="toolHeading">Tool</strong>
+                <button class="btn" id="countBtn" title="Count (Ctrl/Cmd+Enter)">Count</button>
+                <button class="btn" id="copyBtn">Copy Output</button>
+                <button class="btn" id="downloadBtn">Download .txt</button>
+                <label class="btn" for="fileInput" role="button">Upload…</label>
+                <input id="fileInput" type="file" accept=".txt,.md,text/plain" class="sr-only" />
+                <div class="spacer"></div>
+                <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+                <button class="btn" id="themeToggle" style="margin-left:8px;">🌙</button>
+            </div>
+
+            <div class="grid" id="grid">
+                <div>
+                    <label for="input" class="sr-only">Input Text</label>
+                    <textarea id="input" placeholder='Paste or type your text here…'></textarea>
+                </div>
+
+                <div>
+                    <label for="output" class="sr-only">Counts Output</label>
+                    <pre id="output" aria-live="polite"></pre>
+                </div>
+            </div>
+
+            <div class="status">
+                <div class="muted" id="metaInfo"></div>
+            </div>
+
+            <div class="ad-slot">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                    data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+
+        <section class="help">
+            <details>
+                <summary><strong>How to use</strong></summary>
+                <ol>
+                    <li>Paste or type your text into the box above.</li>
+                    <li>Click <strong>Count</strong> (or press <span class="kbd">Ctrl/⌘</span> + <span class="kbd">Enter</span>) to analyze the text.</li>
+                    <li>View words, characters, lines, sentences, paragraphs, and estimated reading/speaking time.</li>
+                    <li>Use <strong>Copy Output</strong> to copy the stats, or <strong>Download .txt</strong> to save them.</li>
+                </ol>
+            </details>
+            <details>
+                <summary><strong>About This Online Word Counter</strong></summary>
+                <p>
+                    This free <strong>online word counter</strong> instantly analyzes your text and provides detailed
+                    statistics including word and character counts, line and paragraph counts, and time-to-read estimates.
+                </p>
+                <p>
+                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device — making
+                    this tool 100% secure and private.
+                </p>
+            </details>
+
+            <p>👉 Read More <a href="/blogs/word-counter">Online Word & Character Counter by BitTools.cc</a>
+
+            <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+                <h2>What This Word Counter Measures</h2>
+                <ul>
+                    <li><strong>Words</strong> — detected by whitespace boundaries.</li>
+                    <li><strong>Characters</strong> — with and without spaces.</li>
+                    <li><strong>Lines</strong> — based on line breaks.</li>
+                    <li><strong>Sentences</strong> — estimated using punctuation like <code>., !, ?</code>.</li>
+                    <li><strong>Paragraphs</strong> — separated by blank lines.</li>
+                    <li><strong>Reading Time</strong> — based on ~200 WPM.</li>
+                    <li><strong>Speaking Time</strong> — based on ~130 WPM.</li>
+                </ul>
+
+                <h3>Why Use a Word Counter?</h3>
+                <ul>
+                    <li>📌 <strong>Writers & Students</strong> — meet assignment or platform limits.</li>
+                    <li>📌 <strong>Bloggers & SEO</strong> — keep content within target lengths.</li>
+                    <li>📌 <strong>Social Media</strong> — check character caps for posts and bios.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <h4>🔹 How accurate is sentence detection?</h4>
+                <p>Sentence counts are estimated using common punctuation and may vary for abbreviations or complex structures.</p>
+
+                <h4>🔹 Is there a character count without spaces?</h4>
+                <p>Yes — the output shows both total characters and characters excluding spaces.</p>
+
+                <h4>🔹 Can I upload a file?</h4>
+                <p>Yes — upload a <code>.txt</code> or <code>.md</code> file to analyze it instantly.</p>
+
+                <h3>About BitTools</h3>
+                <p>
+                    The Word Counter is part of <strong>BitTools.cc</strong> — a free hub
+                    of simple online utilities for developers, students, and content creators.
+                    No tracking — just fast, useful tools.
+                </p>
+            </section>
+        </section>
+    </div>
+
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+
+    <!-- ✅ Popup -->
+    <div id="popup" class="popup">
+        <span id="popupMessage"></span>
+        <button id="popupClose" class="popup-close">✖</button>
+    </div>
+
+    <style>
+        .bottom-ad {
+            position: fixed; bottom: 0; left: 0; right: 0; background: var(--panel);
+            border-top: 1px solid var(--border); box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+            padding: 0.25rem 0.75rem; display: flex; align-items: center; justify-content: space-between;
+            z-index: 9999; font-size: 0.75rem;
+        }
+        .bottom-ad .ad-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); margin-right: 0.5rem; }
+        .bottom-ad .ad-slot { flex: 1; text-align: center; }
+        .bottom-ad .close-ad { background: transparent; border: none; font-size: 1rem; line-height: 1; cursor: pointer; color: var(--muted); margin-left: 0.5rem; padding: 0; }
+        .bottom-ad .close-ad:hover { color: var(--text); }
+    </style>
+
+    <script>
+        class WordCounter {
+            constructor() {
+                this.input = document.getElementById('input');
+                this.output = document.getElementById('output');
+                this.metaInfo = document.getElementById('metaInfo');
+                this.themeToggle = document.getElementById('themeToggle');
+
+                this.initEventListeners();
+                this.loadTheme();
+            }
+
+            initEventListeners() {
+                document.getElementById('countBtn').addEventListener('click', () => this.count());
+                document.getElementById('copyBtn').addEventListener('click', () => this.copyOutput());
+                document.getElementById('downloadBtn').addEventListener('click', () => this.download());
+                document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+                document.getElementById('fileInput').addEventListener('change', (e) => this.handleFileUpload(e));
+                document.getElementById("closeBottomAd").addEventListener("click", () => this.closeBottomAd());
+                this.themeToggle.addEventListener('click', () => this.toggleTheme());
+
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+                this.input.addEventListener('input', () => this.updateLiveMeta());
+            }
+
+            count() {
+                const text = this.input.value;
+                if (!text.trim()) { this.showPopup('Empty input', 'err'); this.output.textContent = ''; this.updateMeta(''); return; }
+
+                const stats = this.analyze(text);
+                const report = this.formatReport(stats);
+
+                this.output.textContent = report;
+                this.updateMeta(report);
+                this.showPopup('Count complete', 'ok');
+                this.showBottomAd();
+            }
+
+            analyze(text) {
+                const lines = text.length ? text.split(/\r\n|\r|\n/).length : 0;
+
+                // Words: split by whitespace, filter out empties
+                const words = text.trim().length
+                    ? text.trim().split(/\s+/).filter(Boolean).length
+                    : 0;
+
+                const chars = text.length;
+                const charsNoSpaces = text.replace(/\s/g, '').length;
+
+                // Sentences: split on ., !, ? followed by space or line end. Basic heuristic.
+                const sentenceCandidates = text.split(/(?<=[\.!?])\s+/).filter(s => s.trim().length > 0);
+                const sentences = sentenceCandidates.length && text.trim().length ? sentenceCandidates.length : 0;
+
+                // Paragraphs: blocks separated by one or more blank lines
+                const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+
+                const wpmRead = 200;
+                const wpmSpeak = 130;
+                const minutesRead = words / wpmRead;
+                const minutesSpeak = words / wpmSpeak;
+
+                return {
+                    words,
+                    chars,
+                    charsNoSpaces,
+                    lines,
+                    sentences,
+                    paragraphs,
+                    readingTimeMin: minutesRead,
+                    speakingTimeMin: minutesSpeak
+                };
+            }
+
+            formatReport(stats) {
+                const fmtTime = (mins) => {
+                    if (mins < 1) return `${Math.max(1, Math.round(mins * 60))} sec`;
+                    const m = Math.floor(mins);
+                    const s = Math.round((mins - m) * 60);
+                    return s > 0 ? `${m} min ${s} sec` : `${m} min`;
+                };
+
+                return [
+                    `Words: ${stats.words.toLocaleString()}`,
+                    `Characters (all): ${stats.chars.toLocaleString()}`,
+                    `Characters (no spaces): ${stats.charsNoSpaces.toLocaleString()}`,
+                    `Lines: ${stats.lines.toLocaleString()}`,
+                    `Sentences (est.): ${stats.sentences.toLocaleString()}`,
+                    `Paragraphs: ${stats.paragraphs.toLocaleString()}`,
+                    `Reading time (~200 wpm): ${fmtTime(stats.readingTimeMin)}`,
+                    `Speaking time (~130 wpm): ${fmtTime(stats.speakingTimeMin)}`
+                ].join('\n');
+            }
+
+            copyOutput() {
+                const text = this.output.textContent;
+                if (!text) { this.showPopup('Nothing to copy', 'err'); return; }
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showPopup('Copied to clipboard!', 'ok');
+                    this.showBottomAd();
+                    setTimeout(() => this.showPopup(), 2000);
+                }).catch(() => this.showPopup('Copy failed', 'err'));
+            }
+
+            download() {
+                const text = this.output.textContent;
+                if (!text) { this.showPopup('Nothing to download', 'err'); return; }
+                const blob = new Blob([text], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'word-count.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                this.showPopup('Downloaded!', 'ok');
+                this.showBottomAd();
+                setTimeout(() => this.showPopup(), 2000);
+            }
+
+            clear() {
+                this.input.value = '';
+                this.output.textContent = '';
+                this.updateMeta('');
+                this.metaInfo.textContent = '';
+                this.input.focus();
+            }
+
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => { this.input.value = e.target.result; this.updateLiveMeta(); };
+                reader.readAsText(file);
+            }
+
+            handleKeyboard(event) {
+                if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); this.count(); }
+                else if (event.key === 'Escape') { event.preventDefault(); this.clear(); }
+            }
+
+            updateLiveMeta() {
+                const text = this.input.value;
+                if (!text) { this.metaInfo.textContent = ''; return; }
+                const chars = text.length;
+                const words = text.trim() ? text.trim().split(/\s+/).filter(Boolean).length : 0;
+                this.metaInfo.textContent = `${words.toLocaleString()} words • ${chars.toLocaleString()} chars`;
+            }
+
+            updateMeta(report) {
+                if (!report) { this.metaInfo.textContent = ''; return; }
+                const lines = report.split('\n').length;
+                const chars = report.length;
+                const bytes = new Blob([report]).size;
+                this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`;
+            }
+
+            toggleTheme() {
+                const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.body.dataset.theme = next;
+                this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+                localStorage.setItem('word-counter-theme', next);
+            }
+
+            loadTheme() {
+                const saved = localStorage.getItem('word-counter-theme') || 'dark';
+                document.body.dataset.theme = saved;
+                this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+            }
+
+            showBottomAd() {
+                document.getElementById("bottomAd").style.display = "flex";
+            }
+            closeBottomAd() {
+                document.getElementById("bottomAd").style.display = "none";
+            }
+
+            showPopup(message, type = "success") {
+                const popup = document.getElementById("popup");
+                const popupMessage = document.getElementById("popupMessage");
+                const closeBtn = document.getElementById("popupClose");
+
+                if (!popup || !popupMessage || !closeBtn) {
+                    console.warn("Popup elements not found yet");
+                    return;
+                }
+                popupMessage.textContent = message || '';
+                popup.className = "popup " + (type === 'err' ? 'error' : 'success');
+                popup.style.display = message ? "flex" : "none";
+
+                if (message) {
+                    setTimeout(() => { popup.style.display = "none"; }, 3000);
+                    closeBtn.onclick = () => { popup.style.display = "none"; };
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => new WordCounter());
+    </script>
+
+    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+    </footer>
+
+</body>
+</html>

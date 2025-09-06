@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URL Encoder/Decoder — Guide | BitTools</title>
+  <meta name="description" content="Learn how URL encoding works and when to use it in web apps." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What does URL encoding do?","acceptedAnswer":{"@type":"Answer","text":"It converts special characters to percent-encoded format so they can be safely transmitted in URLs."}},
+    {"@type":"Question","name":"Is my text uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser."}},
+    {"@type":"Question","name":"When should I use encodeURIComponent?","acceptedAnswer":{"@type":"Answer","text":"Use it for query parameter values. For full URLs, use encodeURI."}}
+  ],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}
+  </script>
+  <link rel="canonical" href="https://www.bittools.cc/blogs/url-encoder" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35)
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    header img {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: #12141a
+    }
+
+    header .text h1 {
+      margin: 0
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px
+    }
+
+    a {
+      color: var(--accent)
+    }
+
+    .ad-slot {
+      margin: 24px 0 0 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, .04), rgba(125, 255, 160, .03));
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+      <div class="text">
+        <h1>URL Encoder/Decoder — by Bittools</h1>
+      </div>
+    </header>
+    <article class="card">
+      <p>URL encoding converts characters into a percent-encoded form so they can be safely transported inside URLs.
+        This prevents reserved characters from breaking query strings or paths.</p>
+
+      <h2>How to use the URL Encoder/Decoder</h2>
+      <ol>
+        <li>Paste text (or an encoded string) into the input box.</li>
+        <li>Click <strong>Encode</strong> to percent-encode reserved characters.</li>
+        <li>Click <strong>Decode</strong> to restore an encoded string.</li>
+        <li><a href="/dev/url-encoder">Open the URL Encoder/Decoder</a></li>
+      </ol>
+
+      <h2>Examples</h2>
+      <h3>Encode query parameter value</h3>
+      <pre>
+value = "a&b=c d"
+encodeURIComponent(value) → "a%26b%3Dc%20d"
+</pre>
+
+      <h3>Encode full URL (use encodeURI)</h3>
+      <pre>
+encodeURI("https://example.com/a file?q=a&b=c") →
+"https://example.com/a%20file?q=a&b=c"
+</pre>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      <h2>Best practices</h2>
+      <ul>
+        <li><strong>encodeURIComponent for values</strong>: Use for query parameter values; it encodes <code>&</code>,
+          <code>=</code>, and spaces.
+        </li>
+        <li><strong>encodeURI for full URLs</strong>: Keeps <code>:</code>, <code>/</code>, <code>?</code>,
+          <code>&</code> intact.
+        </li>
+        <li><strong>Avoid double encoding</strong>: Don’t encode an already encoded string.</li>
+        <li><strong>Normalize spaces</strong>: Prefer <code>%20</code> over <code>+</code> for consistency.</li>
+      </ul>
+
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li>Using <code>encodeURI</code> on values (will not encode <code>&</code> or <code>=</code>).</li>
+        <li>Decoding twice and corrupting data.</li>
+        <li>Forgetting to encode path segments containing spaces.</li>
+      </ul>
+
+      <h2>FAQs</h2>
+      <h3>Does the tool upload my data?</h3>
+      <p>No. All encoding/decoding happens in your browser.</p>
+      <h3>Why do I see %20 instead of +?</h3>
+      <p><code>%20</code> is the standard for spaces. <code>+</code> is used in
+        <code>application/x-www-form-urlencoded</code> bodies.
+      </p>
+      <h3>Is JSON safe to put in a URL?</h3>
+      <p>Encode JSON as a value with <code>encodeURIComponent</code>, but watch URL length limits.</p>
+
+      <p>Try the tool: <a href="/dev/url-encoder">URL Encoder/Decoder</a></p>
+
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+      </footer>
+    </article>
+  </div>
+</body>
+
+</html>

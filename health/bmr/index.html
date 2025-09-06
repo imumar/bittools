@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BMR Calculator | BitTools</title>
+<meta name="description" content="Calculate your Basal Metabolic Rate (BMR) instantly. 100% client-side."/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"Mifflin–St Jeor equation for BMR."}}]}</script>
+<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:800px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header .text h1{margin:0}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:16px}.row{display:flex;gap:12px;align-items:center;margin:8px 0}input,select{flex:1;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text)}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s ease}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.ad-slot{margin:0;border-top:1px solid var(--border);background:linear-gradient(135deg, rgba(107,220,255,.04), rgba(125,255,160,.03));color:var(--muted);display:flex;align-items:center;justify-content:center;min-height:100px;padding:16px}.popup{position:fixed;top:20px;right:20px;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:none;box-shadow:var(--shadow);z-index:10000;align-items:center}.popup.success{border-left:4px solid var(--ok)}.popup.error{border-left:4px solid var(--danger)}.bottom-ad{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--border);box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem}.bottom-ad .ad-label{font-size:.7rem;font-weight:600;color:var(--muted);margin-right:.5rem}.bottom-ad .ad-slot{flex:1;text-align:center}.bottom-ad .close-ad{background:transparent;border:none;font-size:1rem;line-height:1;cursor:pointer;color:var(--muted);margin-left:.5rem;padding:0}</style>
+</head><body>
+<div class="container">
+  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>BMR Calculator</h1><p class="muted">Basal Metabolic Rate (Mifflin–St Jeor).</p></div><button class="btn" id="themeToggle" style="margin-left:auto">🌙</button></header>
+  <section class="card">
+    <div class="row"><label>Sex</label><select id="sex"><option value="m">Male</option><option value="f">Female</option></select></div>
+    <div class="row"><label>Age</label><input id="age" placeholder="Years"/></div>
+    <div class="row"><label>Height (cm)</label><input id="height" placeholder="e.g. 170"/></div>
+    <div class="row"><label>Weight (kg)</label><input id="weight" placeholder="e.g. 65"/></div>
+    <div class="row"><button class="btn" id="calc">Calculate</button></div>
+    <div class="row"><strong id="result"></strong></div>
+    <div class="ad-slot" style="margin-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:100px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+  </section>
+  <section class="help" style="max-width:800px;margin:auto;padding:12px">
+    <details>
+      <summary><strong>How to use</strong></summary>
+      <ol>
+        <li>Select sex, enter age, height (cm) and weight (kg).</li>
+        <li>Click <strong>Calculate</strong> to see daily basal calories.</li>
+      </ol>
+    </details>
+    <details>
+      <summary><strong>About BMR</strong></summary>
+      <p>BMR estimates energy use at rest using the Mifflin–St Jeor equation.</p>
+    </details>
+  </section>
+  <section class="seo-content" style="max-width:800px;margin:auto;line-height:1.6;padding:12px;">
+    <h2>Next Steps</h2>
+    <p>Multiply BMR by an activity factor to estimate maintenance calories.</p>
+  </section>
+</div>
+<div id="bottomAd" class="bottom-ad"><span class="ad-label">Advertisement</span><div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad">×</button></div>
+<div id="popup" class="popup"><span id="popupMessage"></span></div>
+<script>
+document.getElementById('calc').addEventListener('click',()=>{
+  const sex=document.getElementById('sex').value; const age=parseFloat(document.getElementById('age').value);
+  const h=parseFloat(document.getElementById('height').value); const w=parseFloat(document.getElementById('weight').value);
+  if([age,h,w].some(isNaN)) {showPopup('Invalid input','error'); return;} let bmr=10*w+6.25*h-5*age+(sex==='m'?5:-161); document.getElementById('result').textContent=`BMR: ${Math.round(bmr)} kcal/day`; showPopup('Calculated','success'); showBottomAd();
+});
+function showBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
+function closeBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
+function showPopup(message,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=message; p.className='popup '+(type==='error'?'error':'success'); p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);} (document.getElementById('closeBottomAd')||{}).onclick=closeBottomAd;
+// theme toggle
+document.getElementById('themeToggle').addEventListener('click',()=>{const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; document.getElementById('themeToggle').textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('bmr-theme',n);});
+(()=>{const s=localStorage.getItem('bmr-theme')||'dark'; document.body.dataset.theme=s; const t=document.getElementById('themeToggle'); if(t) t.textContent=s==='dark'?'🌙':'☀️';})();
+</script>
+<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
+</body></html>
+
+

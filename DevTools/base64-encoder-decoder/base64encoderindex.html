@@ -203,34 +203,50 @@
       flex: 1;
     }
 
-    .btn {
-      appearance: none;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 12px;
+    .btn,
+    label.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
       cursor: pointer;
-      transition: all 0.16s ease;
+      background: #374151;
+      color: #fff;
+      border: none;
+      line-height: 1.25rem;
+      transition: background 0.2s;
     }
 
-    .btn:hover {
-      border-color: var(--accent);
-      background: rgba(107, 220, 255, 0.06);
+    .btn:hover,
+    label.btn:hover {
+      background: #005fcc;
     }
 
     .btn:active {
-      transform: translateY(1px);
+      transform: translateY(1px)
     }
 
     .btn.danger {
       border-color: transparent;
       background: var(--danger);
-      color: #fff;
+      color: #fff
     }
 
     .btn.ghost {
+      background: transparent
+    }
+
+    /* .btn.ghost {
       background: transparent;
+    } */
+    .btn.ghost,
+    label.btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .switch {
@@ -482,7 +498,7 @@
 <body data-theme="dark">
   <div class="container">
     <header>
-      <a href="https://bittools.cc/" title="BitTools Home">
+      <a href="/" title="BitTools Home">
         <img src="/assets/bittoolsicon.png" alt="BitTools Logo">
       </a>
       <div class="text">
@@ -544,7 +560,7 @@
         <p>This free online Base64 encoder/decoder bu bitTools.cc helps you quickly convert text to Base64 and back. All
           operations happen directly in your browser — 100% secure and private.</p>
       </details>
-      <p>👉 Read More <a href="https://www.bittools.cc/blogs/base64-encoder" target="_blank">Online Base64 encoder by
+      <p>👉 Read More <a href="/blogs/base64-encoder">Online Base64 encoder by
           BitTools.cc</a>
 
 
@@ -593,7 +609,7 @@
       <span class="ad-label">Advertisement</span>
       <div class="ad-slot">
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
-          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
