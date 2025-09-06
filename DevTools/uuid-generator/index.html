@@ -1,62 +1,404 @@
 <!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>UUID v4 Generator | BitTools</title>
-<meta name="description" content="Generate cryptographically strong UUID v4 identifiers. 100% client-side."/>
-<link rel="canonical" href="https://www.bittools.cc/dev/uuid-generator"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are UUIDs generated securely?","acceptedAnswer":{"@type":"Answer","text":"Yes. UUIDs are generated using the Web Crypto API locally."}},{"@type":"Question","name":"What version is used?","acceptedAnswer":{"@type":"Answer","text":"Version 4 (random) UUIDs."}},{"@type":"Question","name":"Can I generate multiple UUIDs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the ×10 button to generate multiple at once."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)}[data-theme="light"]{--bg:#f1f8ed;--panel:#f9fafb;--text:#111827;--muted:#374151;--accent:#0077ff;--danger:#c1121f;--ok:#059669;--border:#d1d5db}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:1200px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header img:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(107,220,255,.4)}header .text h1{margin:0;font-size:clamp(1.5rem,2rem,2.2rem)}.muted{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border-bottom:1px solid var(--border)}.toolbar .spacer{flex:1}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.btn.danger{border-color:transparent;background:var(--danger);color:#fff}.grid{display:grid;grid-template-columns:1fr;gap:12px;padding:12px}.status{display:flex;justify-content:space-between;align-items:center;padding:12px;border-top:1px solid var(--border)}pre{min-height:120px;font-family:ui-monospace,monospace;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--panel);} .help{margin-top:18px;padding:12px}details{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}details:hover{border-color:var(--accent)}summary{cursor:pointer;font-weight:600}</style>
-</head><body data-theme="dark">
-<div class="container">
-  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>UUID v4 Generator <span class="muted">— by BitTools</span></h1><p class="muted">Generate one or many UUIDs securely in your browser.</p></div></header>
-  <section class="card">
-    <div class="toolbar"><strong>Tool</strong><button class="btn" id="gen1">Generate</button><button class="btn" id="gen10">Generate ×10</button><button class="btn" id="copyBtn">Copy All</button><div class="spacer"></div><button class="btn" id="themeToggle">🌙</button></div>
-    <div class="grid"><pre id="output"></pre></div>
-    <div class="status"><div class="muted" id="metaInfo"></div></div>
-    <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-  </section>
-</div>
-<section class="help" style="max-width:1200px;margin:auto;padding:12px"><p>👉 Read More <a href="/blogs/uuid-generator">UUID v4 Guide by BitTools.cc</a></p></section>
-<section class="help">
-  <details>
-    <summary><strong>How to use</strong></summary>
-    <ol>
-      <li>Click <strong>Generate</strong> to create a single UUID.</li>
-      <li>Click <strong>Generate ×10</strong> to append ten new UUIDs.</li>
-      <li>Use <strong>Copy All</strong> to copy the list.</li>
-    </ol>
-  </details>
-  <details>
-    <summary><strong>About UUID v4</strong></summary>
-    <p>UUID v4 uses cryptographically strong randomness. Generation happens locally via Web Crypto.</p>
-  </details>
-</section>
-<section class="seo-content" style="max-width:1200px;margin:auto;line-height:1.6;padding:12px;">
-  <h2>Use Cases</h2>
-  <ul>
-    <li>Database identifiers</li>
-    <li>Idempotency keys</li>
-    <li>Random tokens in tests</li>
-  </ul>
-</section>
-<div id="bottomAd" class="bottom-ad" style="position:fixed;bottom:0;left:0;right:0;background:#12141a;border-top:1px solid #1e232d;box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem"><span class="ad-label" style="color:#9aa7b4;margin-right:.5rem;font-weight:600">Advertisement</span><div class="ad-slot" style="flex:1;text-align:center"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad" style="background:transparent;border:none;color:#9aa7b4;cursor:pointer;font-size:1rem;margin-left:.5rem">×</button></div>
-<div id="popup" class="popup" style="position:fixed;top:20px;right:20px;background:#12141a;color:#e8edf2;border:1px solid #1e232d;border-radius:12px;padding:12px 16px;display:none;box-shadow:0 10px 25px rgba(0,0,0,.35);z-index:10000"><span id="popupMessage"></span></div>
-<script>
-function uuidv4(){if(crypto.randomUUID){return crypto.randomUUID()} const a=new Uint8Array(16); crypto.getRandomValues(a); a[6]=(a[6]&0x0f)|0x40; a[8]=(a[8]&0x3f)|0x80; const b=[...a].map((v,i)=> (i===4||i===6||i===8||i===10?'-':'')+v.toString(16).padStart(2,'0')).join(''); return b;}
-class UUIDPage{constructor(){this.o=document.getElementById('output');this.m=document.getElementById('metaInfo');this.t=document.getElementById('themeToggle');document.getElementById('gen1').addEventListener('click',()=>this.gen(1));document.getElementById('gen10').addEventListener('click',()=>this.gen(10));document.getElementById('copyBtn').addEventListener('click',()=>this.copy());this.t.addEventListener('click',()=>this.theme());this.loadTheme();(document.getElementById('closeBottomAd')||{}).onclick=()=>this.closeAd();}
-gen(n){const list=Array.from({length:n},()=>uuidv4()).join('\n'); this.o.textContent=(this.o.textContent?this.o.textContent+'\n':'')+list; this.meta(); this.pop('Generated','success'); this.showAd();}
-copy(){const t=this.o.textContent; if(!t){this.pop('Nothing to copy','error'); return;} navigator.clipboard.writeText(t).then(()=>this.pop('Copied','success')); this.showAd();}
-meta(){const t=this.o.textContent||''; const lines=t?t.split('\n').length:0; this.m.textContent=lines?`${lines} UUIDs`:'Ready';}
-theme(){const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; this.t.textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('uuid-theme',n);} loadTheme(){const s=localStorage.getItem('uuid-theme')||'dark'; document.body.dataset.theme=s; this.t.textContent=s==='dark'?'🌙':'☀️';}
-showAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
-closeAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
-pop(msg,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=msg; p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);}
-}
-document.addEventListener('DOMContentLoaded',()=>new UUIDPage());
-</script>
-<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
-</body></html>
+<html lang="en">
 
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UUID v4 Generator | BitTools</title>
+  <meta name="description" content="Generate cryptographically strong UUID v4 identifiers. 100% client-side." />
+  <link rel="canonical" href="https://www.bittools.cc/dev/uuid-generator" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are UUIDs generated securely?","acceptedAnswer":{"@type":"Answer","text":"Yes. UUIDs are generated using the Web Crypto API locally."}},{"@type":"Question","name":"What version is used?","acceptedAnswer":{"@type":"Answer","text":"Version 4 (random) UUIDs."}},{"@type":"Question","name":"Can I generate multiple UUIDs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the ×10 button to generate multiple at once."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --danger: #ff6b6b;
+      --ok: #7dffa0;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35)
+    }
 
+    [data-theme="light"] {
+      --bg: #f1f8ed;
+      --panel: #f9fafb;
+      --text: #111827;
+      --muted: #374151;
+      --accent: #0077ff;
+      --danger: #c1121f;
+      --ok: #059669;
+      --border: #d1d5db
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      background: #12141a
+    }
+
+    header img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(107, 220, 255, .4)
+    }
+
+    header .text h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2rem, 2.2rem)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .toolbar .spacer {
+      flex: 1
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all .16s
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      background: rgba(107, 220, 255, .06)
+    }
+
+    .btn.danger {
+      border-color: transparent;
+      background: var(--danger);
+      color: #fff
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 12px
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-top: 1px solid var(--border)
+    }
+
+    pre {
+      min-height: 120px;
+      font-family: ui-monospace, monospace;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+
+    .help {
+      margin-top: 18px;
+      padding: 12px
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0
+    }
+
+    details:hover {
+      border-color: var(--accent)
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: none;
+      box-shadow: var(--shadow);
+      z-index: 10000;
+      align-items: center
+    }
+
+    .popup.success {
+      border-left: 4px solid var(--ok)
+    }
+
+    .popup.error {
+      border-left: 4px solid var(--danger)
+    }
+
+    .bottom-ad {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, .08);
+      padding: .25rem .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-size: .75rem
+    }
+
+    .bottom-ad .ad-label {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: .5rem
+    }
+
+    .bottom-ad .ad-slot {
+      flex: 1;
+      text-align: center
+    }
+
+    .ad-slot {
+      margin: 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, .04), rgba(125, 255, 160, .03));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: 16px
+    }
+
+    .bottom-ad .close-ad {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      margin-left: .5rem;
+      padding: 0
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+    <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+      <div class="text">
+        <h1>UUID v4 Generator <span class="muted">— by BitTools</span></h1>
+        <p class="muted">Generate one or many UUIDs securely in your browser.</p>
+      </div>
+    </header>
+    <section class="card" aria-labelledby="toolHeading">
+      <div class="toolbar"><strong>Tool</strong><button class="btn" id="gen1">Generate</button>
+        <button class="btn" id="gen10">Generate ×10</button>
+        <button class="btn" id="copyBtn">Copy All</button>
+        <div class="spacer"></div>
+        <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+
+        <!-- <div class="spacer"></div> -->
+        <button class="btn" id="themeToggle">🌙</button>
+      </div>
+      <div class="grid">
+        <pre id="output"></pre>
+      </div>
+      <div class="status">
+        <div class="muted" id="metaInfo"></div>
+      </div>
+      <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </section>
+
+    <section class="help">
+      <details>
+        <summary><strong>How to use</strong></summary>
+        <ol>
+          <li>Click <strong>Generate</strong> to create a single UUID.</li>
+          <li>Click <strong>Generate ×10</strong> to append ten new UUIDs.</li>
+          <li>Use <strong>Copy All</strong> to copy the list.</li>
+        </ol>
+      </details>
+      <details>
+        <summary><strong>About this UUID v4 generator</strong></summary>
+        <p>
+          This free <strong>online UUID Generator</strong> lets you quickly create
+          unique identifiers in different formats such as UUID v1 (time-based) and
+          UUID v4 (random-based). Whether you need IDs for databases, APIs, or
+          distributed systems, this tool ensures uniqueness and reliability.
+          All UUIDs are generated instantly in your browser — nothing is uploaded
+          or stored on any server.
+        </p>
+      </details>
+
+      <p>👉 Read More <a href="/blogs/uuid-generator">UUID v4 Guide by BitTools.cc</a></p>
+
+      <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+        <h2>About UUIDs</h2>
+        <p>
+          A <strong>UUID (Universally Unique Identifier)</strong> is a 128-bit value
+          used to uniquely identify information across systems. UUIDs are widely used
+          in databases, APIs, distributed systems, and software development to prevent
+          conflicts when generating unique IDs.
+        </p>
+        <p>
+          This free <strong>UUID Generator</strong> helps you quickly create
+          random, unique identifiers in different formats (UUID v1, v4, etc.) directly
+          in your browser. No installation or server upload required.
+        </p>
+
+        <h3>Why Use a UUID Generator?</h3>
+        <ul>
+          <li>📌 <strong>Generate Unique IDs</strong> — instantly create identifiers without collisions.</li>
+          <li>📌 <strong>Support for Multiple Versions</strong> — generate UUID v1 (time-based) or UUID v4
+            (random-based).</li>
+          <li>📌 <strong>Cross-Platform Compatibility</strong> — use in databases, APIs, or apps without conflicts.</li>
+          <li>📌 <strong>Browser-Based</strong> — runs entirely in your browser, keeping data private.</li>
+        </ul>
+
+        <h3>Frequently Asked Questions</h3>
+        <h4>🔹 What is a UUID?</h4>
+        <p>
+          A UUID is a 36-character string (including hyphens) that represents a
+          128-bit unique value. It’s commonly used to uniquely identify records,
+          devices, or transactions in software systems.
+        </p>
+
+        <h4>🔹 Is this UUID Generator safe?</h4>
+        <p>
+          Yes. The generator runs fully in your browser, so no UUIDs are stored or
+          sent to any server.
+        </p>
+
+        <h4>🔹 Which UUID versions are supported?</h4>
+        <p>
+          This tool supports UUID v1 (time-based) and UUID v4 (random-based),
+          the most commonly used versions in modern applications.
+        </p>
+
+        <h4>🔹 What are UUIDs used for?</h4>
+        <p>
+          UUIDs are used in databases, APIs, session identifiers, tokens,
+          and distributed systems where unique identification is required
+          without relying on centralized ID generators.
+        </p>
+
+        <h3>About BitTools</h3>
+        <p>
+          This UUID Generator is part of <strong>BitTools.cc</strong> — a free hub
+          of online utilities for developers, students, and data enthusiasts.
+          No tracking — just simple, browser-based tools that save time.
+        </p>
+      </section>
+    </section>
+  </div>
+
+  <div id="bottomAd" class="bottom-ad" style="display:none;">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4241327753"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <button id="closeBottomAd" class="close-ad">×</button>
+  </div>
+  <div id="popup" class="popup"><span id="popupMessage"></span></div>
+
+  <script>
+    function uuidv4() { if (crypto.randomUUID) { return crypto.randomUUID() } const a = new Uint8Array(16); crypto.getRandomValues(a); a[6] = (a[6] & 0x0f) | 0x40; a[8] = (a[8] & 0x3f) | 0x80; const b = [...a].map((v, i) => (i === 4 || i === 6 || i === 8 || i === 10 ? '-' : '') + v.toString(16).padStart(2, '0')).join(''); return b; }
+    class UUIDPage {
+      constructor() {
+        this.o = document.getElementById('output'); this.m = document.getElementById('metaInfo'); this.t = document.getElementById('themeToggle'); document.getElementById('gen1').addEventListener('click', () => this.gen(1));
+        document.getElementById('gen10').addEventListener('click', () => this.gen(10));
+        document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+        document.getElementById('closeBottomAd').addEventListener('click', () => this.closeBottomAd());
+
+        document.getElementById('copyBtn').addEventListener('click', () => this.copy()); this.t.addEventListener('click', () => this.theme()); this.loadTheme(); (document.getElementById('closeBottomAd') || {}).onclick = () => this.closeAd();
+      }
+      gen(n) { const list = Array.from({ length: n }, () => uuidv4()).join('\n'); this.o.textContent = (this.o.textContent ? this.o.textContent + '\n' : '') + list; this.meta(); this.pop('Generated', 'success'); this.showBottomAd(); }
+      copy() { const t = this.o.textContent; if (!t) { this.pop('Nothing to copy', 'error'); return; } navigator.clipboard.writeText(t).then(() => this.pop('Copied', 'success')); this.showBottomAd(); }
+      meta() { const t = this.o.textContent || ''; const lines = t ? t.split('\n').length : 0; this.m.textContent = lines ? `${lines} UUIDs` : 'Ready'; }
+      theme() { const c = document.body.dataset.theme === 'light' ? 'light' : 'dark'; const n = c === 'dark' ? 'light' : 'dark'; document.body.dataset.theme = n; this.t.textContent = n === 'dark' ? '🌙' : '☀️'; localStorage.setItem('uuid-theme', n); } loadTheme() { const s = localStorage.getItem('uuid-theme') || 'dark'; document.body.dataset.theme = s; this.t.textContent = s === 'dark' ? '🌙' : '☀️'; }
+      showBottomAd() { const el = document.getElementById('bottomAd'); if (el) el.style.display = 'flex'; }
+      closeBottomAd() { const el = document.getElementById('bottomAd'); if (el) el.style.display = 'none'; }
+      clear() { this.o.value = ''; this.o.textContent = ''; this.m.textContent = ''; this.o.focus(); }
+
+      pop(msg, type) { const p = document.getElementById('popup'); const m = document.getElementById('popupMessage'); if (!p || !m) return; m.textContent = msg; p.style.display = 'flex'; setTimeout(() => p.style.display = 'none', 3000); }
+    }
+    document.addEventListener('DOMContentLoaded', () => new UUIDPage());
+  </script>
+  <footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
+</body>
+
+</html>
