@@ -10,6 +10,51 @@
   <meta name="description" content="Decode JWT header and payload safely in your browser." />
   <link rel="canonical" href="https://www.bittools.cc/blogs/jwt-decoder" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this JWT Decoder safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The JWT Decoder runs completely in your browser. No token data is uploaded or stored, ensuring full privacy and security."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I do with this JWT Decoder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can instantly decode JSON Web Tokens (JWTs) and view the header, payload, and signature in a readable format. It helps in debugging and inspecting authentication tokens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I create or sign JWTs with this tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This tool is mainly for decoding and inspecting tokens. Some versions may allow encoding or signing for testing, but sensitive secrets should never be used in online tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to install anything to use this JWT Decoder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No installation is required. The JWT Decoder works directly in your browser and is free to use."
+        }
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "BitTools",
+      "url": "https://bittools.cc"
+      }
+  }
+  </script>
   <style>
     :root {
       --bg: #0b0c0f;
@@ -75,6 +120,14 @@
       justify-content: center
     }
   </style>
+  <!-- Standard jsonformatter -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+
+  <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
 </head>
 
 <body>
@@ -88,60 +141,9 @@
     </header>
     <article class="card">
       <!-- FAQ Schema -->
-      <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is this JWT Decoder safe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The JWT Decoder runs completely in your browser. No token data is uploaded or stored, ensuring full privacy and security."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What can I do with this JWT Decoder?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can instantly decode JSON Web Tokens (JWTs) and view the header, payload, and signature in a readable format. It helps in debugging and inspecting authentication tokens."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I create or sign JWTs with this tool?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This tool is mainly for decoding and inspecting tokens. Some versions may allow encoding or signing for testing, but sensitive secrets should never be used in online tools."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need to install anything to use this JWT Decoder?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No installation is required. The JWT Decoder works directly in your browser and is free to use."
-        }
-      }
-    ],
-    "publisher": {
-      "@type": "Organization",
-      "name": "BitTools",
-      "url": "https://bittools.cc"
-      }
-  }
-  </script>
 
-      <!-- Standard jsonformatter -->
-      <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-      <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
-      <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
 
-      <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
-      <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
-      <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
+
       <!-- For Apple devices -->
       <p>JSON Web Tokens (JWT) carry claims (e.g., user id, roles, expiry) in a compact, URL-safe way. This guide
         explains how to decode JWTs safely in your browser.</p>
@@ -216,6 +218,9 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
+      <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+      </footer>
     </article>
   </div>
 </body>

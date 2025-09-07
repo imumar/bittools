@@ -1,65 +1,413 @@
 <!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RegExp Tester | BitTools</title>
-<meta name="description" content="Test regular expressions against input text. 100% client-side."/>
-<link rel="canonical" href="https://www.bittools.cc/dev/regex-tester"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which regex flavor?","acceptedAnswer":{"@type":"Answer","text":"JavaScript RegExp (ECMAScript) with flags g i m u y s where supported."}},{"@type":"Question","name":"Why no matches?","acceptedAnswer":{"@type":"Answer","text":"Ensure the right flags (e.g., g) and escape characters properly."}},{"@type":"Question","name":"Is data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Matching runs locally in your browser."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)}[data-theme="light"]{--bg:#f1f8ed;--panel:#f9fafb;--text:#111827;--muted:#374151;--accent:#0077ff;--danger:#c1121f;--ok:#059669;--border:#d1d5db}html,body{height:100%}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:1200px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header img:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(107,220,255,.4)}header .text h1{margin:0;font-size:clamp(1.5rem,2rem,2.2rem)}.muted{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border-bottom:1px solid var(--border)}.toolbar .spacer{flex:1}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.grid>div{display:flex;flex-direction:column;min-height:420px}textarea,pre,input{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;font-size:14px}.pane{flex:1;min-height:420px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--text);white-space:pre-wrap;overflow:auto}
-/* Help/SEO styling to match json-formatter */
-.help{margin-top:18px;padding:12px}
-details{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}
-details:hover{border-color:var(--accent)}
-summary{cursor:pointer;font-weight:600}
-</style>
-</head><body data-theme="dark">
-<div class="container">
-  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>RegExp Tester <span class="muted">— by BitTools</span></h1><p class="muted">Test JavaScript regex patterns and inspect matches.</p></div></header>
-  <section class="card">
-    <div class="toolbar"><strong>Tool</strong><input id="pattern" placeholder="Pattern (e.g. \\w+)" class="pane" style="min-height:unset;height:40px"/><input id="flags" placeholder="Flags (gimuy)" class="pane" style="min-height:unset;height:40px;width:120px"/><div class="spacer"></div><button class="btn" id="themeToggle">🌙</button></div>
-    <div class="grid">
-      <div><label for="input" class="sr-only">Input</label><textarea id="input" class="pane" placeholder="Paste test text…"></textarea></div>
-      <div><label for="output" class="sr-only">Matches</label><pre id="output" class="pane"></pre></div>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RegExp Tester | BitTools</title>
+  <meta name="description" content="Test regular expressions against input text. 100% client-side." />
+  <link rel="canonical" href="https://www.bittools.cc/dev/regex-tester" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+
+  <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png"> <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.bittools.cc/dev/regex-tester">
+  <meta property="og:title" content="Online Regex Tester – Free, Fast & Private | BitTools">
+  <meta property="og:description"
+    content="Online Regex Tester. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.bittools.cc/dev/regex-tester">
+  <meta property="twitter:title" content="Online Regex Tester – Free, Fast & Private | BitTools">
+  <meta property="twitter:description"
+    content="Online Regex Tester. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which regex flavor?","acceptedAnswer":{"@type":"Answer","text":"JavaScript RegExp (ECMAScript) with flags g i m u y s where supported."}},{"@type":"Question","name":"Why no matches?","acceptedAnswer":{"@type":"Answer","text":"Ensure the right flags (e.g., g) and escape characters properly."}},{"@type":"Question","name":"Is data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. Matching runs locally in your browser."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --danger: #ff6b6b;
+      --ok: #7dffa0;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35)
+    }
+
+    [data-theme="light"] {
+      --bg: #f1f8ed;
+      --panel: #f9fafb;
+      --text: #111827;
+      --muted: #374151;
+      --accent: #0077ff;
+      --danger: #c1121f;
+      --ok: #059669;
+      --border: #d1d5db
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      background: #12141a
+    }
+
+    header img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(107, 220, 255, .4)
+    }
+
+    header .text h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 2rem, 2.2rem)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .toolbar .spacer {
+      flex: 1
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all .16s
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      background: rgba(107, 220, 255, .06)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px
+    }
+
+    .ad-slot {
+      margin: 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: 16px;
+    }
+
+    .bottom-ad {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-size: 0.75rem;
+    }
+
+    .bottom-ad .ad-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+
+    .bottom-ad .ad-slot {
+      flex: 1;
+      text-align: center;
+    }
+
+    .bottom-ad .close-ad {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      margin-left: 0.5rem;
+      padding: 0;
+    }
+
+    .bottom-ad .close-ad:hover {
+      color: var(--text);
+    }
+
+    .grid>div {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px
+    }
+
+    textarea,
+    pre,
+
+    #input,
+    #output {
+      flex: 1;
+      box-sizing: border-box;
+      min-height: 420px;
+      font-family: ui-monospace, "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.45;
+      padding: 12px;
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .pane {
+      flex: 1;
+      min-height: 420px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--text);
+      white-space: pre-wrap;
+      overflow: auto
+    }
+
+    /* Help/SEO styling to match json-formatter */
+    .help {
+      margin-top: 18px;
+      padding: 12px
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    details:hover {
+      border-color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+    <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+      <div class="text">
+        <h1>RegExp Tester <span class="muted">— by BitTools</span></h1>
+        <p class="muted">Test JavaScript regex patterns and inspect matches.</p>
+      </div>
+    </header>
+    <section class="card" aria-labelledby="toolHeading">
+      <div class="toolbar"><strong>Tool</strong><input id="pattern" placeholder="Pattern (e.g. \\w+)" class="pane"
+          style="min-height:unset;height:40px" /><input id="flags" placeholder="Flags (gimuy-optional)" class="pane"
+          style="min-height:unset;height:40px;width:120px" />
+        <div class="spacer"></div><button class="btn" id="themeToggle">🌙</button>
+      </div>
+      <div class="grid">
+        <div>
+          <!-- <label for="input" class="sr-only">Input</label> -->
+          <textarea id="input" class="pane" placeholder="Paste test text…"></textarea>
+        </div>
+        <div>
+          <!-- <label for="output" class="sr-only">Matches</label> -->
+          <pre id="output" class="pane"></pre>
+        </div>
+      </div>
+      <div class="status">
+        <div class="muted" id="metaInfo"></div>
+      </div>
+
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </section>
+    <section class="help">
+      <details>
+        <summary><strong>How to use</strong></summary>
+        <ol>
+          <li>Enter a pattern and optional flags (e.g., <code>gim</code>).</li>
+          <li>Paste test text; matches will appear on the right.</li>
+        </ol>
+      </details>
+      <details>
+        <summary><strong>About this JavaScript Regex tester</strong></summary>
+        <p>
+          This free online JavaScript Regex Tester by BitTools.cc helps you quickly test, debug, and visualize regular
+          expressions. All operations happen directly in your browser — 100% secure and private.
+        </p>
+
+      </details>
+      <p>👉 Read More <a href="/blogs/regex-tester">Regex Tester Guide by BitTools.cc</a></p>
+
+
+      <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+        <h2>What is a Regex Tester?</h2>
+        <p>
+          A Regex Tester is an online tool that allows you to test, debug, and visualize regular expressions (regex).
+          Regular expressions are patterns used to match character combinations in strings, widely used in programming,
+          data validation, and text processing.
+        </p>
+
+        <h2>How Does a Regex Tester Work?</h2>
+        <p>
+          A Regex Tester works by letting you input a regex pattern and a test string. The tool then evaluates the
+          pattern
+          against the string, highlighting matches, groups, and replacements. Some testers also provide explanations for
+          complex patterns.
+        </p>
+
+        <h2>FAQs about Regex Testers</h2>
+
+        <h4>🔹 What is a regular expression (regex)?</h4>
+        <p>
+          A regular expression is a sequence of characters that defines a search pattern. It can be used for
+          finding, validating, or replacing text within strings.
+        </p>
+
+        <h4>🔹 Why use a Regex Tester?</h4>
+        <p>
+          Regex Testers help you write, test, and debug patterns quickly. They visualize matches and highlight errors,
+          saving time and reducing mistakes in your code.
+        </p>
+
+        <h4>🔹 Can Regex Testers handle multiple programming languages?</h4>
+        <p>
+          Yes. Many Regex Testers allow you to select the flavor of regex (JavaScript, Python, PHP, etc.) to ensure your
+          pattern works correctly in your target language.
+        </p>
+
+        <h4>🔹 Is regex difficult to learn?</h4>
+        <p>
+          Regex can be tricky at first, but using a Regex Tester makes it easier to understand patterns, groupings, and
+          special characters.
+        </p>
+
+        <h4>🔹 Are Regex Testers secure?</h4>
+        <p>
+          Yes. A good online Regex Tester runs entirely in your browser and does not store your data, keeping your
+          input strings private.
+        </p>
+      </section>
+
+    </section>
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <button id="closeBottomAd" class="close-ad">×</button>
     </div>
-  </section>
-</div>
-<section class="help" style="max-width:1200px;margin:auto;padding:12px"><p>👉 Read More <a href="/blogs/regex-tester">Regex Tester Guide by BitTools.cc</a></p></section>
-<section class="help">
-  <details>
-    <summary><strong>How to use</strong></summary>
-    <ol>
-      <li>Enter a pattern and optional flags (e.g., <code>gim</code>).</li>
-      <li>Paste test text; matches will appear on the right.</li>
-    </ol>
-  </details>
-  <details>
-    <summary><strong>About JavaScript Regex</strong></summary>
-    <p>JS RegExp supports flags: g (global), i (ignore case), m (multiline), u (unicode), y (sticky), and s (dotAll).</p>
-  </details>
-</section>
-<section class="seo-content" style="max-width:1200px;margin:auto;line-height:1.6;padding:12px;">
-  <h2>Tips</h2>
-  <ul>
-    <li>Prefer non-greedy quantifiers (<code>.*?</code>) when necessary.</li>
-    <li>Escape special characters like <code>.</code>, <code>?</code>, <code>+</code>, <code>*</code>.</li>
-  </ul>
-</section>
-<div id="bottomAd" class="bottom-ad" style="position:fixed;bottom:0;left:0;right:0;background:#12141a;border-top:1px solid #1e232d;box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem"><span class="ad-label" style="color:#9aa7b4;margin-right:.5rem;font-weight:600">Advertisement</span><div class="ad-slot" style="flex:1;text-align:center"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad" style="background:transparent;border:none;color:#9aa7b4;cursor:pointer;font-size:1rem;margin-left:.5rem">×</button></div>
-<div id="popup" class="popup" style="position:fixed;top:20px;right:20px;background:#12141a;color:#e8edf2;border:1px solid #1e232d;border-radius:12px;padding:12px 16px;display:none;box-shadow:0 10px 25px rgba(0,0,0,.35);z-index:10000"><span id="popupMessage"></span></div>
-<script>
-class RegexPage{constructor(){this.p=document.getElementById('pattern');this.f=document.getElementById('flags');this.i=document.getElementById('input');this.o=document.getElementById('output');this.t=document.getElementById('themeToggle');['input','keyup','change'].forEach(ev=>{this.p.addEventListener(ev,()=>this.run());this.f.addEventListener(ev,()=>this.run());this.i.addEventListener(ev,()=>this.run());});this.t.addEventListener('click',()=>this.theme());this.loadTheme();(document.getElementById('closeBottomAd')||{}).onclick=()=>this.closeAd();}
-run(){let re; try{re=new RegExp(this.p.value||'', this.f.value||'g');}catch(e){this.o.textContent='Invalid regex: '+e.message; this.pop('Invalid regex','error'); this.showAd(); return;} const text=this.i.value||''; const out=[]; if(!re.global){const m=text.match(re); if(m){out.push('Match: '+JSON.stringify(m));}} else {let m; while((m=re.exec(text))!==null){out.push(`Match @${m.index}: `+JSON.stringify(m)); if(m[0]==='') re.lastIndex++;}}
-this.o.textContent=out.join('\n')||'No matches'; this.pop('Tested','success'); this.showAd();}
-theme(){const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; this.t.textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('regex-theme',n);} loadTheme(){const s=localStorage.getItem('regex-theme')||'dark'; document.body.dataset.theme=s; this.t.textContent=s==='dark'?'🌙':'☀️';}
-showAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
-closeAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
-pop(msg,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=msg; p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);}
-}
-document.addEventListener('DOMContentLoaded',()=>new RegexPage());
-</script>
-<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
-</body></html>
+  </div>
 
 
+  </div>
+  <div id="popup" class="popup"
+    style="position:fixed;top:20px;right:20px;background:#12141a;color:#e8edf2;border:1px solid #1e232d;border-radius:12px;padding:12px 16px;display:none;box-shadow:0 10px 25px rgba(0,0,0,.35);z-index:10000">
+    <span id="popupMessage"></span>
+  </div>
+  <script>
+    class RegexPage {
+      constructor() { this.p = document.getElementById('pattern'); this.f = document.getElementById('flags'); this.i = document.getElementById('input'); this.o = document.getElementById('output'); this.t = document.getElementById('themeToggle');['input', 'keyup', 'change'].forEach(ev => { this.p.addEventListener(ev, () => this.run()); this.f.addEventListener(ev, () => this.run()); this.i.addEventListener(ev, () => this.run()); }); this.t.addEventListener('click', () => this.theme()); this.loadTheme(); (document.getElementById('closeBottomAd') || {}).onclick = () => this.closeAd(); }
+      run() {
+        let re; try { re = new RegExp(this.p.value || '', this.f.value || 'g'); } catch (e) { this.o.textContent = 'Invalid regex: ' + e.message; this.pop('Invalid regex', 'error'); this.showAd(); return; } const text = this.i.value || ''; const out = []; if (!re.global) { const m = text.match(re); if (m) { out.push('Match: ' + JSON.stringify(m)); } } else { let m; while ((m = re.exec(text)) !== null) { out.push(`Match @${m.index}: ` + JSON.stringify(m)); if (m[0] === '') re.lastIndex++; } }
+        this.o.textContent = out.join('\n') || 'No matches'; this.pop('Tested', 'success'); this.showAd();
+      }
+      theme() { const c = document.body.dataset.theme === 'light' ? 'light' : 'dark'; const n = c === 'dark' ? 'light' : 'dark'; document.body.dataset.theme = n; this.t.textContent = n === 'dark' ? '🌙' : '☀️'; localStorage.setItem('regex-theme', n); } loadTheme() { const s = localStorage.getItem('regex-theme') || 'dark'; document.body.dataset.theme = s; this.t.textContent = s === 'dark' ? '🌙' : '☀️'; }
+      showAd() { const el = document.getElementById('bottomAd'); if (el) el.style.display = 'flex'; }
+      closeAd() { const el = document.getElementById('bottomAd'); if (el) el.style.display = 'none'; }
+      pop(msg, type) { const p = document.getElementById('popup'); const m = document.getElementById('popupMessage'); if (!p || !m) return; m.textContent = msg; p.style.display = 'flex'; setTimeout(() => p.style.display = 'none', 3000); }
+    }
+    document.addEventListener('DOMContentLoaded', () => new RegexPage());
+  </script>
+  <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+    © 2025 BitTools — Free Online Tools
+  </footer>
+</body>
+
+</html>
