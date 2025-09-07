@@ -1,67 +1,186 @@
 <!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Timestamp Converter — Guide | BitTools</title>
-<meta name="description" content="Understanding UNIX timestamps, milliseconds, and ISO 8601 formats."/>
-<link rel="canonical" href="https://www.bittools.cc/blogs/timestamp-converter"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.7} .container{max-width:900px;margin:auto;padding:24px} header{display:flex;align-items:center;gap:16px;margin-bottom:16px} header img{width:72px;height:72px;border-radius:16px;background:#12141a} header .text h1{margin:0} .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:24px} a{color:var(--accent)} .ad-slot{margin:24px 0 0 0;border-top:1px solid var(--border);background:linear-gradient(135deg, rgba(107,220,255,.04), rgba(125,255,160,.03));min-height:100px;display:flex;align-items:center;justify-content:center}</style>
-</head><body>
-<div class="container">
-<header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>Timestamp Converter — Guide</h1></div></header>
-<article class="card">
-<p>UNIX timestamps count seconds since 1970-01-01 UTC. Many APIs use milliseconds instead. ISO 8601 is an interoperable string format.</p>
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-<p>Try the tool: <a href="/dev/timestamp-converter">Timestamp Converter</a></p>
+<html lang="en">
 
-<h2>How to use the Timestamp Converter</h2>
-<ol>
-  <li>Enter a value in any field: UNIX seconds, UNIX milliseconds, or ISO 8601.</li>
-  <li>The other fields update instantly with the converted values.</li>
-  <li>Click <strong>Now</strong> to auto-fill the current time in all formats.</li>
-</ol>
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timestamp Converter — Guide | BitTools</title>
+  <meta name="description" content="Understanding UNIX timestamps, milliseconds, and ISO 8601 formats." />
+  <link rel="canonical" href="https://www.bittools.cc/blogs/timestamp-converter" />
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/bittool.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
 
-<h2>Examples</h2>
-<h3>UNIX seconds → ISO 8601</h3>
-<pre>
+  <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png"> <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.bittools.cc/dev/timestamp-converter">
+  <meta property="og:title" content="Online Timestamp Converter – Free, Fast & Private | BitTools">
+  <meta property="og:description"
+    content="Online Timestamp Converter. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.bittools.cc/dev/timestamp-converter">
+  <meta property="twitter:title" content="Online Timestamp Converter – Free, Fast & Private | BitTools">
+  <meta property="twitter:description"
+    content="Online Timestamp Converter. 100% client-side, secure, and private. Free developer tool by BitTools.">
+  <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What formats are supported?","acceptedAnswer":{"@type":"Answer","text":"UNIX seconds, UNIX milliseconds, and ISO 8601."}},{"@type":"Question","name":"How to get current timestamp?","acceptedAnswer":{"@type":"Answer","text":"Click the Now button to autofill current time in all formats."}},{"@type":"Question","name":"Does data leave my device?","acceptedAnswer":{"@type":"Answer","text":"No. Conversions run fully in your browser."}}],"publisher":{"@type":"Organization","name":"BitTools","url":"https://bittools.cc"}}</script>
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35)
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    header img {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      background: #12141a
+    }
+
+    header .text h1 {
+      margin: 0
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px
+    }
+
+    a {
+      color: var(--accent)
+    }
+
+    .ad-slot {
+      margin: 24px 0 0 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, .04), rgba(125, 255, 160, .03));
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+      <div class="text">
+        <h1>Timestamp Converter — Guide | BitTools</h1>
+      </div>
+    </header>
+    <article class="card">
+      <p>UNIX timestamps count seconds since 1970-01-01 UTC. Many APIs use milliseconds instead. ISO 8601 is an
+        interoperable string format.</p>
+      <p>Try the tool: <a href="/dev/timestamp-converter">Timestamp Converter</a></p>
+
+      <h2>How to use the Timestamp Converter</h2>
+      <ol>
+        <li>Enter a value in any field: UNIX seconds, UNIX milliseconds, or ISO 8601.</li>
+        <li>The other fields update instantly with the converted values.</li>
+        <li>Click <strong>Now</strong> to auto-fill the current time in all formats.</li>
+      </ol>
+
+      <h2>Examples</h2>
+      <h3>UNIX seconds → ISO 8601</h3>
+      <pre>
 1736070000 → 2025-01-05T12:20:00.000Z
 </pre>
-<h3>Milliseconds → Human-readable</h3>
-<pre>
+      <h3>Milliseconds → Human-readable</h3>
+      <pre>
 1736070000000 → Sunday, 05 Jan 2025 12:20:00 UTC
 </pre>
-<h3>ISO 8601 → UNIX seconds</h3>
-<pre>
+      <h3>ISO 8601 → UNIX seconds</h3>
+      <pre>
 2025-01-05T12:20:00Z → 1736070000
 </pre>
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <h2>Best practices</h2>
+      <ul>
+        <li><strong>Know your unit</strong>: Some APIs expect seconds, others milliseconds—double-check.</li>
+        <li><strong>Use UTC</strong>: Store timestamps in UTC and convert to local time only for display.</li>
+        <li><strong>ISO 8601</strong>: Prefer ISO strings (with timezone) for interoperability.</li>
+        <li><strong>Validate inputs</strong>: Guard against invalid dates and out-of-range values.</li>
+      </ul>
 
-<h2>Best practices</h2>
-<ul>
-  <li><strong>Know your unit</strong>: Some APIs expect seconds, others milliseconds—double-check.</li>
-  <li><strong>Use UTC</strong>: Store timestamps in UTC and convert to local time only for display.</li>
-  <li><strong>ISO 8601</strong>: Prefer ISO strings (with timezone) for interoperability.</li>
-  <li><strong>Validate inputs</strong>: Guard against invalid dates and out-of-range values.</li>
-</ul>
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li>Confusing seconds with milliseconds (factor of 1000).</li>
+        <li>Assuming local timezone when the value is UTC (or vice versa).</li>
+        <li>Relying on ambiguous date strings without timezone info.</li>
+      </ul>
 
-<h2>Common pitfalls</h2>
-<ul>
-  <li>Confusing seconds with milliseconds (factor of 1000).</li>
-  <li>Assuming local timezone when the value is UTC (or vice versa).</li>
-  <li>Relying on ambiguous date strings without timezone info.</li>
-</ul>
+      <h2>FAQs</h2>
+      <h3>What’s the difference between seconds and milliseconds?</h3>
+      <p>Seconds count whole seconds since the epoch; milliseconds are 1000× larger granularity. Multiply or divide by
+        1000 to convert.</p>
+      <h3>Why does my ISO string show a different local time?</h3>
+      <p>ISO times are commonly UTC (ending with Z). Your local time may differ by your timezone offset.</p>
+      <h3>Do conversions happen locally?</h3>
+      <p>Yes. Everything runs in your browser; no data is sent to any server.</p>
+      <h3>How do I get the current timestamp?</h3>
+      <p>Use the <strong>Now</strong> button in the tool or in code: <code>Date.now()</code> (ms) or
+        <code>Math.floor(Date.now()/1000)</code> (s).
+      </p>
+      <p>👉 Try our free <a href="/dev/timestamp-converter" target="_blank">Online Timestamp Converter</a> today.</p>
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </article>
+    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+      © 2025 BitTools — Free Online Tools
+    </footer>
+  </div>
+</body>
 
-<h2>FAQs</h2>
-<h3>What’s the difference between seconds and milliseconds?</h3>
-<p>Seconds count whole seconds since the epoch; milliseconds are 1000× larger granularity. Multiply or divide by 1000 to convert.</p>
-<h3>Why does my ISO string show a different local time?</h3>
-<p>ISO times are commonly UTC (ending with Z). Your local time may differ by your timezone offset.</p>
-<h3>Do conversions happen locally?</h3>
-<p>Yes. Everything runs in your browser; no data is sent to any server.</p>
-<h3>How do I get the current timestamp?</h3>
-<p>Use the <strong>Now</strong> button in the tool or in code: <code>Date.now()</code> (ms) or <code>Math.floor(Date.now()/1000)</code> (s).</p>
-</article>
-</div>
-</body></html>
-
-
+</html>

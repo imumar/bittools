@@ -34,19 +34,56 @@
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "BitTools",
-        "url": "https://bittools.cc",
-        "description": "Free online tools like JSON Formatter, Validators, and more. Fast, private, and easy to use.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://bittools.cc/?s={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "BitTools",
+  "url": "https://bittools.cc",
+  "description": "BitTools offers a wide range of free online utilities including JSON Formatter, Regex Tester, JWT Decoder, Base64 Encoder/Decoder, and more. All tools are fast, private, and easy to use directly in your browser.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "BitTools",
+    "url": "https://bittools.cc",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bittools.cc/assets/bittoolsicon.png"
     }
-    </script>
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://bittools.cc/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "mainEntity": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "JSON Formatter",
+      "url": "https://bittools.cc/json-formatter",
+      "description": "Format, validate, and minify JSON files directly in your browser. Completely private and free."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Regex Tester",
+      "url": "https://bittools.cc/regex-tester",
+      "description": "Test and validate your JavaScript regular expressions online. Instant results with detailed explanations."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "JWT Decoder",
+      "url": "https://bittools.cc/jwt-decoder",
+      "description": "Decode JSON Web Tokens (JWT) safely in your browser. View headers and payloads without sending data to any server."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Base64 Encoder/Decoder",
+      "url": "https://bittools.cc/base64",
+      "description": "Convert text or files to Base64 and back. All operations happen locally for complete privacy."
+    }
+    // Add more tools here in the same format
+  ]
+}
+</script>
+
 
     <style>
         :root {
