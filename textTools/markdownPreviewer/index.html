@@ -2,10 +2,80 @@
 <html lang="en">
 
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+        crossorigin="anonymous"></script>
+    <!-- Primary Meta Tags -->
+    <title>Markdown Previewer | BitTools</title>
+    <meta name="title" content="Markdown Previewer | BitTools">
+    <meta name="description"
+        content="A simple Markdown previewer. Write Markdown and see the live preview. 100% client-side.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bittools.cc/textTools/markdownPreviewer/">
+    <meta property="og:title" content="Markdown Previewer | BitTools">
+    <meta property="og:description"
+        content="A simple Markdown previewer. Write Markdown and see the live preview. 100% client-side.">
+    <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bittools.cc/textTools/markdownPreviewer/">
+    <meta property="twitter:title" content="Markdown Previewer | BitTools">
+    <meta property="twitter:description"
+        content="A simple Markdown previewer. Write Markdown and see the live preview. 100% client-side.">
+    <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this Markdown Previewer safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All processing happens in your browser. No text is uploaded or stored on a server, keeping your data private."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Markdown?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Markdown is a lightweight markup language for creating formatted text using a plain-text editor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upload a file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — you can upload plain text (.txt) or markdown (.md) files for conversion."
+          }
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "BitTools",
+        "url": "https://bittools.cc"
+      }
+    }
+    </script>
+
+    <!-- Standard icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/bittool.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Markdown Previewer | BitTools</title>
-    <meta name="description" content="A simple Markdown previewer. 100% client-side." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bittools.cc/text/markdown/" />
+    <meta name="twitter:card" content="summary" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.0/github-markdown.min.css">
 
@@ -57,6 +127,10 @@
             align-items: center;
             gap: 16px;
             margin-bottom: 16px;
+        }
+         .help {
+            margin-top: 18px;
+            padding: 12px
         }
 
         header img {
@@ -125,6 +199,16 @@
             background: rgba(107, 220, 255, .06)
         }
 
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn.danger {
+            border-color: transparent;
+            background: var(--danger);
+            color: #fff
+        }
+
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -159,6 +243,117 @@
         .markdown-body {
             background: var(--panel);
         }
+
+        .status {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-top: 1px solid var(--border);
+            background: transparent
+        }
+
+        .ad-slot {
+            margin: 0;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            padding: 16px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(100%);
+            border: 0;
+            white-space: nowrap;
+        }
+
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--panel);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: none;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            align-items: center;
+        }
+
+        .popup.success {
+            border-left: 4px solid var(--ok);
+        }
+
+        .popup.error {
+            border-left: 4px solid var(--danger);
+        }
+
+        .popup-close {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 14px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        .bottom-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+            padding: 0.25rem 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            font-size: 0.75rem;
+        }
+
+        .bottom-ad .ad-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-right: 0.5rem;
+        }
+
+        .bottom-ad .ad-slot {
+            flex: 1;
+            text-align: center;
+        }
+
+        .bottom-ad .close-ad {
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+            color: var(--muted);
+            margin-left: 0.5rem;
+            padding: 0;
+        }
+
+        .bottom-ad .close-ad:hover {
+            color: var(--text);
+        }
     </style>
 </head>
 
@@ -174,11 +369,17 @@
             </div>
         </header>
 
-        <section class="card">
+        <section class="card" aria-labelledby="toolHeading">
             <div class="toolbar">
                 <strong>Tool</strong>
+                <button class="btn" id="previewBtn">Preview</button>
+                <button class="btn" id="copyBtn">Copy HTML</button>
+                <button class="btn" id="downloadBtn">Download .html</button>
+                <label class="btn" for="fileInput" role="button">Upload…</label>
+                <input id="fileInput" type="file" accept=".txt,.md,text/plain" class="sr-only" />
                 <div class="spacer"></div>
-                <button class="btn" id="themeToggle">🌙</button>
+                <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+                <button class="btn" id="themeToggle" style="margin-left:8px;">🌙</button>
             </div>
             <div class="grid">
                 <div>
@@ -188,37 +389,258 @@
                     <article id="markdownOutput"></article>
                 </div>
             </div>
-             <footer style="text-align:center; margin-top:20px; color:var(--muted);">
-    © 2025 BitTools — Free Online Tools
-  </footer>
+            <div class="status">
+                <div class="muted" id="metaInfo"></div>
+            </div>
+            <div class="ad-slot">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                    data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </section>
+        <section class="help">
+            <details>
+                <summary><strong>How to use</strong></summary>
+                <ol>
+                    <li>Paste or type your Markdown into the box above.</li>
+                    <li>Click <strong>Preview</strong> to see the rendered HTML.</li>
+                    <li>Copy the HTML output or download it as a .html file.</li>
+                </ol>
+            </details>
+            <details>
+                <summary><strong>About This Online Markdown Previewer</strong></summary>
+                <p>
+                    This free <strong>Markdown Previewer</strong> renders your Markdown text instantly in the browser.
+                </p>
+                <p>
+                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device —
+                    making
+                    this tool 100% secure and private.
+                </p>
+            </details>
+
+            <p>👉 Read More <a href="/blogs/markdown">Markdown Previewer by BitTools.cc</a>
+
+            <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+                <h2>Markdown Explained</h2>
+                <p>
+                    <strong>Markdown</strong> is a lightweight markup language for creating formatted text using a plain-text editor.
+                </p>
+
+                <h3>Why Use a Markdown Previewer?</h3>
+                <ul>
+                    <li>📌 <strong>Formatting text</strong> for documentation, comments, and messages.</li>
+                    <li>📌 <strong>Writing content</strong> for blogs and websites.</li>
+                    <li>📌 <strong>Learning Markdown</strong> syntax.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions</h3>
+                <h4>🔹 Is this tool free and private?</h4>
+                <p>Yes. BitTools offers this tool for free and it runs completely in your browser, so your text is never
+                    uploaded.</p>
+
+                <h3>About BitTools</h3>
+                <p>
+                    BitTools.cc provides free, privacy-first utilities for writers, developers and creators.
+                </p>
+            </section>
+            <div id="all-tools-container"></div>
+
+        </section>
+        <style>
+        .help {
+            margin-top: 18px;
+            padding: 12px
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0
+        }
+
+        details:hover {
+            border-color: var(--accent)
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600
+        }
+        </style>
     </div>
+
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-slot">
+            <!-- Adsense ad unit -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+
+    <!-- ✅ Popup -->
+    <div id="popup" class="popup">
+        <span id="popupMessage"></span>
+        <button id="popupClose" class="popup-close">✖</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        const markdownInput = document.getElementById('markdownInput');
-                const themeToggle = document.getElementById('themeToggle');
+        class MarkdownPreviewer {
+            constructor() {
+                this.input = document.getElementById('markdownInput');
+                this.output = document.getElementById('markdownOutput');
+                this.metaInfo = document.getElementById('metaInfo');
+                this.themeToggle = document.getElementById('themeToggle');
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.body.dataset.theme;
-            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.body.dataset.theme = nextTheme;
-            themeToggle.textContent = nextTheme === 'dark' ? '🌙' : '☀️';
-            localStorage.setItem('markdown-theme', nextTheme);
-        });
+                this.initEventListeners();
+                this.loadTheme();
+            }
 
-        // Load theme from local storage
-        const savedTheme = localStorage.getItem('markdown-theme') || 'dark';
-        document.body.dataset.theme = savedTheme;
-        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+            initEventListeners() {
+                document.getElementById('previewBtn').addEventListener('click', () => this.renderMarkdown());
+                document.getElementById('copyBtn').addEventListener('click', () => this.copyOutput());
+                document.getElementById('downloadBtn').addEventListener('click', () => this.download());
+                document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+                document.getElementById('fileInput').addEventListener('change', (e) => this.handleFileUpload(e));
+                document.getElementById("closeBottomAd").addEventListener("click", () => this.closeBottomAd());
+                document.getElementById("popupClose").addEventListener("click", () => this.hidePopup());
+                this.themeToggle.addEventListener('click', () => this.toggleTheme());
 
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+                this.input.addEventListener('input', () => this.updateLiveMeta());
+            }
 
+            renderMarkdown() {
+                this.output.innerHTML = marked.parse(this.input.value);
+                                    this.showBottomAd();
 
-        const markdownOutput = document.getElementById('markdownOutput');
+            }
 
-        markdownInput.addEventListener('input', () => {
-            markdownOutput.innerHTML = marked.parse(markdownInput.value);
-        });
+            copyOutput() {
+                const text = this.output.innerHTML;
+                if (!text) { this.showPopup('Nothing to copy', 'err'); return; }
+                navigator.clipboard.writeText(text).then(() => {
+                    this.showPopup('Copied to clipboard!', 'ok');
+                    this.showBottomAd();
+                    setTimeout(() => this.showPopup(), 2000);
+                }).catch(() => this.showPopup('Copy failed', 'err'));
+            }
+
+            download() {
+                const text = this.output.innerHTML;
+                if (!text) { this.showPopup('Nothing to download', 'err'); return; }
+                const blob = new Blob([text], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'preview.html'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                this.showPopup('Downloaded!', 'ok');
+                this.showBottomAd();
+                setTimeout(() => this.showPopup(), 2000);
+            }
+
+            clear() {
+                this.input.value = '';
+                this.output.innerHTML = '';
+                this.updateMeta('');
+                this.metaInfo.textContent = '';
+                this.input.focus();
+            }
+
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => { this.input.value = e.target.result; this.updateLiveMeta(); this.renderMarkdown(); };
+                reader.readAsText(file);
+            }
+
+            handleKeyboard(event) {
+                if (event.key === 'Escape') { event.preventDefault(); this.clear(); }
+            }
+
+            updateLiveMeta() {
+                const text = this.input.value;
+                if (!text) { this.metaInfo.textContent = ''; return; }
+                const chars = text.length;
+                const words = text.trim() ? text.trim().split(/\s+/).filter(Boolean).length : 0;
+                this.metaInfo.textContent = `${words.toLocaleString()} words • ${chars.toLocaleString()} chars`;
+            }
+
+            updateMeta(text) {
+                if (!text) { this.metaInfo.textContent = ''; return; }
+                const lines = text.split('\n').length;
+                const chars = text.length;
+                const bytes = new Blob([text]).size;
+                this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`;
+            }
+
+            toggleTheme() {
+                const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.body.dataset.theme = next;
+                this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+                localStorage.setItem('markdown-theme', next);
+            }
+
+            loadTheme() {
+                const saved = localStorage.getItem('markdown-theme') || 'dark';
+                document.body.dataset.theme = saved;
+                this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+            }
+
+            showBottomAd() {
+                document.getElementById("bottomAd").style.display = "flex";
+            }
+            closeBottomAd() {
+                document.getElementById("bottomAd").style.display = "none";
+            }
+
+            showPopup(message, type = "success") {
+                const popup = document.getElementById("popup");
+                const popupMessage = document.getElementById("popupMessage");
+                const closeBtn = document.getElementById("popupClose");
+
+                if (!popup || !popupMessage || !closeBtn) {
+                    console.warn("Popup elements not found yet");
+                    return;
+                }
+
+                popupMessage.textContent = message;
+                popup.className = "popup " + (type === 'err' ? 'error' : 'success');
+                popup.style.display = "flex";
+
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 3000);
+
+                closeBtn.onclick = () => {
+                    popup.style.display = "none";
+                };
+            }
+
+            hidePopup() {
+                const popup = document.getElementById("popup");
+                popup.style.display = "none";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => new MarkdownPreviewer());
     </script>
+    <script src="/assets/include.js"></script>
+    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+    </footer>
 </body>
 
 </html>

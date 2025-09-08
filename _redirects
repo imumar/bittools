@@ -60,4 +60,7 @@
 /text    /textTools/index.html 200
 /text/case-converter    /textTools/caseConverter/case-converter-index.html 200
 /blogs/case-converter    /blogs/TextBlogs/case-converter-blog.html 200
-
+/text/extra-spaces      /textTools/extraSpaces/extra-spaces-index.html 200
+/blogs/extra-spaces     /blogs/TextBlogs/extra-spaces-blog.html 200
+/text/markdown      /textTools/markdownPreviewer/index.html 200
+/blogs/markdown     /blogs/TextBlogs/markdown-preview-blog.html 200
