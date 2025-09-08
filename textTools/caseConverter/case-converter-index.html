@@ -481,7 +481,8 @@
             </a>
             <div class="text">
                 <h1>Case Converter <span class="muted">— by BitTools</span></h1>
-                <p class="muted">Convert text between UPPERCASE, lowercase and Title Case. 100% client-side. No data leaves your browser.</p>
+                <p class="muted">Convert text between UPPERCASE, lowercase and Title Case. 100% client-side. No data
+                    leaves your browser.</p>
             </div>
         </header>
 
@@ -530,7 +531,8 @@
                 <summary><strong>How to use</strong></summary>
                 <ol>
                     <li>Paste or type your text into the box above.</li>
-                    <li>Click <strong>UPPERCASE</strong>, <strong>lowercase</strong>, or <strong>Title Case</strong> to transform the text.</li>
+                    <li>Click <strong>UPPERCASE</strong>, <strong>lowercase</strong>, or <strong>Title Case</strong> to
+                        transform the text.</li>
                     <li>Copy the transformed text or download it as a .txt file.</li>
                 </ol>
             </details>
@@ -541,7 +543,8 @@
                     It preserves punctuation and special characters while only modifying letter case.
                 </p>
                 <p>
-                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device — making
+                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device —
+                    making
                     this tool 100% secure and private.
                 </p>
             </details>
@@ -553,7 +556,8 @@
                 <p>
                     <strong>UPPERCASE</strong> converts all alphabetic characters to capital letters.<br>
                     <strong>lowercase</strong> converts all alphabetic characters to small letters.<br>
-                    <strong>Title Case</strong> capitalizes the first letter of principal words (common words like “and”, “the”, “of” are left lowercase unless they start the sentence).
+                    <strong>Title Case</strong> capitalizes the first letter of principal words (common words like
+                    “and”, “the”, “of” are left lowercase unless they start the sentence).
                 </p>
 
                 <h3>Why Use a Case Converter?</h3>
@@ -565,19 +569,23 @@
 
                 <h3>Frequently Asked Questions</h3>
                 <h4>🔹 Does Title Case handle small words (a, the, of)?</h4>
-                <p>Yes — Title Case implementation here uses a conservative rule: it capitalizes main words and keeps common short words lowercase unless they appear at the start of a line or sentence.</p>
+                <p>Yes — Title Case implementation here uses a conservative rule: it capitalizes main words and keeps
+                    common short words lowercase unless they appear at the start of a line or sentence.</p>
 
                 <h4>🔹 Will punctuation be changed?</h4>
                 <p>No — punctuation and special characters are preserved exactly as in the input text.</p>
 
                 <h4>🔹 Is this tool free and private?</h4>
-                <p>Yes. BitTools offers this tool for free and it runs completely in your browser, so your text is never uploaded.</p>
+                <p>Yes. BitTools offers this tool for free and it runs completely in your browser, so your text is never
+                    uploaded.</p>
 
                 <h3>About BitTools</h3>
                 <p>
                     BitTools.cc provides free, privacy-first utilities for writers, developers and creators.
                 </p>
             </section>
+            <div id="all-tools-container"></div>
+
         </section>
     </div>
 
@@ -695,7 +703,7 @@
                 const text = this.input.value;
                 if (!text.trim()) { this.showPopup('Empty input', 'err'); return; }
                 // Title Case: capitalize first letter of words, keep small words lowercase unless start of sentence/line
-                const smallWords = new Set(['a','an','and','as','at','but','by','for','if','in','nor','of','on','or','per','the','to','vs','via','with']);
+                const smallWords = new Set(['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'if', 'in', 'nor', 'of', 'on', 'or', 'per', 'the', 'to', 'vs', 'via', 'with']);
                 const lines = text.split(/\r\n|\r|\n/);
                 const converted = lines.map(line => {
                     // split by word boundaries but preserve punctuation
@@ -856,6 +864,7 @@
     <footer style="text-align:center; margin-top:20px; color:var(--muted);">
         © 2025 BitTools — Free Online Tools
     </footer>
+    <script src="/assets/include.js"></script>
 
 </body>
 

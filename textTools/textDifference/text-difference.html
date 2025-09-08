@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+        crossorigin="anonymous"></script>
+    <!-- Primary Meta Tags -->
+    <title>Online Text Difference Checker – Compare & Find Differences | BitTools</title>
+    <meta name="title" content="Online Text Difference Checker – Compare & Find Differences | BitTools">
+    <meta name="description"
+        content="Easily compare two text files or snippets to find differences. Our free online diff tool highlights additions and deletions, making it simple to track changes.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bittools.cc/text-tools/text-difference">
+    <meta property="og:title" content="Online Text Difference Checker – Compare & Find Differences | BitTools">
+    <meta property="og:description"
+        content="Easily compare two text files or snippets to find differences. Our free online diff tool highlights additions and deletions, making it simple to track changes.">
+    <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bittools.cc/text-tools/text-difference">
+    <meta property="twitter:title" content="Online Text Difference Checker – Compare & Find Differences | BitTools">
+    <meta property="twitter:description"
+        content="Easily compare two text files or snippets to find differences. Our free online diff tool highlights additions and deletions, making it simple to track changes.">
+    <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+    "@type": "Question",
+    "name": "What is a text difference checker?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A text difference checker (or diff tool) is a tool that compares two pieces of text and highlights the differences between them. It shows you what has been added, removed, or changed."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "Is this online diff tool safe to use?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, this tool is completely safe. All comparisons are done in your browser, and your text is not sent to any server. Your data remains private."
+    }
+    },
+    {
+    "@type": "Question",
+    "name": "How do I use this tool?",
+    "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Simply paste your original text in the first box and the modified text in the second box. Click the 'Compare' button to see the differences highlighted instantly."
+    }
+    }
+    ]
+    }
+    </script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/bittool.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+
+    <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bittools.cc/text-tools/text-difference" />
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --panel: #12141a;
+            --text: #e8edf2;
+            --muted: #9aa7b4;
+            --accent: #6bdcff;
+            --danger: #ff6b6b;
+            --ok: #7dffa0;
+            --border: #1e232d;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+        }
+
+        [data-theme="light"] {
+            --bg: #f1f8ed;
+            --panel: #f9fafb;
+            --text: #111827;
+            --muted: #374151;
+            --accent: #0077ff;
+            --danger: #c1121f;
+            --ok: #059669;
+            --border: #d1d5db;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.25s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        header img {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            background: var(--panel);
+        }
+
+        header img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
+        }
+
+        header .text h1 {
+            font-size: clamp(1.5rem, 2rem, 2.2rem);
+            margin: 0;
+        }
+
+        header .text p {
+            margin: 4px 0 0 0;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            background: transparent;
+        }
+
+        .toolbar .spacer {
+            flex: 1;
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .16s
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            background: rgba(107, 220, 255, .06)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 12px;
+        }
+
+        .grid>div {
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        textarea {
+            flex: 1;
+            min-height: 420px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+            font-size: 14px;
+            line-height: 1.45;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            color: var(--text);
+            resize: vertical;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="container">
+        <header>
+            <a href="/" title="BitTools Home">
+                <img src="/assets/bittoolsicon.png" alt="BitTools Logo">
+            </a>
+            <div class="text">
+                <h1>Text Diff Tool <span class="muted">— by BitTools</span></h1>
+                <p class="muted">Compare two text snippets and see the differences.</p>
+            </div>
+        </header>
+
+        <section class="card">
+            <div class="toolbar">
+                <strong>Tool</strong>
+                <div class="spacer"></div>
+                <button class="btn" id="themeToggle">🌙</button>
+                <button class="btn" id="compareBtn">Compare</button>
+            </div>
+            <div class="grid">
+                <div>
+                    <textarea id="text1" placeholder="First text"></textarea>
+                </div>
+                <div>
+                    <textarea id="text2" placeholder="Second text"></textarea>
+                </div>
+            </div>
+            <div class="ad-slot">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                    data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+
+        <section class="help">
+            <details>
+                <summary><strong>How to Use This Text Difference Checker</strong></summary>
+                <ol>
+                    <li>Paste the first version of your text into the left input box.</li>
+                    <li>Paste the second version of your text into the right input box.</li>
+                    <li>Click the <strong>Compare</strong> button.</li>
+                    <li>The tool will display the differences, with deletions highlighted in red and additions in green.</li>
+                </ol>
+            </details>
+            <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+                <h2>About Text Difference Checking</h2>
+                <p>
+                    A <strong>text difference checker</strong>, often called a "diff tool," is essential for anyone working with text-based documents, code, or content. It allows you to see the exact changes between two versions of a text, which is incredibly useful for tracking revisions, merging changes, and debugging code.
+                </p>
+                <h3>Why Use an Online Diff Tool?</h3>
+                <ul>
+                    <li>📌 <strong>Track Changes:</strong> See what has been added, deleted, or modified in a document.</li>
+                    <li>📌 <strong>Collaborate Effectively:</strong> Easily review changes made by team members.</li>
+                    <li>📌 <strong>Save Time:</strong> Quickly spot differences without manual line-by-line comparison.</li>
+                </ul>
+            </section>
+        </section>
+    </div>
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-slot">
+            <!-- Adsense ad unit -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
+        © 2025 BitTools — Free Online Tools
+    </footer>
+    <script>
+function diff(text1, text2) {
+    const a = text1.split('');
+    const b = text2.split('');
+    const matrix = Array(a.length + 1).fill(null).map(() => Array(b.length + 1).fill(0));
+
+    for (let i = 0; i <= a.length; i++) {
+        for (let j = 0; j <= b.length; j++) {
+            if (i === 0 || j === 0) {
+                matrix[i][j] = 0;
+            } else if (a[i - 1] === b[j - 1]) {
+                matrix[i][j] = matrix[i - 1][j - 1] + 1;
+            } else {
+                matrix[i][j] = Math.max(matrix[i - 1][j], matrix[i][j - 1]);
+            }
+        }
+    }
+
+    let i = a.length;
+    let j = b.length;
+    let result1 = '';
+    let result2 = '';
+
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
+            result1 = a[i - 1] + result1;
+            result2 = b[j - 1] + result2;
+            i--;
+            j--;
+        } else if (j > 0 && (i === 0 || matrix[i][j - 1] >= matrix[i - 1][j])) {
+            result2 = '<ins>' + b[j - 1] + '</ins>' + result2;
+            j--;
+        } else if (i > 0) {
+            result1 = '<del>' + a[i - 1] + '</del>' + result1;
+            i--;
+        }
+    }
+
+    return [result1, result2];
+}
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const text1Input = document.getElementById('text1');
+            const text2Input = document.getElementById('text2');
+            const compareBtn = document.getElementById('compareBtn');
+                        const themeToggle = document.getElementById('themeToggle');
+
+                themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.dataset.theme;
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.dataset.theme = nextTheme;
+            themeToggle.textContent = nextTheme === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('diff-theme', nextTheme);
+        });
+
+        // Load theme from local storage
+        const savedTheme = localStorage.getItem('diff-theme') || 'dark';
+        document.body.dataset.theme = savedTheme;
+        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+            compareBtn.addEventListener('click', () => {
+                const text1 = text1Input.value;
+                const text2 = text2Input.value;
+
+                const [diff1, diff2] = diff(text1, text2);
+
+                text1Input.value = '';
+                text2Input.value = '';
+
+                text1Input.insertAdjacentHTML('beforebegin', `<div style="
+                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, &quot;Roboto Mono&quot;, monospace;
+                                font-size: 14px;
+                                line-height: 1.45;
+                                padding: 12px;
+                                border-radius: 12px;
+                                border: 1px solid var(--border);
+                                background: var(--panel);
+                                color: var(--text);
+                                resize: vertical;
+                                overflow: auto;
+                                white-space: pre-wrap;
+                                word-break: break-word;">${diff1}</div>`);
+                text2Input.insertAdjacentHTML('beforebegin', `<div style="
+                font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, &quot;Roboto Mono&quot;, monospace;
+                                font-size: 14px;
+                                line-height: 1.45;
+                                padding: 12px;
+                                border-radius: 12px;
+                                border: 1px solid var(--border);
+                                background: var(--panel);
+                                color: var(--text);
+                                resize: vertical;
+                                overflow: auto;
+                                white-space: pre-wrap;
+                                word-break: break-word;">${diff2}</div>`);
+
+
+            });
+        });
+    </script>
+    <style>
+        del {
+            color: red;
+            background: #ffe6e6;
+        }
+
+        ins {
+            color: green;
+            background: #e6ffe6;
+            text-decoration: none;
+        }
+        .bottom-ad {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+            padding: 0.25rem 0.75rem;
+            /* smaller padding */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            font-size: 0.75rem;
+            /* smaller text */
+        }
+
+        .bottom-ad .ad-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-right: 0.5rem;
+        }
+
+        .bottom-ad .ad-slot {
+            flex: 1;
+            text-align: center;
+        }
+
+        .bottom-ad .close-ad {
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            /* smaller × */
+            line-height: 1;
+            cursor: pointer;
+            color: var(--muted);
+            margin-left: 0.5rem;
+            padding: 0;
+        }
+
+        .bottom-ad .close-ad:hover {
+            color: var(--text);
+        }
+    </style>
+
+
+</body>
+
+</html>
