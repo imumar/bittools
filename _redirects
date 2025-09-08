@@ -56,6 +56,11 @@
 /finance/roi-irr    /finance/roi-irr/index.html 200
 /    /index.html 200
 
+/about     /about.html 200
+/privacy     /privacy.html 200 
+/contact       /contact.html 200
+/terms      /terms.html 200
+
 
 /text    /textTools/index.html 200
 /text/case-converter    /textTools/caseConverter/case-converter-index.html 200
