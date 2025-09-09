@@ -124,7 +124,11 @@
             --border: #d1d5db;
         }
 
-        html, body { height: 100% }
+        html,
+        body {
+            height: 100%
+        }
+
         body {
             margin: 0;
             background: var(--bg);
@@ -133,112 +137,344 @@
             transition: background 0.25s ease, color 0.25s ease;
         }
 
-        .container { max-width: 1200px; margin: auto; padding: 24px }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 24px
+        }
 
         header {
-            display: flex; align-items: center; gap: 16px; margin-bottom: 16px; justify-content: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            justify-content: flex-start;
         }
-        header img { width: 110px; height: 110px; border-radius: 24px; background: #12141a; }
-        header .text h1 { font-size: clamp(1.5rem, 2rem, 2.2rem); margin: 0; }
-        header .text p { margin: 4px 0 0 0; }
-        header img:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(107, 220, 255, 0.4); }
 
-        h1 { font-size: clamp(1.25rem, 1.6rem+1vw, 2rem); margin: 0 }
-        .muted { color: var(--muted) }
+        header img {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            background: #12141a;
+        }
+
+        header .text h1 {
+            font-size: clamp(1.5rem, 2rem, 2.2rem);
+            margin: 0;
+        }
+
+        header .text p {
+            margin: 4px 0 0 0;
+        }
+
+        header img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
+        }
+
+        h1 {
+            font-size: clamp(1.25rem, 1.6rem+1vw, 2rem);
+            margin: 0
+        }
+
+        .muted {
+            color: var(--muted)
+        }
 
         .card {
-            background: var(--panel); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow);
-            display: flex; flex-direction: column; padding: 0; overflow: hidden
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden
         }
 
         .toolbar {
-            display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px;
-            border-bottom: 1px solid var(--border); background: transparent
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            background: transparent
         }
-        .toolbar .spacer { flex: 1 }
+
+        .toolbar .spacer {
+            flex: 1
+        }
 
         .btn {
-            appearance: none; border: 1px solid var(--border); background: transparent; color: var(--text);
-            padding: 10px 12px; border-radius: 12px; cursor: pointer; transition: all 0.16s ease
+            appearance: none;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.16s ease
         }
-        .btn:hover { border-color: var(--accent); background: rgba(107, 220, 255, 0.06) }
-        .btn:active { transform: translateY(1px) }
-        .btn.danger { border-color: transparent; background: var(--danger); color: #fff }
-        .btn.ghost { background: transparent }
 
-        .switch { display: inline-flex; gap: 8px; align-items: center }
+        .btn:hover {
+            border-color: var(--accent);
+            background: rgba(107, 220, 255, 0.06)
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn.danger {
+            border-color: transparent;
+            background: var(--danger);
+            color: #fff
+        }
+
+        .btn.ghost {
+            background: transparent
+        }
+
+        .switch {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center
+        }
 
         .grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; align-items: stretch;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 12px;
+            align-items: stretch;
         }
-        .grid>div { display: flex; flex-direction: column; min-height: 420px; }
 
-        #input, #output {
-            flex: 1; box-sizing: border-box; min-height: 420px;
+        .grid>div {
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        #input,
+        #output {
+            flex: 1;
+            box-sizing: border-box;
+            min-height: 420px;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-            font-size: 14px; line-height: 1.45; padding: 12px; margin: 0; border-radius: 12px;
-            border: 1px solid var(--border); background: var(--panel); color: var(--text);
-            resize: vertical; overflow: auto; white-space: pre-wrap; word-break: break-word;
+            font-size: 14px;
+            line-height: 1.45;
+            padding: 12px;
+            margin: 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            color: var(--text);
+            resize: vertical;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
         }
 
-        .btn, label.btn {
-            display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem;
-            font-size: 0.875rem; font-weight: 500; border-radius: 0.5rem; cursor: pointer;
-            background: #374151; color: #fff; border: none; line-height: 1.25rem; transition: background 0.2s;
+        .btn,
+        label.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background: #374151;
+            color: #fff;
+            border: none;
+            line-height: 1.25rem;
+            transition: background 0.2s;
         }
-        .btn:hover, label.btn:hover { background: #005fcc; }
-        .btn.ghost, label.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
-        textarea { -webkit-font-smoothing: antialiased; }
 
-        [data-theme="light"] #input, [data-theme="light"] #output {
-            background: var(--panel); color: var(--text); border-color: var(--border);
+        .btn:hover,
+        label.btn:hover {
+            background: #005fcc;
+        }
+
+        .btn.ghost,
+        label.btn.ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        textarea {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        [data-theme="light"] #input,
+        [data-theme="light"] #output {
+            background: var(--panel);
+            color: var(--text);
+            border-color: var(--border);
         }
 
         .status {
-            display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
-            padding: 12px; border-top: 1px solid var(--border); background: transparent
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-top: 1px solid var(--border);
+            background: transparent
         }
 
-        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); transition: all 0.3s ease }
-        .badge.ok { background: rgba(125, 255, 160, .06); border-color: rgba(125, 255, 160, .16); color: var(--ok) }
-        .badge.err { background: rgba(255, 107, 107, .06); border-color: rgba(255, 107, 107, .16); color: var(--danger) }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease
+        }
 
-        .help { margin-top: 18px; padding: 12px }
-        details { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin: 12px 0 }
-        details:hover { border-color: var(--accent) }
-        summary { cursor: pointer; font-weight: 600 }
+        .badge.ok {
+            background: rgba(125, 255, 160, .06);
+            border-color: rgba(125, 255, 160, .16);
+            color: var(--ok)
+        }
 
-        .footer-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px }
-        .footer-links a { color: var(--accent); text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: background 0.2s ease }
-        .footer-links a:hover { background: rgba(107, 220, 255, 0.06) }
+        .badge.err {
+            background: rgba(255, 107, 107, .06);
+            border-color: rgba(255, 107, 107, .16);
+            color: var(--danger)
+        }
 
-        .kbd { font-family: ui-monospace, monospace; border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px; background: var(--panel) }
+        .help {
+            margin-top: 18px;
+            padding: 12px
+        }
+
+        details {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0
+        }
+
+        details:hover {
+            border-color: var(--accent)
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s ease
+        }
+
+        .footer-links a:hover {
+            background: rgba(107, 220, 255, 0.06)
+        }
+
+        .kbd {
+            font-family: ui-monospace, monospace;
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: var(--panel)
+        }
 
         .ad-slot {
-            margin: 0; border-top: 1px solid var(--border);
+            margin: 0;
+            border-top: 1px solid var(--border);
             background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
-            color: var(--muted); display: flex; align-items: center; justify-content: center; min-height: 100px; padding: 16px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            padding: 16px;
         }
 
         .sr-only {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
-            clip: rect(0, 0, 0, 0); clip-path: inset(100%); border: 0; white-space: nowrap;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(100%);
+            border: 0;
+            white-space: nowrap;
         }
 
         .popup {
-            position: fixed; top: 20px; right: 20px; background: var(--panel); color: var(--text);
-            border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; display: none;
-            box-shadow: var(--shadow); z-index: 10000; align-items: center;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--panel);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: none;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            align-items: center;
         }
-        .popup.success { border-left: 4px solid var(--ok); }
-        .popup.error { border-left: 4px solid var(--danger); }
-        .popup-close { background: transparent; border: none; color: var(--text); font-size: 14px; margin-left: 8px; cursor: pointer; }
+
+        .popup.success {
+            border-left: 4px solid var(--ok);
+        }
+
+        .popup.error {
+            border-left: 4px solid var(--danger);
+        }
+
+        .popup-close {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 14px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
 
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; gap: 8px; padding: 10px }
-            .grid>div:nth-child(2) { order: 2 }
-            .toolbar { gap: 6px; padding: 10px }
-            .btn { padding: 8px 10px; font-size: 14px }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 10px
+            }
+
+            .grid>div:nth-child(2) {
+                order: 2
+            }
+
+            .toolbar {
+                gap: 6px;
+                padding: 10px
+            }
+
+            .btn {
+                padding: 8px 10px;
+                font-size: 14px
+            }
         }
     </style>
 </head>
@@ -252,7 +488,8 @@
             </a>
             <div class="text">
                 <h1>Word Counter <span class="muted">— by BitTools</span></h1>
-                <p class="muted">Count words, characters, lines, sentences & paragraphs. 100% client-side. No data leaves your browser.</p>
+                <p class="muted">Count words, characters, lines, sentences & paragraphs. 100% client-side. No data
+                    leaves your browser.</p>
             </div>
         </header>
 
@@ -299,19 +536,23 @@
                 <summary><strong>How to use</strong></summary>
                 <ol>
                     <li>Paste or type your text into the box above.</li>
-                    <li>Click <strong>Count</strong> (or press <span class="kbd">Ctrl/⌘</span> + <span class="kbd">Enter</span>) to analyze the text.</li>
+                    <li>Click <strong>Count</strong> (or press <span class="kbd">Ctrl/⌘</span> + <span
+                            class="kbd">Enter</span>) to analyze the text.</li>
                     <li>View words, characters, lines, sentences, paragraphs, and estimated reading/speaking time.</li>
-                    <li>Use <strong>Copy Output</strong> to copy the stats, or <strong>Download .txt</strong> to save them.</li>
+                    <li>Use <strong>Copy Output</strong> to copy the stats, or <strong>Download .txt</strong> to save
+                        them.</li>
                 </ol>
             </details>
             <details>
                 <summary><strong>About This Online Word Counter</strong></summary>
                 <p>
                     This free <strong>online word counter</strong> instantly analyzes your text and provides detailed
-                    statistics including word and character counts, line and paragraph counts, and time-to-read estimates.
+                    statistics including word and character counts, line and paragraph counts, and time-to-read
+                    estimates.
                 </p>
                 <p>
-                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device — making
+                    Everything runs <strong>directly in your browser</strong>. Your text never leaves your device —
+                    making
                     this tool 100% secure and private.
                 </p>
             </details>
@@ -339,7 +580,8 @@
 
                 <h3>Frequently Asked Questions</h3>
                 <h4>🔹 How accurate is sentence detection?</h4>
-                <p>Sentence counts are estimated using common punctuation and may vary for abbreviations or complex structures.</p>
+                <p>Sentence counts are estimated using common punctuation and may vary for abbreviations or complex
+                    structures.</p>
 
                 <h4>🔹 Is there a character count without spaces?</h4>
                 <p>Yes — the output shows both total characters and characters excluding spaces.</p>
@@ -354,6 +596,8 @@
                     No tracking — just fast, useful tools.
                 </p>
             </section>
+                        <div id="all-tools-container"></div>
+
         </section>
     </div>
 
@@ -361,13 +605,14 @@
         <span class="ad-label">Advertisement</span>
         <div class="ad-slot">
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
-                data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
         <button id="closeBottomAd" class="close-ad">×</button>
     </div>
+
 
     <!-- ✅ Popup -->
     <div id="popup" class="popup">
@@ -377,15 +622,47 @@
 
     <style>
         .bottom-ad {
-            position: fixed; bottom: 0; left: 0; right: 0; background: var(--panel);
-            border-top: 1px solid var(--border); box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
-            padding: 0.25rem 0.75rem; display: flex; align-items: center; justify-content: space-between;
-            z-index: 9999; font-size: 0.75rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+            padding: 0.25rem 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            font-size: 0.75rem;
         }
-        .bottom-ad .ad-label { font-size: 0.7rem; font-weight: 600; color: var(--muted); margin-right: 0.5rem; }
-        .bottom-ad .ad-slot { flex: 1; text-align: center; }
-        .bottom-ad .close-ad { background: transparent; border: none; font-size: 1rem; line-height: 1; cursor: pointer; color: var(--muted); margin-left: 0.5rem; padding: 0; }
-        .bottom-ad .close-ad:hover { color: var(--text); }
+
+        .bottom-ad .ad-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-right: 0.5rem;
+        }
+
+        .bottom-ad .ad-slot {
+            flex: 1;
+            text-align: center;
+        }
+
+        .bottom-ad .close-ad {
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            line-height: 1;
+            cursor: pointer;
+            color: var(--muted);
+            margin-left: 0.5rem;
+            padding: 0;
+        }
+
+        .bottom-ad .close-ad:hover {
+            color: var(--text);
+        }
     </style>
 
     <script>
@@ -585,9 +862,9 @@
         document.addEventListener('DOMContentLoaded', () => new WordCounter());
     </script>
 
-    <footer style="text-align:center; margin-top:20px; color:var(--muted);">
-        © 2025 BitTools — Free Online Tools
-    </footer>
+    <script src="/assets/include.js"></script>
+    <script src="/assets/footer.js"></script>
 
 </body>
+
 </html>

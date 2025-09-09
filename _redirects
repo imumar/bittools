@@ -69,3 +69,7 @@
 /blogs/extra-spaces     /blogs/TextBlogs/extra-spaces-blog.html 200
 /text/markdown      /textTools/markdownPreviewer/index.html 200
 /blogs/markdown     /blogs/TextBlogs/markdown-preview-blog.html 200
+/text/text-difference      /textTools/textDifference/text-difference.html 200
+/blogs/text-difference     /blogs/TextBlogs/text-difference-blog.html 200
+/text/word-counter      /textTools/wordCounter/word-counter-index.html 200
+/blogs/word-counter     /blogs/TextBlogs/word-counter-blog.html 200

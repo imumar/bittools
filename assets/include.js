@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const allToolsHTML = `
+document.addEventListener("DOMContentLoaded", function () {
+  const allToolsHTML = `
 <style>
   .all-tools-list {
     display: grid;
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="/text/case-converter">Case Converter</a>
          <a href="/text/extra-spaces">Extra Spaces Remover</a>
         <a href="/text/markdown">Markdown Previewer</a>
-       <!-- <a href="/textTools/textDifference/text-difference.html">Text Difference Checker</a>
-        <a href="/textTools/wordCounter/word-counter-index.html">Word Counter</a> -->
+  <a href="/text/text-difference">Text Difference Checker</a>
+        <a href="/text/word-counter">Word Counter</a> 
   </div>
   <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="6238140983"
@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
 </section>
     `;
-    const container = document.getElementById('all-tools-container');
-    if (container) {
-        container.innerHTML = allToolsHTML;
-    }
+  const container = document.getElementById('all-tools-container');
+  if (container) {
+    container.innerHTML = allToolsHTML;
+  }
 });

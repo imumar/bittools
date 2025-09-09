@@ -201,7 +201,30 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+   <url>
+    <loc>https://bittools.cc/text/extra-spaces</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+   <url>
+    <loc>https://bittools.cc/text/markdown</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bittools.cc/text/text-difference</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bittools.cc/text/word-counter</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Blog Pages -->
   <url>
     <loc>https://bittools.cc/blogs/json-formatter</loc>
@@ -334,6 +357,27 @@
   <!-- Text Blogs -->
   <url>
     <loc>https://bittools.cc/blogs/case-converter</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bittools.cc/blogs/extra-spaces</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url><url>
+    <loc>https://bittools.cc/blogs/markdown</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url><url>
+    <loc>https://bittools.cc/blogs/text-difference</loc>
+    <lastmod>2025-01-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url><url>
+    <loc>https://bittools.cc/blogs/word-counter</loc>
     <lastmod>2025-01-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
