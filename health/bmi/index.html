@@ -1,63 +1,766 @@
 <!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BMI Calculator | BitTools</title>
-<meta name="description" content="Calculate your Body Mass Index (BMI) instantly. 100% client-side."/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is BMI calculated?","acceptedAnswer":{"@type":"Answer","text":"BMI = weight(kg) / (height(m))^2. Units are converted automatically."}}]}</script>
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:800px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header .text h1{margin:0}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:16px}.row{display:flex;gap:12px;align-items:center;margin:8px 0}input,select{flex:1;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text)}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s ease}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.ad-slot{margin:0;border-top:1px solid var(--border);background:linear-gradient(135deg, rgba(107,220,255,.04), rgba(125,255,160,.03));color:var(--muted);display:flex;align-items:center;justify-content:center;min-height:100px;padding:16px}.popup{position:fixed;top:20px;right:20px;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:none;box-shadow:var(--shadow);z-index:10000;align-items:center}.popup.success{border-left:4px solid var(--ok)}.popup.error{border-left:4px solid var(--danger)}.bottom-ad{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--border);box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem}.bottom-ad .ad-label{font-size:.7rem;font-weight:600;color:var(--muted);margin-right:.5rem}.bottom-ad .ad-slot{flex:1;text-align:center}.bottom-ad .close-ad{background:transparent;border:none;font-size:1rem;line-height:1;cursor:pointer;color:var(--muted);margin-left:.5rem;padding:0}</style>
-</head><body>
-<div class="container">
-  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>BMI Calculator</h1><p class="muted">Compute Body Mass Index and category.</p></div><button class="btn" id="themeToggle" style="margin-left:auto">🌙</button></header>
-  <section class="card">
-    <div class="row"><label for="height">Height</label><input id="height" placeholder="e.g. 170"/><select id="hUnit"><option value="cm">cm</option><option value="in">in</option></select></div>
-    <div class="row"><label for="weight">Weight</label><input id="weight" placeholder="e.g. 65"/><select id="wUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div>
-    <div class="row"><button class="btn" id="calc">Calculate</button></div>
-    <div class="row"><strong id="result"></strong></div>
-    <div class="ad-slot" style="margin-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:100px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-  </section>
-  <section class="help" style="max-width:800px;margin:auto;padding:12px">
-    <details>
-      <summary><strong>How to use</strong></summary>
-      <ol>
-        <li>Choose units (cm/kg or in/lb).</li>
-        <li>Enter height and weight, then click <strong>Calculate</strong>.</li>
-      </ol>
-    </details>
-    <details>
-      <summary><strong>About BMI</strong></summary>
-      <p>BMI is weight relative to height and does not account for muscle mass or body composition.</p>
-    </details>
-  </section>
-  <section class="seo-content" style="max-width:800px;margin:auto;line-height:1.6;padding:12px;">
-    <h2>Categories</h2>
-    <ul>
-      <li>Underweight: &lt; 18.5</li>
-      <li>Normal: 18.5–24.9</li>
-      <li>Overweight: 25–29.9</li>
-      <li>Obesity: ≥ 30</li>
-    </ul>
-  </section>
-</div>
-<div id="bottomAd" class="bottom-ad"><span class="ad-label">Advertisement</span><div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad">×</button></div>
-<div id="popup" class="popup"><span id="popupMessage"></span></div>
-<script>
-function bmiCategory(b){return b<18.5?'Underweight':b<25?'Normal':b<30?'Overweight':'Obesity'}
-document.getElementById('calc').addEventListener('click',()=>{
-  let h=parseFloat(document.getElementById('height').value); const hu=document.getElementById('hUnit').value;
-  let w=parseFloat(document.getElementById('weight').value); const wu=document.getElementById('wUnit').value;
-  if(isNaN(h)||isNaN(w)) {showPopup('Invalid input','error'); return;} if(hu==='in') h=h*2.54; if(wu==='lb') w=w*0.45359237; const bmi=w/((h/100)*(h/100));
-  const b=Number(bmi.toFixed(2)); document.getElementById('result').textContent=`BMI: ${b} (${bmiCategory(b)})`; showPopup('Calculated','success'); showBottomAd();
-});
-function showBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
-function closeBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
-function showPopup(message,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=message; p.className='popup '+(type==='error'?'error':'success'); p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);} (document.getElementById('closeBottomAd')||{}).onclick=closeBottomAd;
-// theme toggle
-document.getElementById('themeToggle').addEventListener('click',()=>{const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; document.getElementById('themeToggle').textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('bmi-theme',n);});
-(()=>{const s=localStorage.getItem('bmi-theme')||'dark'; document.body.dataset.theme=s; const t=document.getElementById('themeToggle'); if(t) t.textContent=s==='dark'?'🌙':'☀️';})();
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <!-- Primary Meta Tags -->
+  <title>BMI Calculator | BitTools.cc</title>
+  <meta name="title" content="BMI Calculator – Free, Fast & Private | BitTools">
+  <meta name="description"
+    content="Calculate your BMI instantly. 100% client-side, secure, and private. Free health tool by BitTools.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.bittools.cc/dev/bmi-calculator">
+  <meta property="og:title" content="BMI Calculator – Free, Fast & Private | BitTools">
+  <meta property="og:description"
+    content="Calculate your BMI instantly. 100% client-side. secure and private. Free health tool by BitTools.">
+  <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.bittools.cc/dev/bmi-calculator">
+  <meta property="twitter:title" content="BMI Calculator – Free, Fast & Private | BitTools">
+  <meta property="twitter:description"
+    content="Calculate your BMI instantly. 100% client-side. secure and private. Free health tool by BitTools.">
+  <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI (Body Mass Index) is a simple calculation using height and weight to estimate body fat. It is not a diagnostic tool but a screening measure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is BMI calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI = weight (kg) / (height (m))^2. Enter your height in cm and weight in kg to get your BMI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BMI accurate for everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI is a general guideline and may not be accurate for athletes, pregnant people, or those with high muscle mass. Consult a healthcare professional for personal advice."
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "BitTools",
+    "url": "https://bittools.cc"
+  }
+}
 </script>
-<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
-</body></html>
 
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/bittoolsicon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/bittool.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
 
+  <link rel="icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/bittool.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/bittoolsicon.png">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bittools.cc/dev/bmi-calculator" />
+
+  <style>
+    /* === Keep all your styles exactly as in JSON formatter === */
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --danger: #ff6b6b;
+      --ok: #7dffa0;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+    }
+
+    /* Light theme variables — applied to the body via data-theme="light" */
+    [data-theme="light"] {
+      --bg: #f1f8ed;
+      /* full page background */
+      --panel: #f9fafb;
+      /* slightly off-white for cards */
+      --text: #111827;
+      /* dark main text */
+      --muted: #374151;
+      /* readable muted text */
+      --accent: #0077ff;
+      --danger: #c1121f;
+      --ok: #059669;
+      --border: #d1d5db;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.25s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      background: var(--panel);
+    }
+
+    header img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(107, 220, 255, 0.4);
+    }
+
+    header .text h1 {
+      font-size: clamp(1.5rem, 2rem, 2.2rem);
+      margin: 0;
+    }
+
+    header .text p {
+      margin: 4px 0 0 0;
+    }
+
+    h1 {
+      font-size: clamp(1.25rem, 1.6rem+1vw, 2rem);
+      margin: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .toolbar .spacer {
+      flex: 1;
+    }
+
+    .btn,
+    label.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: #374151;
+      color: #fff;
+      border: none;
+      line-height: 1.25rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover,
+    label.btn:hover {
+      background: #005fcc;
+    }
+
+    .btn:active {
+      transform: translateY(1px)
+    }
+
+    .btn.danger {
+      border-color: transparent;
+      background: var(--danger);
+      color: #fff
+    }
+
+    .btn.ghost {
+      background: transparent
+    }
+
+    /* .btn.ghost {
+      background: transparent;
+    } */
+    .btn.ghost,
+    label.btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .switch {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      align-items: stretch;
+    }
+
+    .grid>div {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+    }
+
+    #input,
+    #output {
+    box-sizing: border-box;
+      width: 100%;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      min-height: 120px;
+      outline: none;
+    }
+
+    /* Input fields container styles (for the two input boxes) */
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .inputs input {
+      box-sizing: border-box;
+      width: 100%;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      min-height: 56px;
+      outline: none;
+      /* keep the same look and feel as the textarea */
+    }
+
+    .status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .badge.ok {
+      background: rgba(125, 255, 160, 0.06);
+      border-color: rgba(125, 255, 160, 0.16);
+      color: var(--ok);
+    }
+
+    .badge.err {
+      background: rgba(255, 107, 107, 0.06);
+      border-color: rgba(255, 107, 107, 0.16);
+      color: var(--danger);
+    }
+
+    .help {
+      margin-top: 18px;
+      padding: 12px;
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    details:hover {
+      border-color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      background: rgba(107, 220, 255, 0.06);
+    }
+
+    .kbd {
+      font-family: ui-monospace, monospace;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .ad-slot {
+      margin: 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: 16px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(100%);
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: none;
+      box-shadow: var(--shadow);
+      z-index: 10000;
+      align-items: center;
+    }
+
+    .popup.success {
+      border-left: 4px solid var(--ok);
+    }
+
+    .popup.error {
+      border-left: 4px solid var(--danger);
+    }
+
+    .popup-close {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 14px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .bottom-ad {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-size: 0.75rem;
+    }
+
+    .bottom-ad .ad-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+
+    .bottom-ad .ad-slot {
+      flex: 1;
+      text-align: center;
+    }
+#output.muted {
+  color: #777 !important;   /* force muted gray placeholder */
+}
+    .bottom-ad .close-ad {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+      margin-left: 0.5rem;
+      padding: 0;
+    }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+    .bottom-ad .close-ad:hover {
+      color: var(--text);
+    }
+
+    @media (max-width:768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px
+      }
+
+      .grid>div:nth-child(2) {
+        order: 2
+      }
+
+      .toolbar {
+        gap: 6px;
+        padding: 10px
+      }
+
+      .btn {
+        padding: 8px 10px;
+        font-size: 14px
+      }
+    }
+
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+    <header>
+      <a href="/" title="BitTools Home">
+        <img src="/assets/bittoolsicon.png" alt="BitTools Logo">
+      </a>
+      <div class="text">
+        <h1>BMI Calculator <span class="muted">— by BitTools</span></h1>
+        <p class="muted">Calculate your Body Mass Index. 100% client-side. No data leaves your browser.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="toolHeading">
+      <div class="toolbar">
+        <strong id="toolHeading">Tool</strong>
+        <button class="btn" id="calcBtn" title="Calculate (Ctrl/Cmd+Enter)">Calculate BMI</button>
+        <!-- <button class="btn" id="copyBtn">Copy Result</button>
+        <button class="btn" id="downloadBtn">Download .txt</button> -->
+        <div class="spacer"></div>
+        <button class="btn danger" id="clearBtn" title="Clear (Esc)">Clear</button>
+        <button class="btn" id="themeToggle" style="margin-left:8px;">🌙</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <div>
+          <label for="heightInput" class="sr-only">Height (cm)</label>
+          <div class="inputs" style="padding:12px;">
+            <input id="heightInput" type="number" placeholder="Height (cm) — e.g. 170" inputmode="decimal" />
+            <input id="weightInput" type="number" placeholder="Weight (kg) — e.g. 65" inputmode="decimal" />
+            <small class="muted" style="margin-top:6px; display:block;">Enter height in centimetres and weight in kilograms.</small>
+          </div>
+        </div>
+        <div>
+          <label for="output" class="sr-only" >Output</label>
+  <pre id="output"  class="muted" aria-live="polite">Your BMI result will appear here...</pre>
+        </div> 
+      </div>
+
+      <!-- <div class="status">
+        <div class="muted" id="metaInfo"></div>
+      </div> -->
+
+      <div class="ad-slot" aria-hidden="true">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </section>
+
+    <section class="help">
+      <details>
+        <summary><strong>How to use</strong></summary>
+        <ol>
+          <li>Enter your height (in cm) in the first box and weight (in kg) in the second box.</li>
+          <li>Click <strong>Calculate BMI</strong> (or press <kbd>Ctrl/Cmd + Enter</kbd>).</li>
+          <li>You can <strong>Copy</strong> or <strong>Download</strong> the results instantly.</li>
+        </ol>
+      </details>
+      <details>
+        <summary><strong>About This BMI Calculator</strong></summary>
+        <p>This free client-side BMI calculator helps you estimate your Body Mass Index (BMI). It runs entirely in
+          your browser—no data is uploaded to any server.</p>
+      </details>
+      <p>👉 Read More <a href="/blogs/bmi">Online BMI calculator by
+          BitTools.cc</a></p>
+
+      <!-- Info / SEO Section -->
+      <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+        <h2>What is BMI?</h2>
+        <p>
+          Body Mass Index (BMI) is a number calculated from a person's weight and height. It's a simple tool to broadly
+          categorize weight status: underweight, normal weight, overweight, or obese.
+        </p>
+
+        <h2>How is BMI calculated?</h2>
+        <p>
+          BMI = weight (kg) ÷ (height (m) × height (m)). For example, if you weigh 65 kg and are 170 cm tall (1.70 m),
+          your BMI = 65 / (1.7 * 1.7) = 22.49.
+        </p>
+
+        <h2>FAQs about BMI</h2>
+
+        <h4>🔹 Is BMI a diagnostic tool?</h4>
+        <p>No — BMI is a screening tool, not a diagnostic measure. It doesn't take account of muscle mass, bone density,
+          overall body composition, and racial and sex differences.</p>
+
+        <h4>🔹 What are the BMI categories?</h4>
+        <p>
+          - Underweight: &lt; 18.5<br>
+          - Normal weight: 18.5–24.9<br>
+          - Overweight: 25–29.9<br>
+          - Obesity: ≥ 30
+        </p>
+      </section>
+      <div id="all-tools-container"></div>
+
+    </section>
+
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+
+  </div>
+
+  </div>
+  <div id="popup" class="popup">
+    <span id="popupMessage"></span>
+    <button id="popupClose" class="popup-close">✖</button>
+  </div>
+
+  <script>
+    class BMITool {
+      constructor() {
+        this.heightInput = document.getElementById('heightInput');
+        this.weightInput = document.getElementById('weightInput');
+        this.output = document.getElementById('output');
+        // this.metaInfo = document.getElementById('metaInfo');
+        this.themeToggle = document.getElementById('themeToggle');
+
+        this.initEventListeners();
+        this.loadTheme();
+      }
+
+      initEventListeners() {
+        document.getElementById('calcBtn').addEventListener('click', () => this.calculate());
+        // document.getElementById('copyBtn').addEventListener('click', () => this.copyOutput());
+        // document.getElementById('downloadBtn').addEventListener('click', () => this.download());
+        document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+        document.getElementById("closeBottomAd")?.addEventListener("click", () => this.closeBottomAd());
+        this.themeToggle.addEventListener('click', () => this.toggleTheme());
+
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        // this.heightInput.addEventListener('input', () => this.updateMeta());
+        // this.weightInput.addEventListener('input', () => this.updateMeta());
+
+        // convenience: Enter on weight field triggers calculation
+        this.weightInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.calculate();
+          }
+        });
+      }
+
+      calculate() {
+        const hVal = this.heightInput.value.trim();
+        const wVal = this.weightInput.value.trim();
+
+        if (!hVal || !wVal) { this.showPopup('Please enter both height and weight', 'err');
+                        this.showBottomAd();
+ return; }
+
+        const height = parseFloat(hVal);
+        const weight = parseFloat(wVal);
+
+        if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+          this.showPopup('Invalid input. Height and weight must be positive numbers.', 'err');
+                          this.showBottomAd();
+
+          return;
+        }
+
+        const heightM = height / 100;
+        const bmiRaw = weight / (heightM * heightM);
+        const bmi = parseFloat(bmiRaw.toFixed(2));
+
+        let category = '';
+        if (bmi < 18.5) category = 'Underweight';
+        else if (bmi >= 18.5 && bmi <= 24.9) category = 'Normal weight';
+        else if (bmi >= 25 && bmi <= 29.9) category = 'Overweight';
+        else category = 'Obese';
+
+        this.output.textContent =
+          `Height: ${height} cm\nWeight: ${weight} kg\nBMI: ${bmi}\nCategory: ${category}`;
+this.output.classList.remove("muted");
+
+        this.showPopup('BMI calculated!', 'ok');
+        // this.updateMeta();
+
+                          this.showBottomAd();
+        // document.getElementById("bottomAd").style.display = "flex";
+      }
+
+      clear() {
+        this.heightInput.value = '';
+        this.weightInput.value = '';
+        this.output.textContent = '';
+        this.metaInfo.textContent = '';
+      }
+
+      handleKeyboard(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); this.calculate(); }
+        if (e.key === 'Escape') { e.preventDefault(); this.clear(); }
+      }
+
+      // updateMeta(text = this.output.textContent) {
+      //   if (!text) {
+      //     // if no output show a small hint about expected input
+      //     const h = this.heightInput.value || '—';
+      //     const w = this.weightInput.value || '—';
+      //     this.metaInfo.textContent = `Height: ${h} cm • Weight: ${w} kg`;
+      //     return;
+      //   }
+      //   const lines = text.split('\n').length;
+      //   const chars = text.length;
+      //   const bytes = new Blob([text]).size;
+      //   this.metaInfo.textContent = `${lines} lines • ${chars.toLocaleString()} chars • ${bytes.toLocaleString()} bytes`;
+      // }
+
+      toggleTheme() {
+        const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.body.dataset.theme = next;
+        this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('bmi-theme', next);
+      }
+
+      loadTheme() {
+        const saved = localStorage.getItem('bmi-theme') || 'dark';
+        document.body.dataset.theme = saved;
+        this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+      }
+
+      showBottomAd() { document.getElementById("bottomAd").style.display = "flex"; }
+      closeBottomAd() { document.getElementById("bottomAd").style.display = "none"; }
+
+      showPopup(message, type = "success") {
+        const popup = document.getElementById("popup");
+        const popupMessage = document.getElementById("popupMessage");
+        const closeBtn = document.getElementById("popupClose");
+        popupMessage.textContent = message;
+        popup.className = "popup " + (type === 'ok' ? 'success' : type);
+        popup.style.display = "flex";
+        setTimeout(() => { popup.style.display = "none"; }, 3000);
+        closeBtn.onclick = () => { popup.style.display = "none"; };
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => new BMITool());
+  </script>
+
+  <script src="/assets/include.js"></script>
+  <script src="/assets/footer.js"></script>
+
+</body>
+
+</html>

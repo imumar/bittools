@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="/finance/rd/index.html">RD Calculator</a>
         <a href="/finance/retirement-corpus/index.html">Retirement Corpus Calculator</a>
         <a href="/finance/roi-irr/index.html">ROI/IRR Calculator</a>
-        <a href="/finance/sip/index.html">SIP Calculator</a>
-        <a href="/health/bmi/index.html">BMI Calculator</a>
-        <a href="/health/bmr/index.html">BMR Calculator</a> -->
+        <a href="/finance/sip/index.html">SIP Calculator</a>-->
+        <a href="/health/bmi">BMI Calculator</a>
+        <a href="/health/bmr">BMR TDEE Calculator</a> 
         <a href="/text/case-converter">Case Converter</a>
          <a href="/text/extra-spaces">Extra Spaces Remover</a>
         <a href="/text/markdown">Markdown Previewer</a>

@@ -1,58 +1,535 @@
 <!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BMR Calculator | BitTools</title>
-<meta name="description" content="Calculate your Basal Metabolic Rate (BMR) instantly. 100% client-side."/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"Mifflin–St Jeor equation for BMR."}}]}</script>
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--danger:#ff6b6b;--ok:#7dffa0;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}.container{max-width:800px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:16px;margin-bottom:16px}header img{width:110px;height:110px;border-radius:24px;background:#12141a}header .text h1{margin:0}.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:16px}.row{display:flex;gap:12px;align-items:center;margin:8px 0}input,select{flex:1;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text)}.btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:all .16s ease}.btn:hover{border-color:var(--accent);background:rgba(107,220,255,.06)}.ad-slot{margin:0;border-top:1px solid var(--border);background:linear-gradient(135deg, rgba(107,220,255,.04), rgba(125,255,160,.03));color:var(--muted);display:flex;align-items:center;justify-content:center;min-height:100px;padding:16px}.popup{position:fixed;top:20px;right:20px;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:none;box-shadow:var(--shadow);z-index:10000;align-items:center}.popup.success{border-left:4px solid var(--ok)}.popup.error{border-left:4px solid var(--danger)}.bottom-ad{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--border);box-shadow:0 -1px 4px rgba(0,0,0,.08);padding:.25rem .75rem;display:none;align-items:center;justify-content:space-between;z-index:9999;font-size:.75rem}.bottom-ad .ad-label{font-size:.7rem;font-weight:600;color:var(--muted);margin-right:.5rem}.bottom-ad .ad-slot{flex:1;text-align:center}.bottom-ad .close-ad{background:transparent;border:none;font-size:1rem;line-height:1;cursor:pointer;color:var(--muted);margin-left:.5rem;padding:0}</style>
-</head><body>
-<div class="container">
-  <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>BMR Calculator</h1><p class="muted">Basal Metabolic Rate (Mifflin–St Jeor).</p></div><button class="btn" id="themeToggle" style="margin-left:auto">🌙</button></header>
-  <section class="card">
-    <div class="row"><label>Sex</label><select id="sex"><option value="m">Male</option><option value="f">Female</option></select></div>
-    <div class="row"><label>Age</label><input id="age" placeholder="Years"/></div>
-    <div class="row"><label>Height (cm)</label><input id="height" placeholder="e.g. 170"/></div>
-    <div class="row"><label>Weight (kg)</label><input id="weight" placeholder="e.g. 65"/></div>
-    <div class="row"><button class="btn" id="calc">Calculate</button></div>
-    <div class="row"><strong id="result"></strong></div>
-    <div class="ad-slot" style="margin-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:100px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-  </section>
-  <section class="help" style="max-width:800px;margin:auto;padding:12px">
-    <details>
-      <summary><strong>How to use</strong></summary>
-      <ol>
-        <li>Select sex, enter age, height (cm) and weight (kg).</li>
-        <li>Click <strong>Calculate</strong> to see daily basal calories.</li>
-      </ol>
-    </details>
-    <details>
-      <summary><strong>About BMR</strong></summary>
-      <p>BMR estimates energy use at rest using the Mifflin–St Jeor equation.</p>
-    </details>
-  </section>
-  <section class="seo-content" style="max-width:800px;margin:auto;line-height:1.6;padding:12px;">
-    <h2>Next Steps</h2>
-    <p>Multiply BMR by an activity factor to estimate maintenance calories.</p>
-  </section>
-</div>
-<div id="bottomAd" class="bottom-ad"><span class="ad-label">Advertisement</span><div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><button id="closeBottomAd" class="close-ad">×</button></div>
-<div id="popup" class="popup"><span id="popupMessage"></span></div>
-<script>
-document.getElementById('calc').addEventListener('click',()=>{
-  const sex=document.getElementById('sex').value; const age=parseFloat(document.getElementById('age').value);
-  const h=parseFloat(document.getElementById('height').value); const w=parseFloat(document.getElementById('weight').value);
-  if([age,h,w].some(isNaN)) {showPopup('Invalid input','error'); return;} let bmr=10*w+6.25*h-5*age+(sex==='m'?5:-161); document.getElementById('result').textContent=`BMR: ${Math.round(bmr)} kcal/day`; showPopup('Calculated','success'); showBottomAd();
-});
-function showBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='flex';}
-function closeBottomAd(){const el=document.getElementById('bottomAd'); if(el) el.style.display='none';}
-function showPopup(message,type){const p=document.getElementById('popup'); const m=document.getElementById('popupMessage'); if(!p||!m) return; m.textContent=message; p.className='popup '+(type==='error'?'error':'success'); p.style.display='flex'; setTimeout(()=>p.style.display='none',3000);} (document.getElementById('closeBottomAd')||{}).onclick=closeBottomAd;
-// theme toggle
-document.getElementById('themeToggle').addEventListener('click',()=>{const c=document.body.dataset.theme==='light'?'light':'dark'; const n=c==='dark'?'light':'dark'; document.body.dataset.theme=n; document.getElementById('themeToggle').textContent=n==='dark'?'🌙':'☀️'; localStorage.setItem('bmr-theme',n);});
-(()=>{const s=localStorage.getItem('bmr-theme')||'dark'; document.body.dataset.theme=s; const t=document.getElementById('themeToggle'); if(t) t.textContent=s==='dark'?'🌙':'☀️';})();
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+    crossorigin="anonymous"></script>
+  <!-- Primary Meta Tags -->
+  <title>BMR & TDEE Calculator | BitTools.cc</title>
+  <meta name="title" content="BMR & TDEE Calculator – Free, Fast & Private | BitTools">
+  <meta name="description"
+    content="Calculate your BMR (Basal Metabolic Rate) and TDEE (Total Daily Energy Expenditure) instantly. 100% client-side, secure, and private. Free health tool by BitTools.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.bittools.cc/dev/bmr-calculator">
+  <meta property="og:title" content="BMR & TDEE Calculator – Free, Fast & Private | BitTools">
+  <meta property="og:description"
+    content="Calculate your BMR (Basal Metabolic Rate) and TDEE (Total Daily Energy Expenditure) instantly. 100% client-side, secure, and private. Free health tool by BitTools.">
+  <meta property="og:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.bittools.cc/dev/bmr-calculator">
+  <meta property="twitter:title" content="BMR & TDEE Calculator – Free, Fast & Private | BitTools">
+  <meta property="twitter:description"
+    content="Calculate your BMR (Basal Metabolic Rate) and TDEE (Total Daily Energy Expenditure) instantly. 100% client-side, secure, and private. Free health tool by BitTools.">
+  <meta property="twitter:image" content="https://bittools.cc/assets/bittoolsicon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BMR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMR (Basal Metabolic Rate) is the number of calories your body burns at rest to maintain basic functions like breathing and circulation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, estimating daily calories burned based on your lifestyle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to calculate BMR & TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your age, height, weight, gender, and activity level, then click 'Calculate'. The tool will show your daily calorie needs at rest (BMR) and with activity (TDEE)."
+      }
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "BitTools",
+    "url": "https://bittools.cc"
+  }
+}
 </script>
-<footer style="text-align:center; margin-top:20px; color:var(--muted);">© 2025 BitTools — Free Online Tools</footer>
-</body></html>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bittools.cc/dev/bmr-calculator" />
+
+  <style>
+    /* Keep all your BMI tool styles exactly as before */
+    :root {
+      --bg: #0b0c0f;
+      --panel: #12141a;
+      --text: #e8edf2;
+      --muted: #9aa7b4;
+      --accent: #6bdcff;
+      --danger: #ff6b6b;
+      --ok: #7dffa0;
+      --border: #1e232d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+    }
+
+    [data-theme="light"] {
+      --bg: #f1f8ed;
+      --panel: #f9fafb;
+      --text: #111827;
+      --muted: #374151;
+      --accent: #0077ff;
+      --danger: #c1121f;
+      --ok: #059669;
+      --border: #d1d5db;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.25s;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .ad-slot {
+      margin: 0;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(107, 220, 255, 0.04), rgba(125, 255, 160, 0.03));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      padding: 16px;
+    }
+
+    .bottom-ad .ad-slot {
+      flex: 1;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      background: var(--panel);
+    }
+
+    header .text h1 {
+      font-size: clamp(1.5rem, 2rem, 2.2rem);
+      margin: 0;
+    }
+
+    header .text p {
+      margin: 4px 0 0 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .toolbar .spacer {
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: #374151;
+      color: #fff;
+      border: none;
+      line-height: 1.25rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #005fcc;
+    }
+
+    .btn.danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      align-items: stretch;
+    }
+
+    #output {
+      box-sizing: border-box;
+      width: 100%;
+      font-family: system-ui;
+      font-size: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      min-height: 240px;
+      outline: none;
+    }
+
+    #output.muted {
+      color: #777 !important;
+      /* force muted gray placeholder */
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    details {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0
+    }
+
+    details:hover {
+      border-color: var(--accent)
+    }
+
+    .help {
+      margin-top: 18px;
+      padding: 12px;
+    }
+
+    .inputs input,
+    .inputs select {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .bottom-ad {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      font-size: 0.75rem;
+    }
+
+    .bottom-ad .close-ad {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .bottom-ad .close-ad:hover {
+      color: var(--text);
+    }
+
+    @media (max-width:768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="container">
+    <header>
+      <a href="/" title="BitTools Home"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+      <div class="text">
+        <h1>BMR & TDEE Calculator <span class="muted">— by BitTools</span></h1>
+        <p class="muted">Calculate your daily calorie needs. 100% client-side. No data leaves your browser.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="toolHeading">
+      <div class="toolbar">
+        <strong>Tool</strong>
+        <button class="btn" id="calcBtn" title="Calculate (Ctrl/Cmd+Enter)">Calculate</button>
+        <div class="spacer"></div>
+        <button class="btn danger" id="clearBtn">Clear</button>
+        <button class="btn" id="themeToggle">🌙</button>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="inputs">
+            <input id="ageInput" type="number" placeholder="Age (years)" />
+            <input id="heightInput" type="number" placeholder="Height (cm)" />
+            <input id="weightInput" type="number" placeholder="Weight (kg)" />
+            <select id="genderInput">
+              <option value="" disabled selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <select id="activityInput">
+              <option value="" disabled selected>Select Activity Level</option>
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Lightly active (1–3 days/week)</option>
+              <option value="1.55">Moderately active (3–5 days/week)</option>
+              <option value="1.725">Very active (6–7 days/week)</option>
+              <option value="1.9">Super active (hard exercise, physical job)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <pre id="output" class="muted" aria-live="polite">Your BMR & TDEE result will appear here...</pre>
+        </div>
+      </div>
+      <div class="ad-slot" aria-hidden="true">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+    </section>
+    <section class="help">
+      <details>
+        <summary><strong>How to use</strong></summary>
+        <ol>
+          <li>Enter your age, height (in cm), and weight (in kg).</li>
+          <li>Select your gender and activity level.</li>
+          <li>Click <strong>Calculate</strong> (or press <kbd>Ctrl/Cmd + Enter</kbd>).</li>
+          <li>You can <strong>Copy</strong> or <strong>Download</strong> the results instantly.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary><strong>About This BMR & TDEE Calculator</strong></summary>
+        <p>This free client-side calculator estimates your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure
+          (TDEE). It runs entirely in your browser—no data is uploaded to any server.</p>
+      </details>
+
+      <p>👉 Read More <a href="/blogs/bmr">Online BMR & TDEE calculator by BitTools.cc</a></p>
+
+      <!-- Info / SEO Section -->
+      <section class="seo-content" style="margin-top:40px; line-height:1.6;">
+        <h2>What is BMR?</h2>
+        <p>
+          Basal Metabolic Rate (BMR) is the number of calories your body needs at rest to maintain vital functions like
+          breathing, circulation, and cell production.
+        </p>
+
+        <h2>What is TDEE?</h2>
+        <p>
+          Total Daily Energy Expenditure (TDEE) is your BMR multiplied by an activity factor. It estimates the total
+          calories you burn per day based on your lifestyle.
+        </p>
+
+        <h2>How is BMR calculated?</h2>
+        <p>
+          For men: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age (years) + 5<br>
+          For women: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age (years) - 161
+        </p>
+
+        <h2>How is TDEE calculated?</h2>
+        <p>
+          TDEE = BMR × Activity Factor<br>
+          Activity Factors:<br>
+          - Sedentary (little or no exercise): 1.2<br>
+          - Lightly active (1–3 days/week): 1.375<br>
+          - Moderately active (3–5 days/week): 1.55<br>
+          - Very active (6–7 days/week): 1.725<br>
+          - Super active (hard exercise, physical job): 1.9
+        </p>
+
+        <h2>FAQs about BMR & TDEE</h2>
+
+        <h4>🔹 Is BMR a diagnostic tool?</h4>
+        <p>No — BMR is an estimate of calories needed at rest. It is useful for planning diet and exercise but is not a
+          medical diagnostic tool.</p>
+
+        <h4>🔹 Why is TDEE important?</h4>
+        <p>
+          TDEE helps you determine how many calories you need to maintain, lose, or gain weight based on your activity
+          level.
+        </p>
+      </section>
+
+      <div id="all-tools-container"></div>
+    </section>
+    <div id="bottomAd" class="bottom-ad" style="display:none;">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+          data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <button id="closeBottomAd" class="close-ad">×</button>
+    </div>
+  </div>
+  <script>
+    class BMRTool {
+      constructor() {
+        this.ageInput = document.getElementById('ageInput');
+        this.heightInput = document.getElementById('heightInput');
+        this.weightInput = document.getElementById('weightInput');
+        this.genderInput = document.getElementById('genderInput');
+        this.activityInput = document.getElementById('activityInput');
+        this.output = document.getElementById('output');
+        this.themeToggle = document.getElementById('themeToggle');
+
+        this.initEventListeners();
+        this.loadTheme();
+      }
+
+      initEventListeners() {
+        document.getElementById('calcBtn').addEventListener('click', () => this.calculate());
+        document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+        document.getElementById('closeBottomAd')?.addEventListener('click', () => this.closeBottomAd());
+        this.themeToggle.addEventListener('click', () => this.toggleTheme());
+
+        document.addEventListener('keydown', (e) => {
+          if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); this.calculate(); }
+          if (e.key === 'Escape') { e.preventDefault(); this.clear(); }
+        });
+      }
+
+      calculate() {
+        const age = parseFloat(this.ageInput.value);
+        const height = parseFloat(this.heightInput.value);
+        const weight = parseFloat(this.weightInput.value);
+        const gender = this.genderInput.value;
+        const activity = parseFloat(this.activityInput.value);
+
+        if (!age || !height || !weight || !gender || !activity) {
+          this.showPopup('Please fill all fields', 'err'); this.showBottomAd(); return;
+        }
+
+        let bmr = gender === 'male' ? 10 * weight + 6.25 * height - 5 * age + 5
+          : 10 * weight + 6.25 * height - 5 * age - 161;
+        const tdee = bmr * activity;
+
+        this.output.textContent =
+          `Age: ${age} years\nHeight: ${height} cm\nWeight: ${weight} kg\n\nBMR (calories/day at rest): ${Math.round(bmr)}\nTDEE (calories/day with activity): ${Math.round(tdee)}`;
+        this.output.classList.remove("muted");
+        this.showPopup('BMR & TDEE calculated!', 'ok');
+        this.showBottomAd();
+      }
+
+      clear() {
+        this.ageInput.value = '';
+        this.heightInput.value = '';
+        this.weightInput.value = '';
+        this.genderInput.value = '';
+        this.activityInput.value = '';
+        this.output.textContent = '';
+      }
+
+      toggleTheme() {
+        const current = document.body.dataset.theme === 'light' ? 'light' : 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.body.dataset.theme = next;
+        this.themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('bmr-theme', next);
+      }
+
+      loadTheme() {
+        const saved = localStorage.getItem('bmr-theme') || 'dark';
+        document.body.dataset.theme = saved;
+        this.themeToggle.textContent = saved === 'dark' ? '🌙' : '☀️';
+      }
+
+      showPopup(message, type = "success") {
+        const popup = document.getElementById("popup");
+        if (!popup) return;
+        popup.textContent = message;
+        popup.className = "popup " + (type === 'ok' ? 'success' : type);
+        popup.style.display = "flex";
+        setTimeout(() => { popup.style.display = "none"; }, 3000);
+      }
+
+      showBottomAd() { document.getElementById("bottomAd").style.display = "flex"; }
+      closeBottomAd() { document.getElementById("bottomAd").style.display = "none"; }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => new BMRTool());
+  </script>
+  <script src="/assets/include.js"></script>
+  <script src="/assets/footer.js"></script>
+</body>
+
+</html>

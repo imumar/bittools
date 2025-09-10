@@ -1,21 +1,239 @@
-<!doctype html>
-<html lang="en"><head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586" crossorigin="anonymous"></script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BMR — Mifflin–St Jeor | BitTools</title>
-<meta name="description" content="Learn how to estimate your BMR and daily calorie needs."/>
-<link rel="canonical" href="https://www.bittools.cc/blogs/bmr"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
-<style>:root{--bg:#0b0c0f;--panel:#12141a;--text:#e8edf2;--muted:#9aa7b4;--accent:#6bdcff;--border:#1e232d;--shadow:0 10px 25px rgba(0,0,0,.35)} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.7} .container{max-width:900px;margin:auto;padding:24px} header{display:flex;align-items:center;gap:16px;margin-bottom:16px} header img{width:72px;height:72px;border-radius:16px;background:#12141a} header .text h1{margin:0} .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:24px} a{color:var(--accent)} .ad-slot{margin:24px 0 0 0;border-top:1px solid var(--border);background:linear-gradient(135deg, rgba(107,220,255,.04), rgba(125,255,160,.03));min-height:100px;display:flex;align-items:center;justify-content:center}</style>
-</head><body>
-<div class="container">
-<header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a><div class="text"><h1>BMR — Mifflin–St Jeor</h1></div></header>
-<article class="card">
-<p>Your Basal Metabolic Rate is an estimate of energy your body needs at rest. The Mifflin–St Jeor formula is widely used.</p>
-<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586" data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-<p>Try the tool: <a href="/health/bmr">BMR Calculator</a></p>
-</article>
-</div>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8636015392000586"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR & TDEE Calculator — Free Online Tool | Bittools.cc</title>
+    <meta name="description"
+        content="Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) instantly with our free calculator. Works offline in your browser, secure and fast.">
+    <link rel="canonical" href="https://www.bittools.cc/blogs/bmr-tdee-calculator" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/bittoolsicon.png">
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --panel: #12141a;
+            --text: #e8edf2;
+            --muted: #9aa7b4;
+            --accent: #6bdcff;
+            --border: #1e232d;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35)
+        }
 
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px
+        }
+
+        header img {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: #12141a
+        }
+
+        header .text h1 {
+            margin: 0
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 24px
+        }
+
+        a {
+            color: var(--accent)
+        }
+
+        .ad-slot {
+            margin: 24px 0 0 0;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(107, 220, 255, .04), rgba(125, 255, 160, .03));
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+    </style>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is BMR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMR (Basal Metabolic Rate) is the number of calories your body needs at rest to maintain vital functions like breathing and circulation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, representing total calories burned per day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate BMR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For men: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age + 5. For women: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age - 161."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TDEE = BMR × Activity Factor. Activity Factors: Sedentary:1.2, Lightly Active:1.375, Moderately Active:1.55, Very Active:1.725, Super Active:1.9"
+        }
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "BitTools",
+      "url": "https://bittools.cc"
+      }
+  }
+  </script>
+</head>
+
+<body>
+    <div class="container">
+        <header><a href="/"><img src="/assets/bittoolsicon.png" alt="BitTools Logo"></a>
+            <div class="text">
+                <h1>BMR & TDEE Calculator <span class="muted">— by BitTools</span></h1>
+            </div>
+        </header>
+        <article class="card">
+
+            <p><strong>BMR (Basal Metabolic Rate)</strong> is the number of calories your body needs at rest.
+                <strong>TDEE (Total Daily Energy Expenditure)</strong> estimates your daily calories based on activity.
+            </p>
+
+            <p>Our <strong>BMR & TDEE Calculator</strong> lets you:</p>
+            <ul>
+                <li>Instantly calculate BMR & TDEE using height, weight, age, gender, and activity level</li>
+                <li>Understand daily calorie requirements for maintenance, weight loss, or weight gain</li>
+                <li>Check results securely—100% client-side</li>
+                <li>No personal data is stored or sent</li>
+            </ul>
+
+            <h2>Why Use an Online BMR & TDEE Calculator?</h2>
+            <ul>
+                <li>✅ <strong>No installations</strong> – Works instantly in your browser</li>
+                <li>✅ <strong>Fast & simple</strong> – Enter your details, get results immediately</li>
+                <li>✅ <strong>Secure</strong> – No personal data leaves your device</li>
+                <li>✅ <strong>Free</strong> – No hidden charges or limits</li>
+            </ul>
+
+            <p>👉 Try it here: <a href="/health/bmr" target="_blank">Free BMR & TDEE Calculator</a></p>
+
+            <h2>Common Uses</h2>
+            <ol>
+                <li><strong>Nutrition planning</strong> – Know your daily calorie needs.</li>
+                <li><strong>Fitness tracking</strong> – Adjust diet and activity for goals.</li>
+                <li><strong>Health reference</strong> – Monitor energy requirements.</li>
+            </ol>
+
+            <div class="ad-slot">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                    data-ad-slot="4469871545" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <h2>How Our BMR & TDEE Tool is Different</h2>
+            <ul>
+                <li><strong>Instant results</strong> → No page reloads, no delays</li>
+                <li><strong>Privacy</strong> → Runs entirely on your device</li>
+                <li><strong>Clean interface</strong> → No ads in input area</li>
+            </ul>
+
+            <h2>Example: BMR & TDEE Calculation</h2>
+
+            <p><strong>Formulas:</strong></p>
+            <pre>
+Men: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age + 5
+Women: BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age - 161
+TDEE = BMR × Activity Factor
+      </pre>
+
+            <p><strong>Example Calculation:</strong></p>
+            <pre>
+Gender: Female
+Age: 30 years
+Height: 165 cm
+Weight: 60 kg
+BMR = 10*60 + 6.25*165 - 5*30 -161 = 1373 kcal/day
+Activity: Moderately Active (1.55)
+TDEE = 1373 * 1.55 ≈ 2127 kcal/day
+      </pre>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What is BMR?</h3>
+            <p>BMR is the calories your body burns at rest to maintain vital functions.</p>
+
+            <h3>What is TDEE?</h3>
+            <p>TDEE estimates total daily calories based on activity level and BMR.</p>
+
+            <h3>How do you calculate BMR?</h3>
+            <p>Use formulas based on gender, weight, height, and age as shown above.</p>
+
+            <h3>How do you calculate TDEE?</h3>
+            <p>Multiply BMR by an activity factor: Sedentary:1.2, Light:1.375, Moderate:1.55, Very:1.725, Super
+                Active:1.9</p>
+
+            <h3>Do I need to install anything?</h3>
+            <p>No. The calculator runs entirely in your browser and requires no downloads.</p>
+
+            <h2>Final Thoughts</h2>
+            <p>BMR & TDEE calculations help you understand your energy needs for maintaining, losing, or gaining weight.
+                Use our free tool for fast, private, and accurate estimates.</p>
+
+            <p>👉 Try our free <a href="/health/bmr" target="_blank">Online BMR & TDEE Calculator</a> today.</p>
+
+            <div class="ad-slot">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8636015392000586"
+                    data-ad-slot="4241327753" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+        </article>
+        <div id="all-tools-container"></div>
+        <script src="/assets/include.js"></script>
+        <script src="/assets/footer.js"></script>
+    </div>
+</body>
+
+</html>

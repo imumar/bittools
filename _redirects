@@ -36,13 +36,9 @@
 /blogs/fd    /blogs/Financeblogs/fd-blog.html 200
 /blogs/rd    /blogs/Financeblogs/rd-blog.html 200
  
-/blogs/bmi    /blogs/Healthblogs/bmi-blog.html 200
-/blogs/bmr    /blogs/Healthblogs/bmr-blog.html 200
+
 /dev    /DevTools/dev-index.html 200
 /dev/    /DevTools/dev-index.html 200
-/health    /health/index.html 200
-/health/bmi    /health/bmi/index.html 200
-/health/bmr    /health/bmr/index.html 200
 /finance    /finance/index.html 200
 /finance/emi    /finance/emi/index.html 200
 /finance/compound-interest    /finance/compound-interest/index.html 200
@@ -73,3 +69,10 @@
 /blogs/text-difference     /blogs/TextBlogs/text-difference-blog.html 200
 /text/word-counter      /textTools/wordCounter/word-counter-index.html 200
 /blogs/word-counter     /blogs/TextBlogs/word-counter-blog.html 200
+
+
+/health    /health/index.html 200
+/blogs/bmi    /blogs/Healthblogs/bmi-blog.html 200
+/blogs/bmr    /blogs/Healthblogs/bmr-blog.html 200
+/health/bmi    /health/bmi/index.html 200
+/health/bmr    /health/bmr/index.html 200
