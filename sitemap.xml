@@ -1,386 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <!-- Main Pages -->
   <url>
     <loc>https://bittools.cc/</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
   <!-- Developer Tools -->
   <url>
     <loc>https://bittools.cc/dev</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/json-formatter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/base64-encoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/xml-formatter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/jwt-decoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/url-encoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/csv-to-json</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/uuid-generator</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/regex-tester</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/timestamp-converter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/dev/html-escape</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <!-- Finance Tools -->
   <url>
     <loc>https://bittools.cc/finance</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/emi</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/compound-interest</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/sip</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/lumpsum</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/fd</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/rd</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/loan-affordability</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/retirement-corpus</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/inflation-adjuster</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/finance/roi-irr</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <!-- Health Tools -->
   <url>
     <loc>https://bittools.cc/health</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/health/bmi</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/health/bmr</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <!-- Text Tools -->
   <url>
     <loc>https://bittools.cc/text</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/text/case-converter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-   <url>
+  <url>
     <loc>https://bittools.cc/text/extra-spaces</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-   <url>
+  <url>
     <loc>https://bittools.cc/text/markdown</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bittools.cc/text/text-difference</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bittools.cc/text/word-counter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Blog Pages -->
   <url>
     <loc>https://bittools.cc/blogs/json-formatter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/base64-encoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/url-encoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/csv-to-json</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/uuid-generator</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/regex-tester</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/timestamp-converter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/html-escape</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/xml-formatter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/jwt-decoder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <!-- Finance Blogs -->
   <url>
     <loc>https://bittools.cc/blogs/emi</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/compound-interest</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/sip</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/lumpsum</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/fd</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/rd</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <!-- Health Blogs -->
   <url>
     <loc>https://bittools.cc/blogs/bmi</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <url>
     <loc>https://bittools.cc/blogs/bmr</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
   <!-- Text Blogs -->
   <url>
     <loc>https://bittools.cc/blogs/case-converter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://bittools.cc/blogs/extra-spaces</loc>
-    <lastmod>2025-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url><url>
-    <loc>https://bittools.cc/blogs/markdown</loc>
-    <lastmod>2025-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url><url>
-    <loc>https://bittools.cc/blogs/text-difference</loc>
-    <lastmod>2025-01-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url><url>
-    <loc>https://bittools.cc/blogs/word-counter</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+  <url>
+    <loc>https://bittools.cc/blogs/markdown</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bittools.cc/blogs/text-difference</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bittools.cc/blogs/word-counter</loc>
+    <lastmod>2025-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
